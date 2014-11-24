@@ -530,6 +530,10 @@ input[type="button"]:active,  input[type="submit"]:active,  input[type="reset"]:
 	background-color: #81918E;
 	background-image: url('../images/banner.jpg');
 }
+#main > section.code {
+	background-color: #81918E;
+	background-image: url('../images/banner.code.jpg');
+}
 #main > section.two {
 	background-color: #f5fafa;
 }
