@@ -16,11 +16,11 @@ body, input, select, textarea {
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0); }
   100% {
-    -moz-transform: translate3d(-2000px,0,0);
-    -webkit-transform: translate3d(-2000px,0,0);
-    -o-transform: translate3d(-2000px,0,0);
-    -ms-transform: translate3d(-2000px,0,0);
-    transform: translate3d(-2000px,0,0); } }
+    -moz-transform: translate3d(-1700px,0,0);
+    -webkit-transform: translate3d(-1700px,0,0);
+    -o-transform: translate3d(-1700px,0,0);
+    -ms-transform: translate3d(-1700px,0,0);
+    transform: translate3d(-1700px,0,0); } }
 @-webkit-keyframes bg {
   0% {
     -moz-transform: translate3d(0,0,0);
@@ -29,11 +29,11 @@ body, input, select, textarea {
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0); }
   100% {
-    -moz-transform: translate3d(-2000px,0,0);
-    -webkit-transform: translate3d(-2000px,0,0);
-    -o-transform: translate3d(-2000px,0,0);
-    -ms-transform: translate3d(-2000px,0,0);
-    transform: translate3d(-2000px,0,0); } }
+    -moz-transform: translate3d(-1700px,0,0);
+    -webkit-transform: translate3d(-1700px,0,0);
+    -o-transform: translate3d(-1700px,0,0);
+    -ms-transform: translate3d(-1700px,0,0);
+    transform: translate3d(-1700px,0,0); } }
 @-o-keyframes bg {
   0% {
     -moz-transform: translate3d(0,0,0);
@@ -42,11 +42,11 @@ body, input, select, textarea {
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0); }
   100% {
-    -moz-transform: translate3d(-2000px,0,0);
-    -webkit-transform: translate3d(-2000px,0,0);
-    -o-transform: translate3d(-2000px,0,0);
-    -ms-transform: translate3d(-2000px,0,0);
-    transform: translate3d(-2000px,0,0); } }
+    -moz-transform: translate3d(-1700px,0,0);
+    -webkit-transform: translate3d(-1700px,0,0);
+    -o-transform: translate3d(-1700px,0,0);
+    -ms-transform: translate3d(-1700px,0,0);
+    transform: translate3d(-1700px,0,0); } }
 @-ms-keyframes bg {
   0% {
     -moz-transform: translate3d(0,0,0);
@@ -55,11 +55,11 @@ body, input, select, textarea {
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0); }
   100% {
-    -moz-transform: translate3d(-2000px,0,0);
-    -webkit-transform: translate3d(-2000px,0,0);
-    -o-transform: translate3d(-2000px,0,0);
-    -ms-transform: translate3d(-2000px,0,0);
-    transform: translate3d(-2000px,0,0); } }
+    -moz-transform: translate3d(-1700px,0,0);
+    -webkit-transform: translate3d(-1700px,0,0);
+    -o-transform: translate3d(-1700px,0,0);
+    -ms-transform: translate3d(-1700px,0,0);
+    transform: translate3d(-1700px,0,0); } }
 @keyframes bg {
   0% {
     -moz-transform: translate3d(0,0,0);
@@ -68,11 +68,11 @@ body, input, select, textarea {
     -ms-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0); }
   100% {
-    -moz-transform: translate3d(-2000px,0,0);
-    -webkit-transform: translate3d(-2000px,0,0);
-    -o-transform: translate3d(-2000px,0,0);
-    -ms-transform: translate3d(-2000px,0,0);
-    transform: translate3d(-2000px,0,0); } }
+    -moz-transform: translate3d(-1700px,0,0);
+    -webkit-transform: translate3d(-1700px,0,0);
+    -o-transform: translate3d(-1700px,0,0);
+    -ms-transform: translate3d(-1700px,0,0);
+    transform: translate3d(-1700px,0,0); } }
 #bg {
-  background-size: 2000px auto;
-  width: 6000px; }
+  background-size: 1700px auto;
+  width: 5100px; }
