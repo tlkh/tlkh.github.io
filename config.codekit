@@ -353,7 +353,40 @@
 		"outputAbbreviatedPath": "\/gallery\/images\/brackets.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
-		"processed": 1
+		"processed": 0
+		},
+	"\/gallery\/images\/iphone.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 15936,
+		"inputAbbreviatedPath": "\/gallery\/images\/iphone.png",
+		"outputAbbreviatedPath": "\/gallery\/images\/iphone.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/gallery\/images\/iphone5sgold.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 121028,
+		"inputAbbreviatedPath": "\/gallery\/images\/iphone5sgold.png",
+		"outputAbbreviatedPath": "\/gallery\/images\/iphone5sgold.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/gallery\/images\/tm.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 906503,
+		"inputAbbreviatedPath": "\/gallery\/images\/tm.png",
+		"outputAbbreviatedPath": "\/gallery\/images\/tm.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
 		},
 	"\/gallery\/index.bak.html": {
 		"fileType": 8192,
