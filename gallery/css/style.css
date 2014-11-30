@@ -557,7 +557,7 @@ input[type="button"]:active,  input[type="submit"]:active,  input[type="reset"]:
   	background-position: -8px 0 0 0;
 }
 #iphone iframe {
-    margin: 144px -1px 50px 0;
-	width: 346px;
-	height: 546px;
+    margin: 120px 0px 0 0;
+	width: 340px;
+	height: 570px;
 }
