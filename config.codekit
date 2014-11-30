@@ -201,15 +201,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/gallery\/code.html": {
-		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/gallery\/code.html",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/gallery\/css\/font-awesome.min.css": {
 		"fileType": 16,
 		"ignore": 0,
@@ -313,15 +304,6 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
-	"\/gallery\/css\/style.css": {
-		"fileType": 16,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/gallery\/css\/style.css",
-		"outputAbbreviatedPath": "No Output Path",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0
-		},
 	"\/gallery\/images\/banner.code.jpg": {
 		"fileType": 16384,
 		"ignore": 0,
@@ -351,6 +333,17 @@
 		"initialSize": 261522,
 		"inputAbbreviatedPath": "\/gallery\/images\/brackets.png",
 		"outputAbbreviatedPath": "\/gallery\/images\/brackets.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/gallery\/images\/iphone5sgold.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 61741,
+		"inputAbbreviatedPath": "\/gallery\/images\/iphone5sgold.png",
+		"outputAbbreviatedPath": "\/gallery\/images\/iphone5sgold.png",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0
