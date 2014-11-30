@@ -575,3 +575,8 @@ input[type="button"]:active,  input[type="submit"]:active,  input[type="reset"]:
 	width: 334px;
 	height: 570px;
 }
+@media screen and (-webkit-min-device-pixel-ratio: 2){#iphone iframe {
+    margin: 60px -1px 0 0;
+	width: 167px;
+	height: 285px;
+}}
