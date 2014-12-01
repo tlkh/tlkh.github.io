@@ -1,12 +1,7 @@
 @charset 'UTF-8';
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,600");
-/*  Prologue by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)*/
-/*********************************************************************************/
-/* Basic                                                                         */
-/*********************************************************************************/
+/*  Theme modified from "Prologue" by HTML5 UP, free for personal and commercial use under the CCA 3.0 license (html5up.net/license)*/
 body {
 	background: #fff;
 }
@@ -111,7 +106,6 @@ p, ul, ol, dl, table {
 br.clear {
 	clear: both;
 }
-/* Sections/Article */	
 section, article {
 	margin-bottom: 3em;
 }
@@ -124,7 +118,6 @@ section:last-child, article:last-child {
 .row > section, .row > article {
 	margin-bottom: 0;
 }
-/* Image */
 .image {
 	display: inline-block;
 	border: 0;
@@ -154,7 +147,6 @@ section:last-child, article:last-child {
 	margin: 0 auto;
 	width: auto;
 }
-/* List */
 ul {
 }
 ul.default {
@@ -187,7 +179,6 @@ ol.default {
 ol.default li {
 	padding-left: 0.25em;
 }
-/* Button */
 input[type="button"], input[type="submit"], input[type="reset"], .button {
 	position: relative;
 	display: inline-block;
@@ -215,7 +206,6 @@ input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hove
 input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:active, .button:active {
 	background-color: #7eaeac;
 }
-/* Item */
 .item {
 	box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05);
 	margin-bottom: 40px;
@@ -229,9 +219,6 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 .item header h3 {
 	font-size: 1em;
 }
-/*********************************************************************************/
-/* Icons                                                                         */
-/*********************************************************************************/
 .icon {
 	text-decoration: none;
 }
@@ -249,9 +236,6 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 .icon > .label {
 	display: none;
 }
-/*********************************************************************************/
-/* Header                                                                        */
-/*********************************************************************************/
 #header {
 	position: fixed;
 	top: 0;
@@ -359,9 +343,6 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 #nav ul li a.active span:before {
 	color: #e27689;
 }
-/*********************************************************************************/
-/* Footer                                                                        */
-/*********************************************************************************/
 #footer {
 	margin-left: 375px;
 	text-align: center;
@@ -386,10 +367,6 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 	padding-left: 0;
 	margin-left: 0;
 }
-/*********************************************************************************/
-/* Main                                                                          */
-/*********************************************************************************/
-
 #main {
 	margin-left: 375px;
 }
@@ -442,7 +419,6 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 	margin-left: 5%;
 	margin-right: 5%;
 }
-/*custom presentation code*/
 #iphone {
 	margin-left: auto;
 	margin-right: auto;
@@ -467,8 +443,7 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 	background-size: 229px 480px;
 	background-repeat: no-repeat;
 	background-position: -8px 0 0 0;
-}
-}
+}}
 #iphone iframe {
 	margin: 120px -4px 0 0;
 	width: 333px;
@@ -479,16 +454,12 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 	margin: 72px -2.4px 0 0;
 	width: 200px;
 	height: 342px;
-}
-}
-/*  grids  */
-/*  SECTIONS  */
+}}
 .sec {
 	clear: both;
 	padding: 0px;
 	margin: 0px;
 }
-/*  COLUMN SETUP  */
 .col {
 	display:block;
 	float:left;
@@ -497,7 +468,6 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 .col:first-child {
 	margin-left: 0;
 }
-/*  GROUPING  */
 .group:before, .group:after {
 	content:"";
 	display:table;
@@ -508,14 +478,12 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 .group {
 	zoom:1; /* For IE 6/7 */
 }
-/*  GRID OF TWO   ============================================================================= */
 .span_2_of_2 {
 	width: 48%;
 }
 .span_1_of_2 {
 	width: 48%;
 }
-/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
 @media only screen and (max-width: 1000px) {
 .span_2_of_2 {
 	width: 100%;
