@@ -462,7 +462,7 @@ input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:ac
 }
 .col {
 	display:block;
-	float:left;
+	float: left;
 	margin: 1% 0 1% 1%;
 }
 .col:first-child {
