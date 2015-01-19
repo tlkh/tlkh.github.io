@@ -51,9 +51,11 @@
 		@include icon;
 		position: relative;
         line-height: 2em;
+        text-align: center;
 
 		> .label {
 			display: none;
+            text-align: center;
 		}
 	}
 
@@ -200,7 +202,8 @@
 				-webkit-touch-callout: none;
 				border: 0;
 				display: inline-block;
-				
+				text-align: center;
+              
 				&:before {
 					@include vendor-property('transition', 'all 0.2s ease-in-out');
 					border-radius: 20%;
