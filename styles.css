@@ -1101,14 +1101,31 @@ html[data-theme="dark"] .chat-widget__panel {
 
 @media (max-width: 920px) {
   .site-header {
-    grid-template-columns: 1fr auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 100vw;
+    gap: 0.8rem;
+    overflow: hidden;
+  }
+
+  .brand,
+  .theme-toggle {
+    flex: 0 0 auto;
   }
 
   .nav {
-    grid-column: 1 / -1;
-    justify-content: flex-start;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: center;
     overflow-x: auto;
     padding-bottom: 0.15rem;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
   }
 
   .hero {
@@ -1127,10 +1144,37 @@ html[data-theme="dark"] .chat-widget__panel {
     grid-template-columns: 1fr;
   }
 
+  .hero__layout {
+    width: 100%;
+    max-width: calc(100vw - 2.5rem);
+    min-width: 0;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .hero__content {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+  }
+
   .hero__portrait {
     width: min(12rem, 48vw);
-    justify-self: start;
+    justify-self: center;
     order: -1;
+  }
+
+  .hero h1,
+  .hero__lead {
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero__actions {
+    justify-content: center;
+    justify-content: safe center;
   }
 
   .timeline-item {
@@ -1145,7 +1189,52 @@ html[data-theme="dark"] .chat-widget__panel {
   }
 
   .site-header {
-    padding: 0.72rem 1rem;
+    gap: 0.5rem;
+    justify-content: center;
+    padding: 0.68rem 3.35rem;
+  }
+
+  .brand,
+  .theme-toggle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .brand {
+    left: 0.78rem;
+  }
+
+  .theme-toggle {
+    right: 0.78rem;
+  }
+
+  .theme-toggle:hover {
+    transform: translateY(calc(-50% - 1px));
+  }
+
+  .brand__mark,
+  .theme-toggle {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .nav {
+    gap: clamp(0.42rem, 2.1vw, 0.72rem);
+  }
+
+  .nav a {
+    font-size: clamp(0.74rem, 3.25vw, 0.84rem);
+  }
+
+  .hero__content .eyebrow {
+    max-width: 21rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .hero__lead {
+    width: min(100%, 24rem);
   }
 
   .hero {
@@ -1153,6 +1242,7 @@ html[data-theme="dark"] .chat-widget__panel {
       linear-gradient(180deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.88) 56%, rgba(247, 249, 252, 0.42) 100%),
       url("assets/ai-portfolio-hero.png");
     background-position: 64% center;
+    padding-top: 3.6rem;
   }
 
   html[data-theme="dark"] .hero {

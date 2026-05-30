@@ -234,6 +234,24 @@
     }
 
     if (chatForm && chatInput) {
+      chatInput.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Enter" &&
+          !event.shiftKey &&
+          !event.altKey &&
+          !event.ctrlKey &&
+          !event.metaKey &&
+          !event.isComposing
+        ) {
+          event.preventDefault();
+          if (chatForm.requestSubmit) {
+            chatForm.requestSubmit();
+          } else {
+            chatForm.dispatchEvent(new Event("submit", { cancelable: true }));
+          }
+        }
+      });
+
       chatForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
