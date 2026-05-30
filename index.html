@@ -1,26 +1,506 @@
-<html>
-<head>
-    <link rel="canonical" href="http://tlkh.github.io/" />
-    <noscript>
-        <meta http-equiv="refresh" content="0;URL=http://tlkh.github.io/">
-    </noscript>
-    <!--[if lt IE 9]><script type="text/javascript">var IE_fix=true;</script><![endif]-->
-    <script type="text/javascript">
-        var url = "https://tlkh.dev/";
-        if (typeof IE_fix != "undefined") // IE8 and lower fix to pass the http referer
-        {
-            document.write("redirecting..."); // Don't remove this line or appendChild() will fail because it is called before document.onload to make the redirect as fast as possible. Nobody will see this text, it is only a tech fix.
-            var referLink = document.createElement("a");
-            referLink.href = url;
-            document.body.appendChild(referLink);
-            referLink.click();
-        } else {
-            window.location.replace(url);
-        } // All other browsers
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta
+      name="description"
+      content="Portfolio for Timothy Liu Kaihui, Solutions Architect at NVIDIA AI Technology Centre and PhD in Natural Language Processing."
+    >
+    <meta property="og:title" content="Timothy Liu Kaihui | Portfolio">
+    <meta
+      property="og:description"
+      content="Applied AI, sovereign AI, foundation models, multimodal systems, accelerated computing, and NLP research."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/ai-portfolio-hero.png">
+    <title>Timothy Liu | Portfolio</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "@id": "https://tlkh.github.io/#person",
+        "name": "Timothy Liu Kaihui",
+        "alternateName": "Timothy Liu",
+        "url": "https://tlkh.github.io/",
+        "image": "https://tlkh.github.io/assets/timothy-liu-kaihui-profile.jpeg",
+        "jobTitle": "Solutions Architect",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "NVIDIA AI Technology Centre"
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Singapore University of Technology and Design"
+        },
+        "knowsAbout": [
+          "Applied AI",
+          "Natural Language Processing",
+          "Multimodal AI",
+          "Accelerated Computing",
+          "Sovereign AI"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/timothyliukaihui/",
+          "https://github.com/tlkh",
+          "https://scholar.google.com/citations?user=YiAHfvQAAAAJ&hl=en",
+          "https://www.semanticscholar.org/author/Timothy-Liu/2109992450"
+        ]
+      }
     </script>
-</head>
-<body>
-    <h1>Redirect</h1>
-    <p>Timothy Liu's personal site is at <a href="https://tlkh.dev/">https://tlkh.dev/</a></p>
-</body>
+    <script>
+      (function () {
+        try {
+          var savedTheme = localStorage.getItem("portfolio-theme");
+          var systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = savedTheme || systemTheme;
+          document.documentElement.dataset.themeSource = savedTheme ? "user" : "system";
+        } catch (error) {
+          document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.themeSource = "system";
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Timothy Liu Kaihui home">
+        <span class="brand__mark">TL</span>
+        <span class="brand__text">Timothy Liu Kaihui</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#experience">Experience</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M21 14.7A8.5 8.5 0 0 1 9.3 3a7 7 0 1 0 11.7 11.7Z"></path>
+        </svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"></path>
+        </svg>
+      </button>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__layout">
+        <div class="hero__content">
+          <p class="eyebrow">Applied AI | Sovereign AI | Ecosystem Development | PhD in NLP</p>
+          <h1 id="hero-title">Timothy Liu</h1>
+          <p class="hero__lead">
+            Solutions Architect at the NVIDIA AI Technology Centre
+          </p>
+          <div class="hero__actions" aria-label="Primary and profile links">
+            <a class="button button--primary" href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+            <a class="button button--secondary" href="https://github.com/tlkh" target="_blank" rel="noopener">GitHub</a>
+            <a class="button button--secondary" href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="button button--secondary" href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
+          </div>
+        </div>
+        <div class="hero__portrait">
+          <img src="assets/timothy-liu-kaihui-profile.jpeg" alt="Portrait of Timothy">
+        </div>
+      </div>
+    </section>
+
+    <main id="main">
+      <section class="section section--intro" id="profile">
+        <div class="section__inner profile-stack">
+          <div>
+            <p class="section-kicker">Profile</p>
+            <h2>Bridging AI research and adoption.</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+              I shape applied AI programmes, prototypes, and roadmaps with academic, government, and industry
+              partners. My work spans foundation models, multimodal AI, agents, accelerated computing, and sovereign AI. I did my PhD at SUTD, focused on paraphrasing, semantic similarity, dataset reliability, and sentence-pair
+              classification for NLP generation, classification, and testing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" aria-labelledby="focus-title">
+        <div class="section__inner">
+          <div class="section-heading">
+            <p class="section-kicker">Focus Areas</p>
+            <h2 id="focus-title">Where I spend my time</h2>
+          </div>
+          <div class="focus-grid">
+            <article class="focus-card">
+              <h3>Applied AI Programmes</h3>
+              <p>Partner discovery, scoping, prototypes, research translation, and roadmaps.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Foundation &amp; Multimodal Models</h3>
+              <p>Generative AI, vision-language systems, synthetic data, and model adaptation.</p>
+            </article>
+            <article class="focus-card">
+              <h3>Accelerated Computing</h3>
+              <p>GPU workflows, containers, distributed training, Kubernetes, and HPC.</p>
+            </article>
+            <article class="focus-card">
+              <h3>AI Enablement</h3>
+              <p>Workshops, mentoring, student supervision, and ecosystem building.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section__inner">
+          <div class="section-heading">
+            <p class="section-kicker">Experience</p>
+            <h2>Regional AI collaboration and enablement.</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Aug 2024 - Present</span>
+                <strong>NVIDIA AI Technology Centre</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>Solutions Architect</h3>
+                <p>
+                  Lead applied AI collaborations across Singapore, Thailand, Indonesia, Vietnam, and Australia.
+                </p>
+                <ul>
+                  <li>Drive adoption across foundation models, multimodal AI, agents, simulation, and sovereign AI.</li>
+                  <li>Mentor team members and supervise postgraduate research across AI and accelerated computing.</li>
+                  <li>Deliver workshops and invited sessions for academic, government, and industry audiences.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Mar 2023 - Present</span>
+                <strong>Digital and Intelligence Service</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>NSman</h3>
+                <p>Awarded Formation Promising NSman of the Year and invited to the Presidential Garden Reception 2026.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Sep 2023 - Dec 2023</span>
+                <strong>Sony Research, Japan</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>Research Intern</h3>
+                <p>Researched multimodal foundation models and long-form image captioning with a Japanese R&amp;D team.</p>
+                <ul>
+                  <li>Improved paragraph-length captioning and synthetic data for image-text retrieval.</li>
+                  <li>Fine-tuned 7B+ multimodal models on ABCI with multi-GPU training and DeepSpeed.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Jun 2018 - Jun 2023</span>
+                <strong>NVIDIA AI Technology Centre</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>Solutions Architect Intern</h3>
+                <p>
+                  Completed a five-year NVIDIA internship alongside undergraduate and postgraduate studies.
+                </p>
+                <ul>
+                  <li>Built a deep learning container for reproducible experimentation.</li>
+                  <li>Supported GPU workloads on Kubernetes across on-premises and cloud environments.</li>
+                  <li>Earned NVIDIA DLI Certified Instructor status for NLP, RAPIDS, and multi-GPU courses.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="research">
+        <div class="section__inner">
+          <div class="section-heading">
+            <p class="section-kicker">Research</p>
+            <h2>Selected publications</h2>
+            <div class="profile-links profile-links--section" aria-label="Research profile links">
+              <a href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
+            </div>
+          </div>
+          <div class="publication-list">
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ACL 2022</span>
+                <span class="publication__citations">24 citations</span>
+              </div>
+              <h3>
+                <a href="https://aclanthology.org/2022.acl-long.588/" target="_blank" rel="noopener">
+                  Towards Better Characterization of Paraphrases
+                </a>
+              </h3>
+              <p>Liu T. and Soh D.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">Findings of ACL 2023</span>
+                <span class="publication__citations">22 citations</span>
+              </div>
+              <h3>
+                <a href="https://aclanthology.org/2023.findings-acl.641/" target="_blank" rel="noopener">
+                  NewsMet: A "do it all" Dataset of Contemporary Metaphors in News Headlines
+                </a>
+              </h3>
+              <p>Joseph R., Liu T., Ng A.B., See S., Rai S.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">IEEE Access 2025</span>
+                <span class="publication__citations">12 citations</span>
+              </div>
+              <h3>
+                <a href="https://ieeexplore.ieee.org/document/10824802/" target="_blank" rel="noopener">
+                  FedDrip: Federated Learning With Diffusion-Generated Synthetic Image
+                </a>
+              </h3>
+              <p>Huangsuwan K., Liu T., See S., Ng A.B., Vateekul P.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ACL-IJCNLP 2021</span>
+                <span class="publication__citations">6 citations</span>
+                <span class="publication__award">Best Demonstration Runner-up Award</span>
+              </div>
+              <h3>
+                <a href="https://aclanthology.org/2021.acl-demo.14/" target="_blank" rel="noopener">
+                  ESRA: Explainable Scientific Research Assistant
+                </a>
+              </h3>
+              <p>Hongwimol P., Kehasukcharoen P., Laohawarutchai P., Lertvittayakumjorn P., Ng A.B., Lai Z., Liu T., Vateekul P.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">arXiv 2026</span>
+                <span class="publication__citations">1 citation</span>
+              </div>
+              <h3>
+                <a href="https://arxiv.org/abs/2603.12840" target="_blank" rel="noopener">
+                  DAST: A Dual-Stream Voice Anonymization Attacker with Staged Training
+                </a>
+              </h3>
+              <p>Arefeen R., Miao X., Tong R., Ng A.B., See S., Liu T.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ACL 2026</span>
+                <span class="publication__citations">0 citations</span>
+              </div>
+              <h3>IRIS: Interleaved Reinforcement with Incremental Staged Curriculum for Cross-Lingual Mathematical Reasoning</h3>
+              <p>Gupta N., Vyalla R.R., Anand A., Kirtani C., Cambria E., Zhang Z., Wang Z., Liu T., et al.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ISBI 2026</span>
+                <span class="publication__citations">0 citations</span>
+              </div>
+              <h3>ADAPT: Multibeamformer with Tunable Weight Fusion and Patch-Wise Learning for Ultrasound Imaging</h3>
+              <p>Gopikrishnan G., Panicker M.R., Liu T., Ng A.B., See S.C.-W.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">IEEE SOLI 2025</span>
+                <span class="publication__citations">0 citations</span>
+                <span class="publication__award">Best Paper Award</span>
+              </div>
+              <h3>
+                <a href="https://ieeexplore.ieee.org/abstract/document/11396164" target="_blank" rel="noopener">
+                  ShalDeepDP: A Survey and Comparison of Data Poisoning in Statistical, Classical Deep Learning and Foundation Models
+                </a>
+              </h3>
+              <p>Chan J.Y., Guo H., Liu T., Ng A.B., See S.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="education">
+        <div class="section__inner">
+          <div class="section-heading">
+            <p class="section-kicker">Education</p>
+            <h2>Singapore University of Technology and Design</h2>
+          </div>
+          <div class="education-grid">
+            <article class="detail-card">
+              <span class="date">Sep 2020 - Aug 2024</span>
+              <h3>PhD, Natural Language Processing</h3>
+              <p>President's Graduate Fellowship scholar. Thesis: Foundations and Applications of Paraphrasing in NLP.</p>
+            </article>
+            <article class="detail-card">
+              <span class="date">May 2017 - Aug 2020</span>
+              <h3>Bachelor of Engineering (Honours)</h3>
+              <p>Information Systems Technology and Design, with cybersecurity research and student workshops.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="awards">
+        <div class="section__inner">
+          <div class="section-heading">
+            <p class="section-kicker">Awards &amp; Community</p>
+            <h2>Selected recognition and community work.</h2>
+          </div>
+          <div class="award-grid">
+            <article class="detail-card">
+              <h3>Hyperhack Datathon</h3>
+              <p>Gold Award for modelling medical-shock financial vulnerability with XGBoost and Tableau.</p>
+            </article>
+            <article class="detail-card">
+              <h3>AI &amp; Security Hackathons</h3>
+              <p>Finalist at YITU Singapore AI Hackathon; winner at Google "Fake News Must Die" and Red Hack.</p>
+            </article>
+            <article class="detail-card">
+              <h3>Black Hat Asia</h3>
+              <p>Featured project for Prowler, a Raspberry Pi cluster network vulnerability scanner.</p>
+            </article>
+            <article class="detail-card">
+              <h3>Community Teaching</h3>
+              <p>Mentor at AI Saturdays Singapore and co-lead for Intel Make Tomorrow Catalyst workshops.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="skills">
+        <div class="section__inner split">
+          <div>
+            <p class="section-kicker">Technical Skills</p>
+            <h2>Research and engineering toolkit.</h2>
+          </div>
+          <div class="skill-groups">
+            <div class="skill-group">
+              <h3>Research Areas</h3>
+              <p>Multimodal Generative AI, Agentic AI Systems, NLP, Deep Learning</p>
+            </div>
+            <div class="skill-group">
+              <h3>Languages</h3>
+              <p>Python, SQL, Bash, HTML/CSS/JavaScript, Java</p>
+            </div>
+            <div class="skill-group">
+              <h3>Frameworks</h3>
+              <p>PyTorch, TensorFlow, HuggingFace Transformers, DeepSpeed, vLLM, SpaCy, NumPy, SciPy, OpenCV, XGBoost, Dask</p>
+            </div>
+            <div class="skill-group">
+              <h3>Platforms</h3>
+              <p>Linux/Unix, Git, Docker, Kubernetes, AWS, GCP, Azure, PBS, Slurm</p>
+            </div>
+            <div class="skill-group">
+              <h3>NVIDIA Stack</h3>
+              <p>GPU/CUDA, NIM, NeMo, VSS, MONAI, RAPIDS, NemoClaw</p>
+            </div>
+            <div class="skill-group">
+              <h3>Spoken Languages</h3>
+              <p>English and Mandarin Chinese</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="open-source">
+        <div class="section__inner split">
+          <div>
+            <p class="section-kicker">Open Source</p>
+            <h2>Tools and upstream contributions.</h2>
+          </div>
+          <div class="stacked-cards">
+            <article class="detail-card">
+              <h3>
+                <a href="https://github.com/tlkh/asitop" target="_blank" rel="noopener">asitop</a>
+              </h3>
+              <p class="project-meta">Archived project | 4.6k+ stars</p>
+              <p>
+                Python CLI for Apple Silicon telemetry across CPU, GPU, ANE, memory bandwidth, and power.
+              </p>
+            </article>
+            <article class="detail-card">
+              <h3>Upstream Contributions</h3>
+              <p>
+                Contributions to HuggingFace Transformers, TensorFlow docs, and JupyterHub GPU guidance.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-section__inner">
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">For collaborations or advisory work, connect on LinkedIn.</h2>
+          <div class="contact-links">
+            <a class="contact-link--primary" href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://github.com/tlkh" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year">2026</span> Timothy Liu Kaihui</p>
+    </footer>
+
+    <div class="chat-widget" id="chatWidget" data-proxy-url="https://chat-proxy-render-wri0.onrender.com" hidden>
+      <span class="chat-widget__label">AI assistant</span>
+      <button
+        class="chat-widget__launcher"
+        id="chatLauncher"
+        type="button"
+        aria-label="Open chat"
+        aria-controls="chatPanel"
+        aria-expanded="false"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5 9.2 9.2 0 0 1-3.7-.8L3 21l1.4-5.5A8.5 8.5 0 1 1 21 12Z"></path>
+          <path d="M8 11.2h8M8 14.4h5.2"></path>
+        </svg>
+      </button>
+      <section class="chat-widget__panel" id="chatPanel" aria-labelledby="chatTitle" hidden>
+        <header class="chat-widget__header">
+          <div>
+            <p class="chat-widget__kicker">Portfolio AI</p>
+            <h2 id="chatTitle">Ask Timothy's AI</h2>
+          </div>
+          <button class="chat-widget__close" id="chatClose" type="button" aria-label="Close chat">
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M6 6l12 12M18 6 6 18"></path>
+            </svg>
+          </button>
+        </header>
+        <div class="chat-widget__messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions">
+          <p class="chat-message chat-message--assistant">Hi, I can answer questions about Timothy's public work and background.</p>
+        </div>
+        <p class="chat-widget__status" id="chatStatus" aria-live="polite"></p>
+        <p class="chat-widget__fallback" id="chatFallback" hidden>
+          Chat unavailable. <a href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">Connect on LinkedIn</a>.
+        </p>
+        <form class="chat-widget__form" id="chatForm">
+          <p class="chat-widget__privacy">Do not share sensitive information.</p>
+          <label class="sr-only" for="chatInput">Message</label>
+          <textarea id="chatInput" name="message" rows="2" maxlength="900" placeholder="Ask about Timothy's work"></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
