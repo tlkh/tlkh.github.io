@@ -55,6 +55,94 @@
     year.textContent = String(new Date().getFullYear());
   }
 
+  var eventCarousel = document.getElementById("eventCarousel");
+
+  if (eventCarousel) {
+    var eventSlides = Array.prototype.slice.call(eventCarousel.querySelectorAll(".event-carousel__slide"));
+    var eventDots = Array.prototype.slice.call(eventCarousel.querySelectorAll(".event-carousel__dots button"));
+    var eventPrev = eventCarousel.querySelector(".event-carousel__control--prev");
+    var eventNext = eventCarousel.querySelector(".event-carousel__control--next");
+    var eventIndex = 0;
+    var eventTimer = null;
+    var eventMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    function setEventSlide(nextIndex) {
+      if (!eventSlides.length) {
+        return;
+      }
+
+      eventIndex = (nextIndex + eventSlides.length) % eventSlides.length;
+
+      eventSlides.forEach(function (slide, index) {
+        var active = index === eventIndex;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", active ? "false" : "true");
+      });
+
+      eventDots.forEach(function (dot, index) {
+        var active = index === eventIndex;
+        dot.classList.toggle("is-active", active);
+        if (active) {
+          dot.setAttribute("aria-current", "true");
+        } else {
+          dot.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function stopEventCarousel() {
+      if (eventTimer) {
+        window.clearInterval(eventTimer);
+        eventTimer = null;
+      }
+    }
+
+    function startEventCarousel() {
+      stopEventCarousel();
+      if (eventSlides.length < 2 || eventMotionQuery.matches) {
+        return;
+      }
+      eventTimer = window.setInterval(function () {
+        setEventSlide(eventIndex + 1);
+      }, 5200);
+    }
+
+    if (eventPrev) {
+      eventPrev.addEventListener("click", function () {
+        setEventSlide(eventIndex - 1);
+        startEventCarousel();
+      });
+    }
+
+    if (eventNext) {
+      eventNext.addEventListener("click", function () {
+        setEventSlide(eventIndex + 1);
+        startEventCarousel();
+      });
+    }
+
+    eventDots.forEach(function (dot, index) {
+      dot.addEventListener("click", function () {
+        setEventSlide(index);
+        startEventCarousel();
+      });
+    });
+
+    eventCarousel.addEventListener("mouseenter", stopEventCarousel);
+    eventCarousel.addEventListener("mouseleave", startEventCarousel);
+    eventCarousel.addEventListener("focusin", stopEventCarousel);
+    eventCarousel.addEventListener("focusout", startEventCarousel);
+
+    if (eventMotionQuery.addEventListener) {
+      eventMotionQuery.addEventListener("change", startEventCarousel);
+    } else if (eventMotionQuery.addListener) {
+      eventMotionQuery.addListener(startEventCarousel);
+    }
+
+    setEventSlide(0);
+    startEventCarousel();
+  }
+
   var chatWidget = document.getElementById("chatWidget");
   var chatProxyUrl = chatWidget ? (chatWidget.getAttribute("data-proxy-url") || "").replace(/\/+$/, "") : "";
 
