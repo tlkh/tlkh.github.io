@@ -49,6 +49,37 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.ambient-light {
+  --ambient-x: 72vw;
+  --ambient-y: 24vh;
+  position: fixed;
+  inset: 0;
+  z-index: 48;
+  background: radial-gradient(
+    circle 25rem at var(--ambient-x) var(--ambient-y),
+    rgba(23, 105, 223, 0.085),
+    rgba(23, 105, 223, 0.026) 42%,
+    transparent 72%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 420ms ease;
+}
+
+html[data-theme="dark"] .ambient-light {
+  background: radial-gradient(
+    circle 27rem at var(--ambient-x) var(--ambient-y),
+    rgba(114, 173, 255, 0.14),
+    rgba(118, 185, 0, 0.035) 44%,
+    transparent 72%
+  );
+  mix-blend-mode: screen;
+}
+
+.ambient-light.is-active {
+  opacity: 1;
+}
+
 img,
 svg {
   display: block;
@@ -314,6 +345,9 @@ html[data-theme="dark"] .hero__neural-field {
 }
 
 .hero__portrait {
+  --portrait-tilt-x: 0deg;
+  --portrait-tilt-y: 0deg;
+  position: relative;
   width: clamp(12rem, 24vw, 18rem);
   aspect-ratio: 1;
   justify-self: end;
@@ -323,9 +357,54 @@ html[data-theme="dark"] .hero__neural-field {
   box-shadow: var(--shadow);
   padding: 0.38rem;
   animation: portrait-reveal 760ms var(--ease) 260ms both;
+  transform: perspective(760px) rotateX(var(--portrait-tilt-x)) rotateY(var(--portrait-tilt-y));
+  transform-style: preserve-3d;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 280ms var(--ease);
+}
+
+.hero__portrait::before,
+.hero__portrait::after {
+  position: absolute;
+  inset: -0.85rem;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  content: "";
+}
+
+.hero__portrait::before {
+  background: conic-gradient(
+    from 20deg,
+    transparent 0 14%,
+    color-mix(in srgb, var(--blue) 76%, transparent) 20%,
+    transparent 28% 60%,
+    color-mix(in srgb, #76b900 62%, transparent) 67%,
+    transparent 76% 100%
+  );
+  opacity: 0.72;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+  animation: portrait-ring-spin 14s linear infinite;
+}
+
+.hero__portrait::after {
+  background: radial-gradient(
+    circle at 50% 0.18rem,
+    #ffffff 0 0.12rem,
+    var(--blue) 0.15rem,
+    color-mix(in srgb, var(--blue) 34%, transparent) 0.28rem,
+    transparent 0.52rem
+  );
+  filter: drop-shadow(0 0 0.55rem color-mix(in srgb, var(--blue) 78%, transparent));
+  animation: portrait-ring-spin 9s linear infinite reverse;
 }
 
 .hero__portrait img {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -536,6 +615,11 @@ p {
 .focus-card,
 .detail-card,
 .publication {
+  --card-spot-x: 50%;
+  --card-spot-y: 50%;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
@@ -544,6 +628,46 @@ p {
     border-color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms var(--ease);
+}
+
+.focus-card::before,
+.detail-card::before,
+.publication::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(
+    circle 13rem at var(--card-spot-x) var(--card-spot-y),
+    color-mix(in srgb, var(--blue) 13%, transparent),
+    transparent 68%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+  content: "";
+}
+
+.focus-card > *,
+.detail-card > *,
+.publication > * {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme="dark"] .focus-card::before,
+html[data-theme="dark"] .detail-card::before,
+html[data-theme="dark"] .publication::before {
+  background: radial-gradient(
+    circle 14rem at var(--card-spot-x) var(--card-spot-y),
+    color-mix(in srgb, var(--blue) 19%, transparent),
+    transparent 70%
+  );
+}
+
+.focus-card.is-pointer-lit::before,
+.detail-card.is-pointer-lit::before,
+.publication.is-pointer-lit::before {
+  opacity: 1;
 }
 
 .focus-card:hover,
@@ -1396,6 +1520,12 @@ html[data-theme="dark"] .chat-widget__panel {
   }
 }
 
+@keyframes portrait-ring-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 @keyframes scroll-reveal {
   from {
     opacity: 0.9;
@@ -1760,6 +1890,20 @@ html[data-theme="dark"] .chat-widget__panel {
 
 }
 
+@media (hover: none), (pointer: coarse) {
+  .ambient-light {
+    display: none;
+  }
+
+  .hero__portrait::before {
+    animation: none;
+  }
+
+  .hero__portrait::after {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1788,6 +1932,19 @@ html[data-theme="dark"] .chat-widget__panel {
 
   .hero__neural-field {
     display: none;
+  }
+
+  .ambient-light,
+  .hero__portrait::before,
+  .hero__portrait::after,
+  .focus-card::before,
+  .detail-card::before,
+  .publication::before {
+    display: none;
+  }
+
+  .hero__portrait {
+    transform: none;
   }
 
   .timeline-item.is-current::before,

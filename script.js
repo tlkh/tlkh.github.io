@@ -59,6 +59,56 @@
     year.textContent = String(new Date().getFullYear());
   }
 
+  var ambientLight = document.getElementById("ambientLight");
+  var ambientPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+  var ambientMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var ambientFrame = null;
+
+  function moveAmbientLight(event) {
+    if (!ambientLight || !ambientPointerQuery.matches || ambientMotionQuery.matches) {
+      return;
+    }
+
+    if (ambientFrame) {
+      window.cancelAnimationFrame(ambientFrame);
+    }
+
+    ambientFrame = window.requestAnimationFrame(function () {
+      ambientLight.style.setProperty("--ambient-x", event.clientX + "px");
+      ambientLight.style.setProperty("--ambient-y", event.clientY + "px");
+      ambientLight.classList.add("is-active");
+      ambientFrame = null;
+    });
+  }
+
+  if (ambientLight) {
+    window.addEventListener("pointermove", moveAmbientLight, { passive: true });
+    document.documentElement.addEventListener("mouseleave", function () {
+      ambientLight.classList.remove("is-active");
+    });
+  }
+
+  var pointerCards = Array.prototype.slice.call(
+    document.querySelectorAll(".focus-card, .detail-card, .publication")
+  );
+
+  pointerCards.forEach(function (card) {
+    card.addEventListener("pointermove", function (event) {
+      if (!ambientPointerQuery.matches || ambientMotionQuery.matches) {
+        return;
+      }
+
+      var rect = card.getBoundingClientRect();
+      card.style.setProperty("--card-spot-x", event.clientX - rect.left + "px");
+      card.style.setProperty("--card-spot-y", event.clientY - rect.top + "px");
+      card.classList.add("is-pointer-lit");
+    });
+
+    card.addEventListener("pointerleave", function () {
+      card.classList.remove("is-pointer-lit");
+    });
+  });
+
   var eventCarousel = document.getElementById("eventCarousel");
 
   if (eventCarousel) {
@@ -149,6 +199,30 @@
 
   var hero = document.getElementById("top");
   var heroNeuralField = document.getElementById("heroNeuralField");
+  var heroPortrait = hero ? hero.querySelector(".hero__portrait") : null;
+
+  if (hero && heroPortrait) {
+    var portraitPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    var portraitMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    hero.addEventListener("pointermove", function (event) {
+      if (!portraitPointerQuery.matches || portraitMotionQuery.matches) {
+        return;
+      }
+
+      var portraitRect = heroPortrait.getBoundingClientRect();
+      var portraitX = clamp((event.clientX - portraitRect.left) / portraitRect.width, 0, 1) - 0.5;
+      var portraitY = clamp((event.clientY - portraitRect.top) / portraitRect.height, 0, 1) - 0.5;
+
+      heroPortrait.style.setProperty("--portrait-tilt-x", (-portraitY * 7).toFixed(2) + "deg");
+      heroPortrait.style.setProperty("--portrait-tilt-y", (portraitX * 9).toFixed(2) + "deg");
+    });
+
+    hero.addEventListener("pointerleave", function () {
+      heroPortrait.style.setProperty("--portrait-tilt-x", "0deg");
+      heroPortrait.style.setProperty("--portrait-tilt-y", "0deg");
+    });
+  }
 
   if (hero && heroNeuralField && heroNeuralField.getContext) {
     var neuralContext = heroNeuralField.getContext("2d");
