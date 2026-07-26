@@ -1,5 +1,7 @@
 :root {
   color-scheme: light;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
   --bg: #f7f9fc;
   --surface: #ffffff;
   --surface-muted: #eef3f8;
@@ -10,7 +12,47 @@
   --blue: #1769df;
   --blue-strong: #0b4fb3;
   --blue-soft: #d9e9ff;
+  --nvidia-green: #76b900;
+  --neural-link: 11, 79, 179;
+  --neural-node: 11, 79, 179;
+  --neural-pulse: 255, 255, 255;
+  --neural-trail: 23, 105, 223;
+  --neural-accent: 23, 105, 223;
+  --award-gold: #c6862a;
+  --award-gold-soft: #f4bf56;
+  --award-gold-strong: #9a5a11;
+  --on-accent: #ffffff;
+  --mask-ink: #000000;
+  --ink-deep: #080c12;
+  --link-underline: rgba(23, 105, 223, 0.35);
+  --header-border: rgba(219, 228, 239, 0.76);
+  --ambient-blue: rgba(23, 105, 223, 0.085);
+  --ambient-blue-soft: rgba(23, 105, 223, 0.026);
+  --ambient-green: rgba(118, 185, 0, 0.035);
+  --hero-light-start: rgba(247, 249, 252, 0.96);
+  --hero-light-mid: rgba(247, 249, 252, 0.86);
+  --hero-light-end: rgba(247, 249, 252, 0.18);
+  --hero-dark-start: rgba(13, 17, 24, 0.98);
+  --hero-dark-mid: rgba(13, 17, 24, 0.84);
+  --hero-dark-end: rgba(13, 17, 24, 0.34);
+  --image-overlay: rgba(8, 12, 18, 0.82);
+  --control-border: rgba(255, 255, 255, 0.42);
+  --control-background: rgba(8, 12, 18, 0.48);
+  --control-hover: rgba(23, 105, 223, 0.72);
+  --dot-border: rgba(255, 255, 255, 0.68);
+  --caption-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+  --contact-bg: #0e1628;
+  --contact-fg: #f7f9fc;
+  --contact-border: rgba(247, 249, 252, 0.28);
+  --focus-ring: var(--blue);
+  --section-space: clamp(4rem, 8vw, 7rem);
+  --section-space-tight: clamp(3rem, 6vw, 5rem);
+  --section-space-roomy: clamp(5rem, 10vw, 8rem);
   --shadow: 0 18px 55px rgba(23, 32, 51, 0.1);
+  --shadow-card-hover: 0 22px 60px rgba(23, 32, 51, 0.14);
+  --shadow-button: 0 14px 34px rgba(23, 105, 223, 0.24);
+  --shadow-launcher: 0 18px 42px rgba(23, 105, 223, 0.32);
+  --shadow-chat: 0 24px 80px rgba(23, 32, 51, 0.22);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --max-width: 1180px;
 }
@@ -27,7 +69,32 @@ html[data-theme="dark"] {
   --blue: #72adff;
   --blue-strong: #a9ccff;
   --blue-soft: #152c4b;
+  --neural-link: 114, 173, 255;
+  --neural-node: 255, 255, 255;
+  --neural-pulse: 255, 255, 255;
+  --neural-trail: 114, 173, 255;
+  --neural-accent: 118, 185, 0;
+  --header-border: rgba(41, 53, 70, 0.82);
+  --ambient-blue: rgba(114, 173, 255, 0.14);
+  --ambient-blue-soft: rgba(114, 173, 255, 0.04);
+  --ambient-green: rgba(118, 185, 0, 0.035);
+  --hero-light-start: rgba(13, 17, 24, 0.98);
+  --hero-light-mid: rgba(13, 17, 24, 0.84);
+  --hero-light-end: rgba(13, 17, 24, 0.34);
+  --hero-dark-start: rgba(13, 17, 24, 0.98);
+  --hero-dark-mid: rgba(13, 17, 24, 0.84);
+  --hero-dark-end: rgba(13, 17, 24, 0.34);
+  --image-overlay: rgba(8, 12, 18, 0.82);
+  --control-border: rgba(255, 255, 255, 0.42);
+  --control-background: rgba(8, 12, 18, 0.48);
+  --control-hover: rgba(114, 173, 255, 0.72);
+  --dot-border: rgba(255, 255, 255, 0.68);
+  --contact-bg: #080c12;
+  --contact-fg: #edf3fb;
+  --contact-border: rgba(247, 249, 252, 0.28);
   --shadow: 0 20px 70px rgba(0, 0, 0, 0.28);
+  --shadow-card-hover: 0 22px 70px rgba(0, 0, 0, 0.34);
+  --shadow-chat: 0 24px 90px rgba(0, 0, 0, 0.42);
 }
 
 * {
@@ -35,16 +102,16 @@ html[data-theme="dark"] {
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--text);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   text-rendering: optimizeLegibility;
 }
@@ -57,8 +124,8 @@ body {
   z-index: 48;
   background: radial-gradient(
     circle 25rem at var(--ambient-x) var(--ambient-y),
-    rgba(23, 105, 223, 0.085),
-    rgba(23, 105, 223, 0.026) 42%,
+    var(--ambient-blue),
+    var(--ambient-blue-soft) 42%,
     transparent 72%
   );
   opacity: 0;
@@ -69,8 +136,8 @@ body {
 html[data-theme="dark"] .ambient-light {
   background: radial-gradient(
     circle 27rem at var(--ambient-x) var(--ambient-y),
-    rgba(114, 173, 255, 0.14),
-    rgba(118, 185, 0, 0.035) 44%,
+    var(--ambient-blue),
+    var(--ambient-green) 44%,
     transparent 72%
   );
   mix-blend-mode: screen;
@@ -91,7 +158,7 @@ svg {
 
 a {
   color: inherit;
-  text-decoration-color: rgba(23, 105, 223, 0.35);
+  text-decoration-color: var(--link-underline);
   text-underline-offset: 0.18em;
   transition:
     color 180ms ease,
@@ -101,6 +168,11 @@ a {
 a:hover {
   color: var(--blue);
   text-decoration-color: currentColor;
+}
+
+:where(a, button, textarea):focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
 }
 
 .skip-link {
@@ -137,7 +209,7 @@ a:hover {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1.25rem;
-  border-bottom: 1px solid rgba(219, 228, 239, 0.76);
+  border-bottom: 1px solid var(--header-border);
   background: var(--bg);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   padding: 0.8rem max(1.25rem, calc((100vw - var(--max-width)) / 2));
@@ -146,7 +218,7 @@ a:hover {
 }
 
 html[data-theme="dark"] .site-header {
-  border-bottom-color: rgba(41, 53, 70, 0.82);
+  border-bottom-color: var(--header-border);
 }
 
 .brand {
@@ -184,7 +256,7 @@ html[data-theme="dark"] .site-header {
 
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: clamp(0.65rem, 2vw, 1.4rem);
 }
 
@@ -194,6 +266,7 @@ html[data-theme="dark"] .site-header {
   font-size: 0.9rem;
   font-weight: 650;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav a::after {
@@ -215,6 +288,14 @@ html[data-theme="dark"] .site-header {
 }
 
 .nav a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav a:focus-visible {
+  color: var(--text-strong);
+}
+
+.nav a:focus-visible::after {
   transform: scaleX(1);
 }
 
@@ -271,7 +352,7 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
   gap: clamp(2rem, 6vw, 5rem);
   overflow: hidden;
   background-image:
-    linear-gradient(90deg, rgba(247, 249, 252, 0.96) 0%, rgba(247, 249, 252, 0.86) 36%, rgba(247, 249, 252, 0.18) 72%),
+    linear-gradient(90deg, var(--hero-light-start) 0%, var(--hero-light-mid) 36%, var(--hero-light-end) 72%),
     url("assets/ai-portfolio-hero.png");
   background-position: center;
   background-size: cover;
@@ -280,7 +361,7 @@ html[data-theme="dark"] .theme-toggle__icon--sun {
 
 html[data-theme="dark"] .hero {
   background-image:
-    linear-gradient(90deg, rgba(13, 17, 24, 0.98) 0%, rgba(13, 17, 24, 0.84) 42%, rgba(13, 17, 24, 0.34) 78%),
+    linear-gradient(90deg, var(--hero-dark-start) 0%, var(--hero-dark-mid) 42%, var(--hero-dark-end) 78%),
     url("assets/ai-portfolio-hero.png");
 }
 
@@ -381,19 +462,19 @@ html[data-theme="dark"] .hero__neural-field {
     transparent 0 14%,
     color-mix(in srgb, var(--blue) 76%, transparent) 20%,
     transparent 28% 60%,
-    color-mix(in srgb, #76b900 62%, transparent) 67%,
+    color-mix(in srgb, var(--nvidia-green) 62%, transparent) 67%,
     transparent 76% 100%
   );
   opacity: 0.72;
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), var(--mask-ink) calc(100% - 1px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), var(--mask-ink) calc(100% - 1px));
   animation: portrait-ring-spin 14s linear infinite;
 }
 
 .hero__portrait::after {
   background: radial-gradient(
     circle at 50% 0.18rem,
-    #ffffff 0 0.12rem,
+    var(--on-accent) 0 0.12rem,
     var(--blue) 0.15rem,
     color-mix(in srgb, var(--blue) 34%, transparent) 0.28rem,
     transparent 0.52rem
@@ -411,8 +492,7 @@ html[data-theme="dark"] .hero__neural-field {
   object-fit: cover;
 }
 
-.eyebrow,
-.section-kicker {
+.eyebrow {
   margin: 0 0 0.9rem;
   color: var(--blue-strong);
   font-size: 0.78rem;
@@ -476,13 +556,13 @@ html[data-theme="dark"] .hero__neural-field {
 
 .button--primary {
   background: var(--blue);
-  color: #ffffff;
-  box-shadow: 0 14px 34px rgba(23, 105, 223, 0.24);
+  color: var(--on-accent);
+  box-shadow: var(--shadow-button);
 }
 
 .button--primary:hover {
   background: var(--blue-strong);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .button--secondary {
@@ -506,7 +586,15 @@ html[data-theme="dark"] .hero__neural-field {
 }
 
 .section {
-  padding: clamp(4rem, 8vw, 7rem) max(1.25rem, calc((100vw - var(--max-width)) / 2));
+  padding: var(--section-space) max(1.25rem, calc((100vw - var(--max-width)) / 2));
+}
+
+.section--tight {
+  padding-block: var(--section-space-tight);
+}
+
+.section--roomy {
+  padding-block: var(--section-space-roomy);
 }
 
 .section--muted {
@@ -565,7 +653,7 @@ html[data-theme="dark"] .hero__neural-field {
 .profile-links a:hover {
   border-color: var(--blue);
   background: var(--blue);
-  color: #ffffff;
+  color: var(--on-accent);
   transform: translateY(-1px);
 }
 
@@ -577,6 +665,15 @@ h2,
 h3,
 p {
   overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3,
+.brand__text,
+.chat-widget__header h2 {
+  font-family: var(--font-display);
+  font-style: normal;
 }
 
 h2 {
@@ -674,14 +771,14 @@ html[data-theme="dark"] .publication::before {
 .detail-card:hover,
 .publication:hover {
   border-color: color-mix(in srgb, var(--blue) 32%, var(--line));
-  box-shadow: 0 22px 60px rgba(23, 32, 51, 0.14);
+  box-shadow: var(--shadow-card-hover);
   transform: translateY(-3px);
 }
 
 html[data-theme="dark"] .focus-card:hover,
 html[data-theme="dark"] .detail-card:hover,
 html[data-theme="dark"] .publication:hover {
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .focus-card {
@@ -745,7 +842,7 @@ html[data-theme="dark"] .publication:hover {
   position: absolute;
   inset: 45% 0 0;
   display: none;
-  background: linear-gradient(180deg, transparent, rgba(8, 12, 18, 0.82));
+  background: linear-gradient(180deg, transparent, var(--image-overlay));
   content: "";
 }
 
@@ -789,10 +886,10 @@ html[data-theme="dark"] .publication:hover {
   height: 2.5rem;
   place-items: center;
   transform: translateY(-50%);
-  border: 1px solid rgba(255, 255, 255, 0.42);
+  border: 1px solid var(--control-border);
   border-radius: 8px;
-  background: rgba(8, 12, 18, 0.48);
-  color: #ffffff;
+  background: var(--control-background);
+  color: var(--on-accent);
   cursor: pointer;
   backdrop-filter: blur(12px);
   transition:
@@ -801,8 +898,56 @@ html[data-theme="dark"] .publication:hover {
 }
 
 .event-carousel__control:hover {
-  background: rgba(23, 105, 223, 0.72);
+  background: var(--control-hover);
   transform: translateY(-50%) scale(1.03);
+}
+
+.event-carousel__toggle {
+  position: absolute;
+  right: 1rem;
+  bottom: 0.95rem;
+  z-index: 2;
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border: 1px solid var(--control-border);
+  border-radius: 8px;
+  background: var(--control-background);
+  color: var(--on-accent);
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms var(--ease);
+}
+
+.event-carousel__toggle:hover {
+  background: var(--control-hover);
+  transform: translateY(-1px);
+}
+
+.event-carousel__toggle-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.3;
+}
+
+.event-carousel__toggle-icon--play {
+  display: none;
+  fill: currentColor;
+  stroke: none;
+}
+
+.event-carousel__toggle.is-paused .event-carousel__toggle-icon--pause {
+  display: none;
+}
+
+.event-carousel__toggle.is-paused .event-carousel__toggle-icon--play {
+  display: block;
 }
 
 .event-carousel__control--prev {
@@ -825,7 +970,7 @@ html[data-theme="dark"] .publication:hover {
 
 .event-carousel__dots {
   position: absolute;
-  right: 1rem;
+  right: 4.4rem;
   bottom: 1.15rem;
   z-index: 2;
   display: flex;
@@ -835,7 +980,7 @@ html[data-theme="dark"] .publication:hover {
 .event-carousel__dots button {
   width: 0.55rem;
   height: 0.55rem;
-  border: 1px solid rgba(255, 255, 255, 0.68);
+  border: 1px solid var(--dot-border);
   border-radius: 999px;
   background: transparent;
   cursor: pointer;
@@ -844,7 +989,7 @@ html[data-theme="dark"] .publication:hover {
 
 .event-carousel__dots button.is-active {
   width: 1.35rem;
-  background: #ffffff;
+  background: var(--on-accent);
 }
 
 .timeline {
@@ -875,7 +1020,7 @@ html[data-theme="dark"] .publication:hover {
 .timeline::after {
   height: var(--timeline-progress);
   max-height: calc(100% - 0.4rem);
-  background: linear-gradient(180deg, #ffffff 0%, var(--blue) 36%, var(--blue-strong) 100%);
+  background: linear-gradient(180deg, var(--on-accent) 0%, var(--blue) 36%, var(--blue-strong) 100%);
   box-shadow:
     0 0 18px color-mix(in srgb, var(--blue) 42%, transparent),
     0 0 34px color-mix(in srgb, var(--blue) 18%, transparent);
@@ -883,10 +1028,10 @@ html[data-theme="dark"] .publication:hover {
 }
 
 html[data-theme="dark"] .timeline::after {
-  background: linear-gradient(180deg, #ffffff 0%, var(--blue) 42%, #76b900 100%);
+  background: linear-gradient(180deg, var(--on-accent) 0%, var(--blue) 42%, var(--nvidia-green) 100%);
   box-shadow:
     0 0 22px color-mix(in srgb, var(--blue) 58%, transparent),
-    0 0 46px color-mix(in srgb, #76b900 16%, transparent);
+    0 0 46px color-mix(in srgb, var(--nvidia-green) 16%, transparent);
 }
 
 .timeline-item {
@@ -949,7 +1094,7 @@ html.timeline-enhanced .timeline-item.is-visible {
 }
 
 .timeline-item.is-current::before {
-  border-color: color-mix(in srgb, #ffffff 70%, var(--blue));
+  border-color: color-mix(in srgb, var(--on-accent) 70%, var(--blue));
   background: var(--blue);
   box-shadow:
     0 0 0 0.34rem color-mix(in srgb, var(--blue) 13%, transparent),
@@ -1057,9 +1202,9 @@ html.timeline-enhanced .timeline-item.is-visible {
 }
 
 .publication__award {
-  border-color: color-mix(in srgb, #c6862a 38%, var(--line));
-  background: color-mix(in srgb, #f4bf56 18%, var(--surface));
-  color: color-mix(in srgb, #9a5a11 85%, var(--text-strong));
+  border-color: color-mix(in srgb, var(--award-gold) 38%, var(--line));
+  background: color-mix(in srgb, var(--award-gold-soft) 18%, var(--surface));
+  color: color-mix(in srgb, var(--award-gold-strong) 85%, var(--text-strong));
 }
 
 .publication a {
@@ -1107,16 +1252,16 @@ html.timeline-enhanced .timeline-item.is-visible {
 
 .nvidia-technologies {
   grid-column: 1 / -1;
-  border: 1px solid color-mix(in srgb, #76b900 42%, var(--line));
+  border: 1px solid color-mix(in srgb, var(--nvidia-green) 42%, var(--line));
   border-radius: 8px;
   background:
-    linear-gradient(135deg, color-mix(in srgb, #76b900 14%, var(--surface)) 0%, var(--surface) 58%),
+    linear-gradient(135deg, color-mix(in srgb, var(--nvidia-green) 14%, var(--surface)) 0%, var(--surface) 58%),
     var(--surface);
   padding: 1.1rem 1.2rem;
 }
 
 .nvidia-technologies h3 {
-  color: color-mix(in srgb, #76b900 72%, var(--text-strong));
+  color: color-mix(in srgb, var(--nvidia-green) 72%, var(--text-strong));
 }
 
 .nvidia-technologies__list {
@@ -1129,7 +1274,7 @@ html.timeline-enhanced .timeline-item.is-visible {
   display: grid;
   grid-template-columns: minmax(13rem, 0.72fr) minmax(0, 1.28fr);
   gap: 0.8rem;
-  border-top: 1px solid color-mix(in srgb, #76b900 28%, var(--line));
+  border-top: 1px solid color-mix(in srgb, var(--nvidia-green) 28%, var(--line));
   padding-top: 0.85rem;
 }
 
@@ -1151,23 +1296,19 @@ html.timeline-enhanced .timeline-item.is-visible {
 }
 
 .contact-section {
-  background: #0e1628;
-  color: #f7f9fc;
+  background: var(--contact-bg);
+  color: var(--contact-fg);
   padding: clamp(4rem, 8vw, 6.5rem) max(1.25rem, calc((100vw - var(--max-width)) / 2));
 }
 
 html[data-theme="dark"] .contact-section {
-  background: #080c12;
-  color: #edf3fb;
+  background: var(--contact-bg);
+  color: var(--contact-fg);
 }
 
 .contact-section__inner {
   max-width: var(--max-width);
   margin: 0 auto;
-}
-
-.contact-section .section-kicker {
-  color: var(--blue);
 }
 
 .contact-section h2 {
@@ -1183,7 +1324,7 @@ html[data-theme="dark"] .contact-section {
 }
 
 .contact-links a {
-  border: 1px solid rgba(247, 249, 252, 0.28);
+  border: 1px solid var(--contact-border);
   border-radius: 8px;
   padding: 0.65rem 0.85rem;
   color: currentColor;
@@ -1204,12 +1345,12 @@ html[data-theme="dark"] .contact-section {
 .contact-links .contact-link--primary {
   border-color: var(--blue);
   background: var(--blue);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .contact-links .contact-link--primary:hover {
   background: var(--blue-strong);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .site-footer {
@@ -1253,8 +1394,8 @@ html[data-theme="dark"] .contact-section {
   border: 1px solid color-mix(in srgb, var(--blue) 42%, var(--line));
   border-radius: 50%;
   background: var(--blue);
-  color: #ffffff;
-  box-shadow: 0 18px 42px rgba(23, 105, 223, 0.32);
+  color: var(--on-accent);
+  box-shadow: var(--shadow-launcher);
   cursor: pointer;
   transition:
     background-color 180ms ease,
@@ -1305,12 +1446,12 @@ html[data-theme="dark"] .contact-section {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
-  box-shadow: 0 24px 80px rgba(23, 32, 51, 0.22);
+  box-shadow: var(--shadow-chat);
   animation: chat-panel-in 180ms var(--ease) both;
 }
 
 html[data-theme="dark"] .chat-widget__panel {
-  box-shadow: 0 24px 90px rgba(0, 0, 0, 0.42);
+  box-shadow: var(--shadow-chat);
 }
 
 .chat-widget__header {
@@ -1385,7 +1526,7 @@ html[data-theme="dark"] .chat-widget__panel {
   justify-self: end;
   border-color: var(--blue);
   background: var(--blue);
-  color: #ffffff;
+  color: var(--on-accent);
 }
 
 .chat-widget__status {
@@ -1453,9 +1594,8 @@ html[data-theme="dark"] .chat-widget__panel {
   line-height: 1.35;
 }
 
-.chat-widget__form textarea:focus {
+.chat-widget__form textarea:focus-visible {
   border-color: var(--blue);
-  outline: none;
 }
 
 .chat-widget__form button {
@@ -1464,7 +1604,7 @@ html[data-theme="dark"] .chat-widget__panel {
   border: 1px solid var(--blue);
   border-radius: 8px;
   background: var(--blue);
-  color: #ffffff;
+  color: var(--on-accent);
   cursor: pointer;
   font-weight: 760;
   padding: 0 0.9rem;
@@ -1526,18 +1666,6 @@ html[data-theme="dark"] .chat-widget__panel {
   }
 }
 
-@keyframes scroll-reveal {
-  from {
-    opacity: 0.9;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes chat-panel-in {
   from {
     opacity: 0;
@@ -1553,22 +1681,6 @@ html[data-theme="dark"] .chat-widget__panel {
 @keyframes chat-status-spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@supports (animation-timeline: view()) {
-  .section-heading,
-  .split > *,
-  .profile-stack > *,
-  .focus-card,
-  .timeline-item,
-  .publication,
-  .detail-card,
-  .skill-group,
-  .contact-section__inner {
-    animation: scroll-reveal 1ms var(--ease) both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 22%;
   }
 }
 
@@ -1588,17 +1700,12 @@ html[data-theme="dark"] .chat-widget__panel {
   }
 
   .nav {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-width: 0;
-    justify-content: center;
-    overflow-x: auto;
+    justify-content: flex-end;
+    overflow: visible;
     padding-bottom: 0.15rem;
     white-space: nowrap;
-    scrollbar-width: none;
-  }
-
-  .nav::-webkit-scrollbar {
-    display: none;
   }
 
   .hero {
@@ -1780,15 +1887,15 @@ html[data-theme="dark"] .chat-widget__panel {
     left: 0.8rem;
     display: block;
     padding: 0;
-    color: #ffffff;
+    color: var(--on-accent);
     font-size: 0.96rem;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+    text-shadow: var(--caption-shadow);
   }
 
   .event-carousel__location {
-    border-color: rgba(255, 255, 255, 0.45);
-    background: rgba(8, 12, 18, 0.48);
-    color: rgba(255, 255, 255, 0.9);
+    border-color: color-mix(in srgb, var(--on-accent) 45%, transparent);
+    background: var(--control-background);
+    color: color-mix(in srgb, var(--on-accent) 90%, transparent);
     backdrop-filter: blur(10px);
   }
 
@@ -1813,7 +1920,7 @@ html[data-theme="dark"] .chat-widget__panel {
 
   .hero {
     background-image:
-      linear-gradient(180deg, rgba(247, 249, 252, 0.98) 0%, rgba(247, 249, 252, 0.88) 56%, rgba(247, 249, 252, 0.42) 100%),
+      linear-gradient(180deg, var(--hero-light-start) 0%, var(--hero-light-mid) 56%, var(--hero-light-end) 100%),
       url("assets/ai-portfolio-hero.png");
     background-position: 64% center;
     padding-top: 3.6rem;
@@ -1821,7 +1928,7 @@ html[data-theme="dark"] .chat-widget__panel {
 
   html[data-theme="dark"] .hero {
     background-image:
-      linear-gradient(180deg, rgba(13, 17, 24, 0.98) 0%, rgba(13, 17, 24, 0.9) 56%, rgba(13, 17, 24, 0.52) 100%),
+      linear-gradient(180deg, var(--hero-dark-start) 0%, var(--hero-dark-mid) 56%, var(--hero-dark-end) 100%),
       url("assets/ai-portfolio-hero.png");
   }
 

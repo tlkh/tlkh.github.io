@@ -116,8 +116,10 @@
     var eventDots = Array.prototype.slice.call(eventCarousel.querySelectorAll(".event-carousel__dots button"));
     var eventPrev = eventCarousel.querySelector(".event-carousel__control--prev");
     var eventNext = eventCarousel.querySelector(".event-carousel__control--next");
+    var eventToggle = eventCarousel.querySelector("#eventCarouselToggle");
     var eventIndex = 0;
     var eventTimer = null;
+    var eventIsPlaying = true;
     var eventMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     function setEventSlide(nextIndex) {
@@ -151,9 +153,19 @@
       }
     }
 
+    function updateEventToggle() {
+      if (!eventToggle) {
+        return;
+      }
+
+      eventToggle.classList.toggle("is-paused", !eventIsPlaying);
+      eventToggle.setAttribute("aria-pressed", eventIsPlaying ? "true" : "false");
+      eventToggle.setAttribute("aria-label", eventIsPlaying ? "Pause event slideshow" : "Play event slideshow");
+    }
+
     function startEventCarousel() {
       stopEventCarousel();
-      if (eventSlides.length < 2 || eventMotionQuery.matches) {
+      if (!eventIsPlaying || eventSlides.length < 2 || eventMotionQuery.matches) {
         return;
       }
       eventTimer = window.setInterval(function () {
@@ -161,26 +173,42 @@
       }, 5200);
     }
 
+    function setEventPlayback(playing) {
+      eventIsPlaying = playing;
+      updateEventToggle();
+      if (playing) {
+        startEventCarousel();
+      } else {
+        stopEventCarousel();
+      }
+    }
+
     if (eventPrev) {
       eventPrev.addEventListener("click", function () {
         setEventSlide(eventIndex - 1);
-        startEventCarousel();
+        setEventPlayback(false);
       });
     }
 
     if (eventNext) {
       eventNext.addEventListener("click", function () {
         setEventSlide(eventIndex + 1);
-        startEventCarousel();
+        setEventPlayback(false);
       });
     }
 
     eventDots.forEach(function (dot, index) {
       dot.addEventListener("click", function () {
         setEventSlide(index);
-        startEventCarousel();
+        setEventPlayback(false);
       });
     });
+
+    if (eventToggle) {
+      eventToggle.addEventListener("click", function () {
+        setEventPlayback(!eventIsPlaying);
+      });
+    }
 
     eventCarousel.addEventListener("mouseenter", stopEventCarousel);
     eventCarousel.addEventListener("mouseleave", startEventCarousel);
@@ -194,6 +222,7 @@
     }
 
     setEventSlide(0);
+    updateEventToggle();
     startEventCarousel();
   }
 
@@ -324,22 +353,18 @@
     }
 
     function neuralPalette() {
-      if (root.dataset.theme === "dark") {
-        return {
-          link: "rgba(114, 173, 255, ",
-          node: "rgba(255, 255, 255, ",
-          pulse: "rgba(255, 255, 255, ",
-          trail: "rgba(114, 173, 255, ",
-          accent: "rgba(118, 185, 0, "
-        };
+      var tokens = getComputedStyle(root);
+
+      function rgbaToken(name) {
+        return "rgba(" + tokens.getPropertyValue(name).trim() + ", ";
       }
 
       return {
-        link: "rgba(11, 79, 179, ",
-        node: "rgba(11, 79, 179, ",
-        pulse: "rgba(255, 255, 255, ",
-        trail: "rgba(23, 105, 223, ",
-        accent: "rgba(23, 105, 223, "
+        link: rgbaToken("--neural-link"),
+        node: rgbaToken("--neural-node"),
+        pulse: rgbaToken("--neural-pulse"),
+        trail: rgbaToken("--neural-trail"),
+        accent: rgbaToken("--neural-accent")
       };
     }
 
