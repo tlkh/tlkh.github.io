@@ -59,13 +59,28 @@
     year.textContent = String(new Date().getFullYear());
   }
 
+  var hero = document.getElementById("top");
   var ambientLight = document.getElementById("ambientLight");
   var ambientPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
   var ambientMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   var ambientFrame = null;
 
   function moveAmbientLight(event) {
-    if (!ambientLight || !ambientPointerQuery.matches || ambientMotionQuery.matches) {
+    if (!ambientLight || !hero || !ambientPointerQuery.matches || ambientMotionQuery.matches) {
+      if (ambientLight) {
+        ambientLight.classList.remove("is-active");
+      }
+      return;
+    }
+
+    var heroRect = hero.getBoundingClientRect();
+    if (
+      event.clientX < heroRect.left ||
+      event.clientX > heroRect.right ||
+      event.clientY < heroRect.top ||
+      event.clientY > heroRect.bottom
+    ) {
+      ambientLight.classList.remove("is-active");
       return;
     }
 
@@ -74,8 +89,8 @@
     }
 
     ambientFrame = window.requestAnimationFrame(function () {
-      ambientLight.style.setProperty("--ambient-x", event.clientX + "px");
-      ambientLight.style.setProperty("--ambient-y", event.clientY + "px");
+      ambientLight.style.setProperty("--ambient-x", event.clientX - heroRect.left + "px");
+      ambientLight.style.setProperty("--ambient-y", event.clientY - heroRect.top + "px");
       ambientLight.classList.add("is-active");
       ambientFrame = null;
     });
@@ -88,9 +103,7 @@
     });
   }
 
-  var pointerCards = Array.prototype.slice.call(
-    document.querySelectorAll(".focus-card, .detail-card, .publication")
-  );
+  var pointerCards = Array.prototype.slice.call(document.querySelectorAll(".publication"));
 
   pointerCards.forEach(function (card) {
     card.addEventListener("pointermove", function (event) {
@@ -165,7 +178,7 @@
 
     function startEventCarousel() {
       stopEventCarousel();
-      if (!eventIsPlaying || eventSlides.length < 2 || eventMotionQuery.matches) {
+      if (!eventIsPlaying || eventSlides.length < 2 || eventMotionQuery.matches || document.hidden) {
         return;
       }
       eventTimer = window.setInterval(function () {
@@ -214,6 +227,13 @@
     eventCarousel.addEventListener("mouseleave", startEventCarousel);
     eventCarousel.addEventListener("focusin", stopEventCarousel);
     eventCarousel.addEventListener("focusout", startEventCarousel);
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) {
+        stopEventCarousel();
+      } else {
+        startEventCarousel();
+      }
+    });
 
     if (eventMotionQuery.addEventListener) {
       eventMotionQuery.addEventListener("change", startEventCarousel);
@@ -226,7 +246,6 @@
     startEventCarousel();
   }
 
-  var hero = document.getElementById("top");
   var heroNeuralField = document.getElementById("heroNeuralField");
   var heroPortrait = hero ? hero.querySelector(".hero__portrait") : null;
 
@@ -243,8 +262,8 @@
       var portraitX = clamp((event.clientX - portraitRect.left) / portraitRect.width, 0, 1) - 0.5;
       var portraitY = clamp((event.clientY - portraitRect.top) / portraitRect.height, 0, 1) - 0.5;
 
-      heroPortrait.style.setProperty("--portrait-tilt-x", (-portraitY * 7).toFixed(2) + "deg");
-      heroPortrait.style.setProperty("--portrait-tilt-y", (portraitX * 9).toFixed(2) + "deg");
+      heroPortrait.style.setProperty("--portrait-tilt-x", (-portraitY * 3).toFixed(2) + "deg");
+      heroPortrait.style.setProperty("--portrait-tilt-y", (portraitX * 4).toFixed(2) + "deg");
     });
 
     hero.addEventListener("pointerleave", function () {
@@ -256,10 +275,12 @@
   if (hero && heroNeuralField && heroNeuralField.getContext) {
     var neuralContext = heroNeuralField.getContext("2d");
     var neuralMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var neuralPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
     var neuralFrame = null;
     var neuralWidth = 0;
     var neuralHeight = 0;
     var neuralDpr = 1;
+    var neuralHeroVisible = true;
     var neuralSeed = 1;
     var neuralNodes = [];
     var neuralLinks = [];
@@ -297,7 +318,7 @@
 
     function buildNeuralField() {
       var area = neuralWidth * neuralHeight;
-      var nodeCount = Math.round(clamp(area / 23000, 24, 64));
+      var nodeCount = Math.round(clamp(area / 30000, 18, 48));
       var linkDistance = neuralWidth < 680 ? 118 : 168;
       var i;
       var j;
@@ -342,7 +363,7 @@
       });
       neuralLinks = neuralLinks.slice(0, Math.round(nodeCount * 2.4));
 
-      for (i = 0; i < Math.min(18, Math.max(7, Math.round(neuralLinks.length / 5))); i += 1) {
+      for (i = 0; i < Math.min(10, Math.max(5, Math.round(neuralLinks.length / 6))); i += 1) {
         neuralPulses.push({
           link: neuralLinks[Math.floor(neuralRandom() * neuralLinks.length)],
           offset: neuralRandom(),
@@ -369,7 +390,7 @@
     }
 
     function addNeuralTrail(x, y, time) {
-      if (time - neuralPointer.lastTrailAt < 42) {
+      if (time - neuralPointer.lastTrailAt < 60) {
         return;
       }
 
@@ -381,7 +402,7 @@
         life: 1
       });
 
-      if (neuralTrails.length > 28) {
+      if (neuralTrails.length > 16) {
         neuralTrails.shift();
       }
     }
@@ -496,7 +517,7 @@
       stopNeuralField();
       resizeNeuralField();
 
-      if (!neuralMotionQuery.matches && !document.hidden) {
+      if (!neuralMotionQuery.matches && neuralPointerQuery.matches && !document.hidden && neuralHeroVisible) {
         neuralFrame = window.requestAnimationFrame(animateNeuralField);
       }
     }
@@ -531,6 +552,12 @@
       neuralMotionQuery.addListener(startNeuralField);
     }
 
+    if (neuralPointerQuery.addEventListener) {
+      neuralPointerQuery.addEventListener("change", startNeuralField);
+    } else if (neuralPointerQuery.addListener) {
+      neuralPointerQuery.addListener(startNeuralField);
+    }
+
     if (window.MutationObserver) {
       new MutationObserver(function () {
         drawNeuralField(window.performance ? window.performance.now() : Date.now());
@@ -545,6 +572,22 @@
       }
     });
 
+    if ("IntersectionObserver" in window) {
+      var heroVisibilityObserver = new IntersectionObserver(
+        function (entries) {
+          neuralHeroVisible = Boolean(entries[0] && entries[0].isIntersecting);
+          if (neuralHeroVisible) {
+            startNeuralField();
+          } else {
+            stopNeuralField();
+          }
+        },
+        { threshold: 0.05 }
+      );
+
+      heroVisibilityObserver.observe(hero);
+    }
+
     startNeuralField();
   }
 
@@ -552,43 +595,11 @@
 
   if (timeline) {
     var timelineItems = Array.prototype.slice.call(timeline.querySelectorAll(".timeline-item"));
-    var timelineTicking = false;
 
     root.classList.add("timeline-enhanced");
 
-    function updateTimelineProgress() {
-      var rect = timeline.getBoundingClientRect();
-      var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-      var progress = (viewportHeight * 0.72 - rect.top) / (rect.height + viewportHeight * 0.16);
-      var activeItem = null;
-      var activeDistance = Infinity;
-      var activationY = viewportHeight * 0.48;
-
-      timeline.style.setProperty("--timeline-progress", (clamp(progress, 0, 1) * 100).toFixed(2) + "%");
-
-      timelineItems.forEach(function (item) {
-        var itemRect = item.getBoundingClientRect();
-        var itemCenter = itemRect.top + itemRect.height * 0.35;
-        var distance = Math.abs(itemCenter - activationY);
-
-        if (itemRect.bottom > viewportHeight * 0.08 && itemRect.top < viewportHeight * 0.82 && distance < activeDistance) {
-          activeDistance = distance;
-          activeItem = item;
-        }
-      });
-
-      timelineItems.forEach(function (item) {
-        item.classList.toggle("is-current", item === activeItem);
-      });
-
-      timelineTicking = false;
-    }
-
-    function requestTimelineUpdate() {
-      if (!timelineTicking) {
-        timelineTicking = true;
-        window.requestAnimationFrame(updateTimelineProgress);
-      }
+    if (timelineItems[0]) {
+      timelineItems[0].classList.add("is-current");
     }
 
     if ("IntersectionObserver" in window) {
@@ -609,15 +620,42 @@
       timelineItems.forEach(function (item) {
         timelineObserver.observe(item);
       });
+
+      var timelineCurrentObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            entry.target.__timelineRatio = entry.isIntersecting ? entry.intersectionRatio : 0;
+          });
+
+          var activeItem = timelineItems[0] || null;
+          var activeRatio = 0;
+
+          timelineItems.forEach(function (item) {
+            var ratio = item.__timelineRatio || 0;
+            if (ratio > activeRatio) {
+              activeRatio = ratio;
+              activeItem = item;
+            }
+          });
+
+          timelineItems.forEach(function (item) {
+            item.classList.toggle("is-current", item === activeItem);
+          });
+        },
+        {
+          rootMargin: "-20% 0px -35% 0px",
+          threshold: [0, 0.25, 0.5, 0.75, 1]
+        }
+      );
+
+      timelineItems.forEach(function (item) {
+        timelineCurrentObserver.observe(item);
+      });
     } else {
       timelineItems.forEach(function (item) {
         item.classList.add("is-visible");
       });
     }
-
-    window.addEventListener("scroll", requestTimelineUpdate, { passive: true });
-    window.addEventListener("resize", requestTimelineUpdate);
-    updateTimelineProgress();
   }
 
   var chatWidget = document.getElementById("chatWidget");
@@ -636,6 +674,9 @@
     var warmupPromise = null;
     var proxyReadyAt = 0;
     var proxyReadyTtlMs = 4 * 60 * 1000;
+    var chatRestoreFocus = null;
+    var chatCloseTimer = null;
+    var chatMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     chatWidget.hidden = false;
 
@@ -645,6 +686,12 @@
       }
       chatStatus.textContent = message || "";
       chatStatus.classList.toggle("is-busy", Boolean(busy));
+      if (chatMessages) {
+        chatMessages.setAttribute("aria-busy", busy ? "true" : "false");
+      }
+      if (chatPanel) {
+        chatPanel.setAttribute("aria-busy", busy ? "true" : "false");
+      }
     }
 
     function setChatFallback(visible) {
@@ -764,37 +811,98 @@
       });
     }
 
-    function setChatOpen(open) {
+    function finishChatClose() {
       if (!chatPanel || !chatLauncher) {
         return;
       }
 
-      chatPanel.hidden = !open;
-      chatWidget.classList.toggle("is-open", open);
-      chatLauncher.setAttribute("aria-expanded", open ? "true" : "false");
-      chatLauncher.setAttribute("aria-label", open ? "Close chat" : "Open chat");
-
-      if (open) {
-        waitForProxy().catch(function () {
-          // The submit path will surface the retryable error if the user sends a message.
-        });
-        window.setTimeout(function () {
-          if (chatInput) {
-            chatInput.focus();
-          }
-        }, 60);
+      if (chatCloseTimer) {
+        window.clearTimeout(chatCloseTimer);
+        chatCloseTimer = null;
       }
+
+      if (chatPanel.open && chatPanel.close) {
+        chatPanel.close();
+      } else {
+        chatPanel.removeAttribute("open");
+      }
+
+      chatPanel.classList.remove("is-closing");
+      chatWidget.classList.remove("is-open");
+      chatLauncher.setAttribute("aria-expanded", "false");
+      chatLauncher.setAttribute("aria-label", "Open chat");
+
+      var restoreTarget = chatRestoreFocus && document.contains(chatRestoreFocus) ? chatRestoreFocus : chatLauncher;
+      chatRestoreFocus = null;
+      restoreTarget.focus();
+    }
+
+    function closeChat() {
+      if (!chatPanel || !chatPanel.open || chatPanel.classList.contains("is-closing")) {
+        return;
+      }
+
+      chatPanel.classList.add("is-closing");
+      var finished = false;
+      var finish = function () {
+        if (finished) {
+          return;
+        }
+        finished = true;
+        chatPanel.removeEventListener("animationend", finish);
+        finishChatClose();
+      };
+
+      chatPanel.addEventListener("animationend", finish);
+      chatCloseTimer = window.setTimeout(finish, chatMotionQuery.matches ? 220 : 280);
+    }
+
+    function openChat() {
+      if (!chatPanel || !chatLauncher || chatPanel.open) {
+        return;
+      }
+
+      chatRestoreFocus = document.activeElement;
+      chatWidget.classList.add("is-open");
+      chatLauncher.setAttribute("aria-expanded", "true");
+      chatLauncher.setAttribute("aria-label", "Close chat");
+
+      if (chatPanel.showModal) {
+        chatPanel.showModal();
+      } else {
+        chatPanel.setAttribute("open", "");
+      }
+
+      waitForProxy().catch(function () {
+        // The submit path will surface the retryable error if the user sends a message.
+      });
+      window.requestAnimationFrame(function () {
+        if (chatInput && chatPanel.open) {
+          chatInput.focus();
+        }
+      });
     }
 
     if (chatLauncher) {
       chatLauncher.addEventListener("click", function () {
-        setChatOpen(chatPanel ? chatPanel.hidden : true);
+        if (chatPanel && chatPanel.open) {
+          closeChat();
+        } else {
+          openChat();
+        }
       });
     }
 
     if (chatClose) {
       chatClose.addEventListener("click", function () {
-        setChatOpen(false);
+        closeChat();
+      });
+    }
+
+    if (chatPanel) {
+      chatPanel.addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeChat();
       });
     }
 
@@ -873,7 +981,9 @@
           })
           .finally(function () {
             setChatDisabled(false);
-            chatInput.focus();
+            if (chatPanel && chatPanel.open) {
+              chatInput.focus();
+            }
           });
       });
     }

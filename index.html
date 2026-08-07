@@ -66,8 +66,6 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <div class="ambient-light" id="ambientLight" aria-hidden="true"></div>
-
     <header class="site-header">
       <a class="brand" href="#top" aria-label="Timothy Liu Kaihui home">
         <span class="brand__mark">TL</span>
@@ -91,6 +89,7 @@
 
     <section class="hero" id="top" aria-labelledby="hero-title">
       <canvas class="hero__neural-field" id="heroNeuralField" aria-hidden="true"></canvas>
+      <div class="ambient-light" id="ambientLight" aria-hidden="true"></div>
       <div class="hero__layout">
         <div class="hero__content">
           <p class="eyebrow">Applied AI | Ecosystem Development | PhD in NLP</p>
@@ -98,12 +97,13 @@
           <p class="hero__lead">
             Solutions Architect, NVIDIA AI Technology Centre (NVAITC)
           </p>
-          <div class="hero__actions" aria-label="Primary and profile links">
+          <div class="hero__actions" role="group" aria-label="Primary and profile links">
             <a class="button button--primary" href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">
               LinkedIn
             </a>
             <a class="button button--secondary" href="https://github.com/tlkh" target="_blank" rel="noopener">GitHub</a>
             <a class="button button--secondary" href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="button button--secondary" href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
           </div>
         </div>
         <div class="hero__portrait">
@@ -151,37 +151,37 @@
               <p>Workshops, mentoring, student supervision, and ecosystem building.</p>
             </article>
           </div>
-          <div class="event-carousel" id="eventCarousel" aria-roledescription="carousel" aria-label="Event highlights">
+          <div class="event-carousel" id="eventCarousel" role="region" aria-roledescription="carousel" aria-label="Event highlights">
             <div class="event-carousel__viewport">
-              <figure class="event-carousel__slide is-active" aria-hidden="false">
+              <figure class="event-carousel__slide is-active" role="group" aria-roledescription="slide" aria-label="Event photo 1 of 8" aria-hidden="false">
                 <img src="assets/event-carousel-8.jpg" alt="Workshop on NVIDIA NIM, Nemtron and NemoClaw at Chulalongkorn University">
                 <figcaption><span class="event-carousel__location">🇹🇭 Chulalongkorn University</span>Workshop on NVIDIA NIM, Nemtron and NemoClaw</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 2 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-2.jpg" alt="Timothy Liu delivering an invited talk on Trustworthy Agentic AI with NVIDIA NIM at the AAAI 2026 workshop at Singapore EXPO" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇸🇬 AAAI 2026</span>Co-organised workshop; invited talk on Trustworthy Agentic AI with NVIDIA NIM</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 3 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-3.jpg" alt="Presenters and attendees at Milipol TechX Summit 2026 in a busy exhibition hall" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇸🇬 Milipol TechX Summit 2026</span>Invited talk on NVIDIA NIM and applied research</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 4 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-4.jpg" alt="Timothy Liu speaking at a Republic Polytechnic podium during an invited talk" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇸🇬 Republic Polytechnic</span>Invited talk on Physical AI and humanoid robotics</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 5 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-5.jpg" alt="Timothy Liu at Universitas Gadjah Mada" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇮🇩 Universitas Gadjah Mada</span>Opening remarks and invited talk on NVIDIA technology: NIM, MONAI, and Metropolis</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 6 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-6.jpg" alt="Workshop on agentic AI use cases for financial services" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇸🇬 Institute of Singapore Chartered Accountants</span>Co-organised workshop; invited talk on NVIDIA technology use cases for financial services</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 7 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-7.jpg" alt="Timothy Liu presenting the NVIDIA Accelerated Computing Platform at Imperial College" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇬🇧 Imperial College</span>Invited talk on the NVIDIA Accelerated Computing Platform and AI research</figcaption>
               </figure>
-              <figure class="event-carousel__slide" aria-hidden="true">
+              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 8 of 8" aria-hidden="true">
                 <img src="assets/event-carousel-1.jpg" alt="Timothy Liu presenting the NVIDIA AI-Q Research Agent at a Hitachi Asia event" loading="lazy">
                 <figcaption><span class="event-carousel__location">🇸🇬 Hitachi Asia</span>Invited talk on NVIDIA NIM and AI-Q Blueprint</figcaption>
               </figure>
@@ -204,7 +204,7 @@
                 <path d="m9 6 8 6-8 6z"></path>
               </svg>
             </button>
-            <div class="event-carousel__dots" aria-label="Choose event photo">
+            <div class="event-carousel__dots" role="group" aria-label="Choose event photo">
               <button class="is-active" type="button" aria-label="Show event photo 1" aria-current="true"></button>
               <button type="button" aria-label="Show event photo 2"></button>
               <button type="button" aria-label="Show event photo 3"></button>
@@ -314,7 +314,7 @@
             <article class="publication">
               <div class="publication__meta">
                 <span class="publication__venue">Findings of ACL 2023</span>
-                <span class="publication__citations">25 citations</span>
+                <span class="publication__citations">28 citations</span>
               </div>
               <h3>
                 <a href="https://aclanthology.org/2023.findings-acl.641/" target="_blank" rel="noopener">
@@ -326,7 +326,7 @@
             <article class="publication">
               <div class="publication__meta">
                 <span class="publication__venue">IEEE Access 2025</span>
-                <span class="publication__citations">14 citations</span>
+                <span class="publication__citations">13 citations</span>
               </div>
               <h3>
                 <a href="https://ieeexplore.ieee.org/document/10824802/" target="_blank" rel="noopener">
@@ -374,11 +374,15 @@
             </article>
             <article class="publication">
               <div class="publication__meta">
-                <span class="publication__venue">ISBI 2026</span>
-                <span class="publication__citations">0 citations</span>
+                <span class="publication__venue">arXiv 2026</span>
+                <span class="publication__citations">1 citation</span>
               </div>
-              <h3>ADAPT: Multibeamformer with Tunable Weight Fusion and Patch-Wise Learning for Ultrasound Imaging</h3>
-              <p>Gopikrishnan G., Panicker M.R., <strong>Liu T.</strong>, Ng A.B., See S.C.-W.</p>
+              <h3>
+                <a href="https://arxiv.org/abs/2606.22932" target="_blank" rel="noopener">
+                  FORGE: Fused On-Register Gradient Elimination for Memory-Efficient LLM Training
+                </a>
+              </h3>
+              <p>Kukreja D., Prasad K., Anand A., Wang Z., Cambria E., <strong>Liu T.</strong>, Ng A.B., See S., Chatterjee B.</p>
             </article>
             <article class="publication">
               <div class="publication__meta">
@@ -557,7 +561,7 @@
           <path d="M8 11.2h8M8 14.4h5.2"></path>
         </svg>
       </button>
-      <section class="chat-widget__panel" id="chatPanel" aria-labelledby="chatTitle" hidden>
+      <dialog class="chat-widget__panel" id="chatPanel" aria-modal="true" aria-labelledby="chatTitle" aria-busy="false">
         <header class="chat-widget__header">
           <div>
             <p class="chat-widget__kicker">Portfolio AI</p>
@@ -569,7 +573,7 @@
             </svg>
           </button>
         </header>
-        <div class="chat-widget__messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions">
+        <div class="chat-widget__messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions" aria-busy="false">
           <p class="chat-message chat-message--assistant">Hi, I can answer questions about Timothy's public work and background.</p>
         </div>
         <p class="chat-widget__status" id="chatStatus" aria-live="polite"></p>
@@ -589,7 +593,7 @@
           ></textarea>
           <button type="submit" title="Enter to send">Send</button>
         </form>
-      </section>
+      </dialog>
     </div>
 
     <script src="script.js"></script>
