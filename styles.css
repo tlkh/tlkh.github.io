@@ -1257,6 +1257,12 @@ html.timeline-enhanced .timeline-item.is-visible {
   gap: 1rem;
 }
 
+.repository-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
 .detail-card {
   padding: 1.25rem;
 }
@@ -1269,6 +1275,31 @@ html.timeline-enhanced .timeline-item.is-visible {
   color: var(--blue-strong) !important;
   font-size: 0.82rem;
   font-weight: 790;
+}
+
+.repository-card h3,
+.repository-card .project-meta {
+  overflow-wrap: anywhere;
+}
+
+.upstream-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 1.25rem;
+  align-items: baseline;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.25rem;
+}
+
+.upstream-note p,
+.metrics-note {
+  color: var(--muted);
+}
+
+.metrics-note {
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .education-grid {
@@ -1838,6 +1869,10 @@ html[data-theme="dark"] .chat-widget__panel {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .repository-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero__layout {
     width: 100%;
     max-width: calc(100vw - 2.5rem);
@@ -1906,6 +1941,11 @@ html[data-theme="dark"] .chat-widget__panel {
 }
 
 @media (max-width: 620px) {
+  .repository-grid,
+  .upstream-note {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .brand__text {
     display: none;
   }
