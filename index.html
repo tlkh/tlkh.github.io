@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d1118" media="(prefers-color-scheme: dark)">
     <meta
       name="description"
       content="Portfolio for Timothy Liu Kaihui, Solutions Architect at NVIDIA AI Technology Centre and PhD in Natural Language Processing."
@@ -14,8 +16,40 @@
       content="Applied AI, open models, foundation models, multimodal systems, accelerated computing, and NLP research."
     >
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/ai-portfolio-hero.png">
-    <title>Timothy Liu | Portfolio</title>
+    <meta property="og:url" content="https://tlkh.github.io/">
+    <meta property="og:site_name" content="Timothy Liu Kaihui">
+    <meta property="og:locale" content="en_SG">
+    <meta property="og:image" content="https://tlkh.github.io/assets/ai-portfolio-hero.png">
+    <meta property="og:image:width" content="1774">
+    <meta property="og:image:height" content="887">
+    <meta property="og:image:alt" content="Timothy Liu Kaihui portfolio covering applied AI, research, and accelerated computing">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timothy Liu Kaihui | Portfolio">
+    <meta
+      name="twitter:description"
+      content="Applied AI, open models, foundation models, multimodal systems, accelerated computing, and NLP research."
+    >
+    <meta name="twitter:image" content="https://tlkh.github.io/assets/ai-portfolio-hero.png">
+    <meta name="twitter:image:alt" content="Timothy Liu Kaihui portfolio covering applied AI, research, and accelerated computing">
+    <link rel="canonical" href="https://tlkh.github.io/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      as="image"
+      href="assets/ai-portfolio-hero-960.avif"
+      type="image/avif"
+      media="(max-width: 620px)"
+      fetchpriority="high"
+    >
+    <link
+      rel="preload"
+      as="image"
+      href="assets/ai-portfolio-hero-1774.avif"
+      type="image/avif"
+      media="(min-width: 621px)"
+      fetchpriority="high"
+    >
+    <title>Timothy Liu Kaihui | Portfolio</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -72,9 +106,28 @@
         <span class="brand__text">Timothy Liu Kaihui</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#experience">Experience</a>
-        <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
+        <a class="nav__link" href="#experience" data-nav-target="experience">Experience</a>
+        <a class="nav__link" href="#research" data-nav-target="research">Research</a>
+        <a class="nav__link nav__link--supplemental" href="#open-source" data-nav-target="open-source">Open source</a>
+        <a class="nav__link nav__link--supplemental" href="#contact" data-nav-target="contact">Contact</a>
+        <div class="nav-more">
+          <button
+            class="nav-more__toggle"
+            id="navMoreToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="navMoreMenu"
+          >
+            <span>More</span>
+            <svg aria-hidden="true" viewBox="0 0 16 16">
+              <path d="m4 6 4 4 4-4"></path>
+            </svg>
+          </button>
+          <div class="nav-more__menu" id="navMoreMenu" hidden>
+            <a href="#open-source" data-nav-target="open-source">Open source</a>
+            <a href="#contact" data-nav-target="contact">Contact</a>
+          </div>
+        </div>
       </nav>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" title="Switch color theme">
         <svg class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true" viewBox="0 0 24 24">
@@ -107,7 +160,26 @@
           </div>
         </div>
         <div class="hero__portrait">
-          <img src="assets/timothy-liu-kaihui-profile.jpeg" alt="Portrait of Timothy">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="assets/timothy-liu-kaihui-profile-400.avif 400w, assets/timothy-liu-kaihui-profile-800.avif 800w"
+              sizes="(max-width: 920px) 48vw, 18rem"
+            >
+            <source
+              type="image/webp"
+              srcset="assets/timothy-liu-kaihui-profile-400.webp 400w, assets/timothy-liu-kaihui-profile-800.webp 800w"
+              sizes="(max-width: 920px) 48vw, 18rem"
+            >
+            <img
+              src="assets/timothy-liu-kaihui-profile.jpeg"
+              width="800"
+              height="800"
+              alt="Portrait of Timothy"
+              decoding="async"
+              fetchpriority="high"
+            >
+          </picture>
         </div>
       </div>
     </section>
@@ -154,35 +226,67 @@
           <div class="event-carousel" id="eventCarousel" role="region" aria-roledescription="carousel" aria-label="Event highlights">
             <div class="event-carousel__viewport">
               <figure class="event-carousel__slide is-active" role="group" aria-roledescription="slide" aria-label="Event photo 1 of 8" aria-hidden="false">
-                <img src="assets/event-carousel-8.jpg" alt="Workshop on NVIDIA NIM, Nemtron and NemoClaw at Chulalongkorn University">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-8-640.avif 640w, assets/event-carousel-8-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-8-640.webp 640w, assets/event-carousel-8-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-8.jpg" width="2160" height="1620" alt="Workshop on NVIDIA NIM, Nemtron and NemoClaw at Chulalongkorn University" loading="lazy" decoding="async">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇹🇭 Chulalongkorn University</span>Workshop on NVIDIA NIM, Nemtron and NemoClaw</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 2 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-2.jpg" alt="Timothy Liu delivering an invited talk on Trustworthy Agentic AI with NVIDIA NIM at the AAAI 2026 workshop at Singapore EXPO" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-2-640.avif 640w, assets/event-carousel-2-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-2-640.webp 640w, assets/event-carousel-2-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-2.jpg" width="2048" height="1366" alt="Timothy Liu delivering an invited talk on Trustworthy Agentic AI with NVIDIA NIM at the AAAI 2026 workshop at Singapore EXPO" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇸🇬 AAAI 2026</span>Co-organised workshop; invited talk on Trustworthy Agentic AI with NVIDIA NIM</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 3 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-3.jpg" alt="Presenters and attendees at Milipol TechX Summit 2026 in a busy exhibition hall" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-3-640.avif 640w, assets/event-carousel-3-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-3-640.webp 640w, assets/event-carousel-3-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-3.jpg" width="2048" height="1536" alt="Presenters and attendees at Milipol TechX Summit 2026 in a busy exhibition hall" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇸🇬 Milipol TechX Summit 2026</span>Invited talk on NVIDIA NIM and applied research</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 4 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-4.jpg" alt="Timothy Liu speaking at a Republic Polytechnic podium during an invited talk" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-4-640.avif 640w, assets/event-carousel-4-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-4-640.webp 640w, assets/event-carousel-4-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-4.jpg" width="2048" height="1365" alt="Timothy Liu speaking at a Republic Polytechnic podium during an invited talk" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇸🇬 Republic Polytechnic</span>Invited talk on Physical AI and humanoid robotics</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 5 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-5.jpg" alt="Timothy Liu at Universitas Gadjah Mada" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-5-640.avif 640w, assets/event-carousel-5-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-5-640.webp 640w, assets/event-carousel-5-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-5.jpg" width="2048" height="1536" alt="Timothy Liu at Universitas Gadjah Mada" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇮🇩 Universitas Gadjah Mada</span>Opening remarks and invited talk on NVIDIA technology: NIM, MONAI, and Metropolis</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 6 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-6.jpg" alt="Workshop on agentic AI use cases for financial services" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-6-640.avif 640w, assets/event-carousel-6-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-6-640.webp 640w, assets/event-carousel-6-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-6.jpg" width="2048" height="1538" alt="Workshop on agentic AI use cases for financial services" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇸🇬 Institute of Singapore Chartered Accountants</span>Co-organised workshop; invited talk on NVIDIA technology use cases for financial services</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 7 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-7.jpg" alt="Timothy Liu presenting the NVIDIA Accelerated Computing Platform at Imperial College" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-7-640.avif 640w, assets/event-carousel-7-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-7-640.webp 640w, assets/event-carousel-7-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-7.jpg" width="2048" height="1536" alt="Timothy Liu presenting the NVIDIA Accelerated Computing Platform at Imperial College" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇬🇧 Imperial College</span>Invited talk on the NVIDIA Accelerated Computing Platform and AI research</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 8 of 8" aria-hidden="true">
-                <img src="assets/event-carousel-1.jpg" alt="Timothy Liu presenting the NVIDIA AI-Q Research Agent at a Hitachi Asia event" loading="lazy">
+                <picture>
+                  <source type="image/avif" srcset="assets/event-carousel-1-640.avif 640w, assets/event-carousel-1-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <source type="image/webp" srcset="assets/event-carousel-1-640.webp 640w, assets/event-carousel-1-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
+                  <img src="assets/event-carousel-1.jpg" width="2048" height="1536" alt="Timothy Liu presenting the NVIDIA AI-Q Research Agent at a Hitachi Asia event" loading="lazy" decoding="async" fetchpriority="low">
+                </picture>
                 <figcaption><span class="event-carousel__location">🇸🇬 Hitachi Asia</span>Invited talk on NVIDIA NIM and AI-Q Blueprint</figcaption>
               </figure>
             </div>
@@ -562,7 +666,6 @@
             <h3 id="upstream-title">Upstream Contributions</h3>
             <p>Contributions to HuggingFace Transformers, TensorFlow docs, and JupyterHub GPU guidance.</p>
           </aside>
-          <p class="metrics-note">GitHub metrics verified August 2026.</p>
         </div>
       </section>
 
