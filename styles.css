@@ -1157,6 +1157,97 @@ html[data-theme="dark"] .publication:focus-within {
   background: var(--on-accent);
 }
 
+.media-coverage {
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.media-coverage > h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+}
+
+.media-coverage__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.media-coverage__item {
+  display: grid;
+  align-content: start;
+  gap: 0.9rem;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+.media-coverage__item-heading {
+  display: grid;
+  justify-items: start;
+  gap: 0.55rem;
+}
+
+.media-coverage__item h4 {
+  margin: 0;
+  color: var(--text-strong);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.32;
+  overflow-wrap: anywhere;
+}
+
+.media-coverage__role {
+  border: 1px solid color-mix(in srgb, var(--blue) 30%, var(--line));
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: var(--blue-strong);
+  padding: 0.15rem 0.5rem;
+  font-size: 0.76rem;
+  font-weight: 790;
+  line-height: 1.25;
+}
+
+.media-coverage__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.media-coverage__links a {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--blue-strong);
+  padding: 0.4rem 0.6rem;
+  font-size: 0.82rem;
+  font-weight: 720;
+  line-height: 1.3;
+  text-decoration: none;
+  transition:
+    border-color var(--dur-short) var(--ease-out),
+    background-color var(--dur-short) var(--ease-out),
+    color var(--dur-short) var(--ease-out),
+    transform var(--dur-short) var(--ease-out);
+}
+
+.media-coverage__links a:hover,
+.media-coverage__links a:focus-visible {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: var(--on-accent);
+  transform: translateY(-1px);
+}
+
+.media-coverage__links a:active {
+  transform: translateY(1px) scale(0.98);
+}
+
 .timeline {
   --timeline-gutter: clamp(1.45rem, 2.8vw, 2.2rem);
   --timeline-rail-x: 0.55rem;
@@ -1968,6 +2059,7 @@ html[data-theme="dark"] .chat-widget__panel {
   .hero__layout,
   .focus-grid,
   .award-grid,
+  .media-coverage__list,
   .publication-list,
   .education-grid,
   .skill-groups,
