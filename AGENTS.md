@@ -37,3 +37,10 @@ This repository contains Timothy Liu Kaihui's static professional portfolio webs
 ## Deployment Notes
 
 GitHub Pages can serve this from the repository root. No package install or build step is required.
+
+## Interaction Verification
+
+- Run `node --check script.js` and `git diff --check` after interaction edits.
+- Check 320px, 390px, 768px, and 1440px layouts in both themes, including anchor offsets, carousel counter wraparound, mobile navigation, toolkit disclosure, and print layout.
+- Browser automation should mock the Render `/health` and `/api/chat` endpoints to test success and failure without sending live chat messages. Check that LinkedIn remains visible during warmup and failures, and closing chat restores launcher focus.
+- Keep browser audit scripts and screenshots outside the repository.

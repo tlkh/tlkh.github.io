@@ -109,7 +109,7 @@
         <a class="nav__link" href="#experience" data-nav-target="experience">Experience</a>
         <a class="nav__link" href="#research" data-nav-target="research">Research</a>
         <a class="nav__link nav__link--supplemental" href="#open-source" data-nav-target="open-source">Open source</a>
-        <a class="nav__link nav__link--supplemental" href="#contact" data-nav-target="contact">Contact</a>
+        <a class="nav__link" href="#contact" data-nav-target="contact">Contact</a>
         <div class="nav-more">
           <button
             class="nav-more__toggle"
@@ -125,7 +125,7 @@
           </button>
           <div class="nav-more__menu" id="navMoreMenu" hidden>
             <a href="#open-source" data-nav-target="open-source">Open source</a>
-            <a href="#contact" data-nav-target="contact">Contact</a>
+            <a href="#events" data-nav-target="events">Speaking</a>
           </div>
         </div>
       </nav>
@@ -150,6 +150,7 @@
           <p class="hero__lead">
             Solutions Architect, NVIDIA AI Technology Centre (NVAITC)
           </p>
+          <p class="hero__summary">I connect AI research with practical adoption through applied AI programmes, prototypes, and partner collaboration, grounded in a PhD in natural language processing.</p>
           <div class="hero__actions" role="group" aria-label="Primary and profile links">
             <a class="button button--primary" href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">
               LinkedIn
@@ -185,43 +186,198 @@
     </section>
 
     <main id="main">
-      <section class="section section--intro" id="profile">
-        <div class="section__inner profile-stack">
-          <div>
-            <h2>Bridging AI research and adoption.</h2>
+      <section class="section" id="experience">
+        <div class="section__inner">
+          <div class="section-heading">
+            <h2>Experience</h2>
+            <p>Regional AI collaboration and enablement.</p>
           </div>
-          <div class="intro-copy">
-            <p>
-              I help shape applied AI programmes, prototypes, and roadmaps with academic, government, and industry
-              partners. My work spans foundation models, multimodal AI, agents, accelerated computing, and open models. I did my PhD at SUTD, focused on paraphrasing, semantic similarity, dataset reliability, and sentence-pair
-              classification for NLP generation, classification, and testing.
-            </p>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Aug 2024 - Present</span>
+                <strong>NVIDIA AI Technology Centre</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>Solutions Architect</h3>
+                <p>
+                  Support applied AI collaborations across Singapore, Thailand, Indonesia, Vietnam, and Australia.
+                </p>
+                <ul>
+                  <li>Served on organising committees for the <a href="https://www.singaporetech.edu.sg/news/sit-marks-opening-its-flagship-ai-centre-sit-punggol-campus-key-initiatives-and-partnerships-advance" target="_blank" rel="noopener">SNAIC launch</a>, <a href="https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/" target="_blank" rel="noopener">UGM Indosat NVAITC launch</a>, and <a href="https://www.chula.ac.th/en/news/418395/" target="_blank" rel="noopener">CU x NVAITC Symposium</a>.</li>
+                  <li>Co-organised workshops and delivered invited talks on NVIDIA NIM and applied AI at <a href="#events">AAAI 2026 and partner events</a>.</li>
+                  <li>Co-authored research on <a href="https://ieeexplore.ieee.org/document/10824802/" target="_blank" rel="noopener">federated learning with synthetic images</a> and <a href="https://arxiv.org/abs/2603.12840" target="_blank" rel="noopener">voice anonymization evaluation</a>.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Mar 2023 - Present</span>
+                <strong>Digital and Intelligence Service</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>NSman</h3>
+                <p>Awarded Formation Promising NSman of the Year and invited to the Presidential Garden Reception 2026.</p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Sep 2023 - Dec 2023</span>
+                <strong>Sony Research, Japan</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>Research Intern</h3>
+                <p>Researched multimodal foundation models and long-form image captioning with a Japanese R&amp;D team.</p>
+                <ul>
+                  <li>Improved paragraph-length captioning and synthetic data for image-text retrieval.</li>
+                  <li>Fine-tuned 7B+ multimodal models on ABCI with multi-GPU training and DeepSpeed.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-item__meta">
+                <span>Jun 2018 - Jun 2023</span>
+                <strong>NVIDIA AI Technology Centre</strong>
+              </div>
+              <div class="timeline-item__body">
+                <h3>Solutions Architect Intern</h3>
+                <p>
+                  Completed a five-year NVIDIA internship alongside undergraduate and postgraduate studies.
+                </p>
+                <ul>
+                  <li>Built <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">a deep learning container</a> for reproducible experimentation.</li>
+                  <li>Supported GPU workloads on Kubernetes across on-premises and cloud environments.</li>
+                  <li>Earned NVIDIA DLI Certified Instructor status for NLP, RAPIDS, and multi-GPU courses.</li>
+                </ul>
+              </div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--muted" aria-labelledby="focus-title">
+      <section class="section section--muted section--tight" id="research">
         <div class="section__inner">
           <div class="section-heading">
-            <h2 id="focus-title">Where I spend my time</h2>
+            <h2>Selected publications</h2>
+            <div class="profile-links profile-links--section" aria-label="Research profile links">
+              <a href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
+            </div>
           </div>
-          <div class="focus-grid">
-            <article class="focus-card">
-              <h3>Applied AI Programmes</h3>
-              <p>Partner discovery, scoping, prototypes, research translation, and roadmaps.</p>
+          <div class="publication-list">
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">Findings of ACL 2023</span>
+                <span class="publication__citations">28 citations</span>
+              </div>
+              <h3>
+                <a href="https://aclanthology.org/2023.findings-acl.641/" target="_blank" rel="noopener">
+                  NewsMet: A “do it all” Dataset of Contemporary Metaphors in News Headlines
+                </a>
+              </h3>
+              <p class="publication__authors">Joseph R., <strong>Liu T.</strong>, Ng A.B., See S., Rai S.</p>
+              <p class="publication__takeaway">A hand-annotated news headline dataset supports evaluation of how language models interpret and generate metaphors.</p>
             </article>
-            <article class="focus-card">
-              <h3>Foundation &amp; Multimodal Models</h3>
-              <p>Generative AI, vision-language systems, synthetic data, and model adaptation.</p>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ACL 2022</span>
+                <span class="publication__citations">24 citations</span>
+              </div>
+              <h3>
+                <a href="https://aclanthology.org/2022.acl-long.588/" target="_blank" rel="noopener">
+                  Towards Better Characterization of Paraphrases
+                </a>
+              </h3>
+              <p class="publication__authors"><strong>Liu T.</strong> and Soh D.</p>
+              <p class="publication__takeaway">Two measures describe changes in word order and vocabulary, helping researchers inspect paraphrase datasets and select generated paraphrases.</p>
             </article>
-            <article class="focus-card">
-              <h3>Accelerated Computing</h3>
-              <p>GPU workflows, containers, distributed training, Kubernetes, and HPC.</p>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">IEEE Access 2025</span>
+                <span class="publication__citations">13 citations</span>
+              </div>
+              <h3>
+                <a href="https://ieeexplore.ieee.org/document/10824802/" target="_blank" rel="noopener">
+                  FedDrip: Federated Learning With Diffusion-Generated Synthetic Image
+                </a>
+              </h3>
+              <p class="publication__authors">Huangsuwan K., <strong>Liu T.</strong>, See S., Ng A.B., Vateekul P.</p>
+              <p class="publication__takeaway">Diffusion-generated images train an additional model to help federated learning cope with differences in data across participating sites.</p>
             </article>
-            <article class="focus-card">
-              <h3>AI Enablement</h3>
-              <p>Workshops, mentoring, student supervision, and ecosystem building.</p>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ACL-IJCNLP 2021</span>
+                <span class="publication__citations">7 citations</span>
+                <span class="publication__award">Best Demonstration Runner-up Award</span>
+              </div>
+              <h3>
+                <a href="https://aclanthology.org/2021.acl-demo.14/" target="_blank" rel="noopener">
+                  ESRA: Explainable Scientific Research Assistant
+                </a>
+              </h3>
+              <p class="publication__authors">Hongwimol P., Kehasukcharoen P., Laohawarutchai P., Lertvittayakumjorn P., Ng A.B., Lai Z., <strong>Liu T.</strong>, Vateekul P.</p>
+              <p class="publication__takeaway">A literature search tool uses a knowledge graph to explain returned papers and show connections between research topics.</p>
             </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">arXiv 2026</span>
+                <span class="publication__citations">2 citations</span>
+              </div>
+              <h3>
+                <a href="https://arxiv.org/abs/2603.12840" target="_blank" rel="noopener">
+                  DAST: A Dual-Stream Voice Anonymization Attacker with Staged Training
+                </a>
+              </h3>
+              <p class="publication__authors">Arefeen R., Miao X., Tong R., Ng A.B., See S., <strong>Liu T.</strong></p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">ACM MM Workshop 2025</span>
+                <span class="publication__citations">1 citation</span>
+              </div>
+              <h3>
+                <a href="https://doi.org/10.1145/3728487.3759233" target="_blank" rel="noopener">
+                  Advancing Agentic AI: Synthetic Data for Personified and Inclusive Human-AI Interactions
+                </a>
+              </h3>
+              <p class="publication__authors">Rajendran M., Tan D., <strong>Liu T.</strong>, Ng A.B., Lee J.S., Wei E.Y., See S.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">arXiv 2026</span>
+                <span class="publication__citations">1 citation</span>
+              </div>
+              <h3>
+                <a href="https://arxiv.org/abs/2606.22932" target="_blank" rel="noopener">
+                  FORGE: Fused On-Register Gradient Elimination for Memory-Efficient LLM Training
+                </a>
+              </h3>
+              <p class="publication__authors">Kukreja D., Prasad K., Anand A., Wang Z., Cambria E., <strong>Liu T.</strong>, Ng A.B., See S., Chatterjee B.</p>
+            </article>
+            <article class="publication">
+              <div class="publication__meta">
+                <span class="publication__venue">IEEE SOLI 2025</span>
+                <span class="publication__citations">0 citations</span>
+                <span class="publication__award">Best Paper Award</span>
+              </div>
+              <h3>
+                <a href="https://ieeexplore.ieee.org/abstract/document/11396164" target="_blank" rel="noopener">
+                  ShalDeepDP: A Survey and Comparison of Data Poisoning in Statistical, Classical Deep Learning and Foundation Models
+                </a>
+              </h3>
+              <p class="publication__authors">Chan J.Y., Guo H., <strong>Liu T.</strong>, Ng A.B., See S.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" id="events" aria-labelledby="events-title">
+        <div class="section__inner">
+          <div class="section-heading">
+            <h2 id="events-title">Speaking and partnerships</h2>
           </div>
           <div class="event-carousel" id="eventCarousel" role="region" aria-roledescription="carousel" aria-label="Event highlights">
             <div class="event-carousel__viewport">
@@ -239,7 +395,7 @@
                   <source type="image/webp" srcset="assets/event-carousel-2-640.webp 640w, assets/event-carousel-2-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
                   <img src="assets/event-carousel-2.jpg" width="2048" height="1366" alt="Timothy Liu delivering an invited talk on Trustworthy Agentic AI with NVIDIA NIM at the AAAI 2026 workshop at Singapore EXPO" loading="lazy" decoding="async" fetchpriority="low">
                 </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 AAAI 2026</span>Co-organised workshop; invited talk on Trustworthy Agentic AI with NVIDIA NIM</figcaption>
+                <figcaption><span class="event-carousel__location">🇸🇬 AAAI 2026</span>Workshop co-organiser and invited speaker: Trustworthy Agentic AI with NIM</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 3 of 8" aria-hidden="true">
                 <picture>
@@ -263,7 +419,7 @@
                   <source type="image/webp" srcset="assets/event-carousel-5-640.webp 640w, assets/event-carousel-5-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
                   <img src="assets/event-carousel-5.jpg" width="2048" height="1536" alt="Timothy Liu at Universitas Gadjah Mada" loading="lazy" decoding="async" fetchpriority="low">
                 </picture>
-                <figcaption><span class="event-carousel__location">🇮🇩 Universitas Gadjah Mada</span>Opening remarks and invited talk on NVIDIA technology: NIM, MONAI, and Metropolis</figcaption>
+                <figcaption><span class="event-carousel__location">🇮🇩 Universitas Gadjah Mada</span>Opening remarks and invited talk: NIM, MONAI, Metropolis</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 6 of 8" aria-hidden="true">
                 <picture>
@@ -271,7 +427,7 @@
                   <source type="image/webp" srcset="assets/event-carousel-6-640.webp 640w, assets/event-carousel-6-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
                   <img src="assets/event-carousel-6.jpg" width="2048" height="1538" alt="Workshop on agentic AI use cases for financial services" loading="lazy" decoding="async" fetchpriority="low">
                 </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 Institute of Singapore Chartered Accountants</span>Co-organised workshop; invited talk on NVIDIA technology use cases for financial services</figcaption>
+                <figcaption><span class="event-carousel__location">🇸🇬 Institute of Singapore Chartered Accountants</span>Workshop co-organiser and invited speaker: AI for financial services</figcaption>
               </figure>
               <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 7 of 8" aria-hidden="true">
                 <picture>
@@ -318,6 +474,7 @@
               <button type="button" aria-label="Show event photo 7"></button>
               <button type="button" aria-label="Show event photo 8"></button>
             </div>
+            <p class="event-carousel__count" id="eventCarouselCount">1 / 8</p>
           </div>
           <section class="media-coverage" aria-labelledby="media-coverage-title">
             <h3 id="media-coverage-title">Media Coverage of Activities</h3>
@@ -369,193 +526,11 @@
         </div>
       </section>
 
-      <section class="section" id="experience">
-        <div class="section__inner">
-          <div class="section-heading">
-            <h2>Regional AI collaboration and enablement.</h2>
-          </div>
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="timeline-item__meta">
-                <span>Aug 2024 - Present</span>
-                <strong>NVIDIA AI Technology Centre</strong>
-              </div>
-              <div class="timeline-item__body">
-                <h3>Solutions Architect</h3>
-                <p>
-                  Support applied AI collaborations across Singapore, Thailand, Indonesia, Vietnam, and Australia.
-                </p>
-                <ul>
-                  <li>Drive adoption across foundation models, multimodal AI, agents, simulation, and open models.</li>
-                  <li>Mentor team members and supervise postgraduate research across AI and accelerated computing.</li>
-                  <li>Deliver workshops and invited sessions for academic, government, and industry audiences.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item__meta">
-                <span>Mar 2023 - Present</span>
-                <strong>Digital and Intelligence Service</strong>
-              </div>
-              <div class="timeline-item__body">
-                <h3>NSman</h3>
-                <p>Awarded Formation Promising NSman of the Year and invited to the Presidential Garden Reception 2026.</p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item__meta">
-                <span>Sep 2023 - Dec 2023</span>
-                <strong>Sony Research, Japan</strong>
-              </div>
-              <div class="timeline-item__body">
-                <h3>Research Intern</h3>
-                <p>Researched multimodal foundation models and long-form image captioning with a Japanese R&amp;D team.</p>
-                <ul>
-                  <li>Improved paragraph-length captioning and synthetic data for image-text retrieval.</li>
-                  <li>Fine-tuned 7B+ multimodal models on ABCI with multi-GPU training and DeepSpeed.</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-item__meta">
-                <span>Jun 2018 - Jun 2023</span>
-                <strong>NVIDIA AI Technology Centre</strong>
-              </div>
-              <div class="timeline-item__body">
-                <h3>Solutions Architect Intern</h3>
-                <p>
-                  Completed a five-year NVIDIA internship alongside undergraduate and postgraduate studies.
-                </p>
-                <ul>
-                  <li>Built a deep learning container for reproducible experimentation.</li>
-                  <li>Supported GPU workloads on Kubernetes across on-premises and cloud environments.</li>
-                  <li>Earned NVIDIA DLI Certified Instructor status for NLP, RAPIDS, and multi-GPU courses.</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--muted section--tight" id="research">
-        <div class="section__inner">
-          <div class="section-heading">
-            <h2>Selected publications</h2>
-            <div class="profile-links profile-links--section" aria-label="Research profile links">
-              <a href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-              <a href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
-            </div>
-          </div>
-          <div class="publication-list">
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">ACL 2022</span>
-                <span class="publication__citations">24 citations</span>
-              </div>
-              <h3>
-                <a href="https://aclanthology.org/2022.acl-long.588/" target="_blank" rel="noopener">
-                  Towards Better Characterization of Paraphrases
-                </a>
-              </h3>
-              <p><strong>Liu T.</strong> and Soh D.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">Findings of ACL 2023</span>
-                <span class="publication__citations">28 citations</span>
-              </div>
-              <h3>
-                <a href="https://aclanthology.org/2023.findings-acl.641/" target="_blank" rel="noopener">
-                  NewsMet: A “do it all” Dataset of Contemporary Metaphors in News Headlines
-                </a>
-              </h3>
-              <p>Joseph R., <strong>Liu T.</strong>, Ng A.B., See S., Rai S.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">IEEE Access 2025</span>
-                <span class="publication__citations">13 citations</span>
-              </div>
-              <h3>
-                <a href="https://ieeexplore.ieee.org/document/10824802/" target="_blank" rel="noopener">
-                  FedDrip: Federated Learning With Diffusion-Generated Synthetic Image
-                </a>
-              </h3>
-              <p>Huangsuwan K., <strong>Liu T.</strong>, See S., Ng A.B., Vateekul P.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">ACL-IJCNLP 2021</span>
-                <span class="publication__citations">7 citations</span>
-                <span class="publication__award">Best Demonstration Runner-up Award</span>
-              </div>
-              <h3>
-                <a href="https://aclanthology.org/2021.acl-demo.14/" target="_blank" rel="noopener">
-                  ESRA: Explainable Scientific Research Assistant
-                </a>
-              </h3>
-              <p>Hongwimol P., Kehasukcharoen P., Laohawarutchai P., Lertvittayakumjorn P., Ng A.B., Lai Z., <strong>Liu T.</strong>, Vateekul P.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">arXiv 2026</span>
-                <span class="publication__citations">2 citations</span>
-              </div>
-              <h3>
-                <a href="https://arxiv.org/abs/2603.12840" target="_blank" rel="noopener">
-                  DAST: A Dual-Stream Voice Anonymization Attacker with Staged Training
-                </a>
-              </h3>
-              <p>Arefeen R., Miao X., Tong R., Ng A.B., See S., <strong>Liu T.</strong></p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">ACM MM Workshop 2025</span>
-                <span class="publication__citations">1 citation</span>
-              </div>
-              <h3>
-                <a href="https://doi.org/10.1145/3728487.3759233" target="_blank" rel="noopener">
-                  Advancing Agentic AI: Synthetic Data for Personified and Inclusive Human-AI Interactions
-                </a>
-              </h3>
-              <p>Rajendran M., Tan D., <strong>Liu T.</strong>, Ng A.B., Lee J.S., Wei E.Y., See S.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">arXiv 2026</span>
-                <span class="publication__citations">1 citation</span>
-              </div>
-              <h3>
-                <a href="https://arxiv.org/abs/2606.22932" target="_blank" rel="noopener">
-                  FORGE: Fused On-Register Gradient Elimination for Memory-Efficient LLM Training
-                </a>
-              </h3>
-              <p>Kukreja D., Prasad K., Anand A., Wang Z., Cambria E., <strong>Liu T.</strong>, Ng A.B., See S., Chatterjee B.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">IEEE SOLI 2025</span>
-                <span class="publication__citations">0 citations</span>
-                <span class="publication__award">Best Paper Award</span>
-              </div>
-              <h3>
-                <a href="https://ieeexplore.ieee.org/abstract/document/11396164" target="_blank" rel="noopener">
-                  ShalDeepDP: A Survey and Comparison of Data Poisoning in Statistical, Classical Deep Learning and Foundation Models
-                </a>
-              </h3>
-              <p>Chan J.Y., Guo H., <strong>Liu T.</strong>, Ng A.B., See S.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="section section--muted section--tight" id="education">
         <div class="section__inner">
           <div class="section-heading">
-            <h2>Singapore University of Technology and Design</h2>
+            <h2>Education</h2>
+            <p>Singapore University of Technology and Design</p>
           </div>
           <div class="education-grid">
             <article class="detail-card">
@@ -605,54 +580,26 @@
           </div>
           <div class="skill-groups">
             <div class="skill-group">
-              <h3>Research Areas</h3>
-              <p>Multimodal Generative AI, Agentic AI Systems, NLP, Deep Learning</p>
+              <h3>Applied AI collaboration and enablement</h3>
+              <p>Partner programmes, prototypes, and technical workshops, demonstrated through <a href="#events">speaking and partnerships</a>.</p>
             </div>
             <div class="skill-group">
-              <h3>Languages</h3>
-              <p>Python, SQL, Bash, HTML/CSS/JavaScript, Java</p>
+              <h3>NLP and multimodal research</h3>
+              <p>Paraphrasing, semantic similarity, and model adaptation, grounded in <a href="https://aclanthology.org/2022.acl-long.588/" target="_blank" rel="noopener">paraphrase research</a> and <a href="#experience">multimodal work at Sony Research</a>.</p>
             </div>
             <div class="skill-group">
-              <h3>Frameworks</h3>
-              <p>PyTorch, TensorFlow, HuggingFace Transformers, DeepSpeed, vLLM, SpaCy, NumPy, SciPy, OpenCV, XGBoost, Dask</p>
+              <h3>GPU engineering and reproducible workflows</h3>
+              <p>Containers, multi-GPU training, and performance experiments through <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">ai-lab</a> and <a href="https://github.com/tlkh/tf-metal-experiments" target="_blank" rel="noopener">TensorFlow Metal benchmarks</a>.</p>
             </div>
-            <div class="skill-group">
-              <h3>Platforms</h3>
-              <p>Linux/Unix, Git, Docker, Kubernetes, AWS, GCP, Azure, PBS, Slurm</p>
-            </div>
-            <div class="skill-group">
-              <h3>Agentic Coding</h3>
-              <p>Codex, Claude Code, AWS Kiro, Cursor</p>
-            </div>
-            <div class="skill-group">
-              <h3>Spoken Languages</h3>
-              <p>English and Mandarin Chinese</p>
-            </div>
-          </div>
-          <div class="skill-group nvidia-technologies">
-            <h3>NVIDIA Technologies</h3>
-            <dl class="nvidia-technologies__list">
-              <div>
-                <dt>GPU Infrastructure and Cluster Management</dt>
-                <dd>Bare-metal deployment, configuration, and management of NVIDIA GPU clusters for AI workloads</dd>
-              </div>
-              <div>
-                <dt>AI Model Deployment and Inference</dt>
-                <dd>NVIDIA NIM, Nemotron models, Blueprints, and Brev for deploying and operationalising AI applications</dd>
-              </div>
-              <div>
-                <dt>AI Model Development and Customisation</dt>
-                <dd>NVIDIA NeMo for model training, adaptation, and data curation workflows</dd>
-              </div>
-              <div>
-                <dt>Accelerated Data Science and Computing</dt>
-                <dd>RAPIDS and CuPy for GPU-accelerated data processing and numerical computing</dd>
-              </div>
-              <div>
-                <dt>Domain-Specific AI Applications</dt>
-                <dd>Visual Search and Summarization (VSS) for video AI applications, and MONAI for medical imaging AI workflows</dd>
-              </div>
-            </dl>
+            <details class="toolkit-details">
+              <summary>Tools and platforms</summary>
+              <p><strong>Languages:</strong> Python, SQL, Bash, HTML/CSS/JavaScript, Java</p>
+              <p><strong>Frameworks:</strong> PyTorch, TensorFlow, HuggingFace Transformers, DeepSpeed, vLLM, SpaCy, NumPy, SciPy, OpenCV, XGBoost, Dask</p>
+              <p><strong>Platforms:</strong> Linux/Unix, Git, Docker, Kubernetes, AWS, GCP, Azure, PBS, Slurm</p>
+              <p><strong>Agentic coding:</strong> Codex, Claude Code, AWS Kiro, Cursor</p>
+              <p><strong>NVIDIA technologies:</strong> GPU cluster deployment and management; NIM, Nemotron models, Blueprints, Brev, NeMo, RAPIDS, CuPy, Visual Search and Summarization (VSS), and MONAI</p>
+            </details>
+            <p><strong>Spoken languages:</strong> English and Mandarin Chinese</p>
           </div>
         </div>
       </section>
@@ -781,9 +728,13 @@
         <div class="chat-widget__messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions" aria-busy="false">
           <p class="chat-message chat-message--assistant">Hi, I can answer questions about Timothy's public work and background.</p>
         </div>
+        <div class="chat-widget__suggestions" role="group" aria-label="Suggested questions">
+          <button type="button" data-chat-prompt="Can you summarize Timothy's professional experience?">Experience summary</button>
+          <button type="button" data-chat-prompt="What GPU and accelerated computing projects has Timothy worked on?">GPU projects</button>
+        </div>
         <p class="chat-widget__status" id="chatStatus" aria-live="polite"></p>
-        <p class="chat-widget__fallback" id="chatFallback" hidden>
-          Chat unavailable. <a href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">Connect on LinkedIn</a>.
+        <p class="chat-widget__fallback" id="chatFallback">
+          Prefer to connect directly? <a href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">Connect on LinkedIn</a>.
         </p>
         <form class="chat-widget__form" id="chatForm">
           <p class="chat-widget__privacy">Do not share sensitive information.</p>

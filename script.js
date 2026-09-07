@@ -61,7 +61,7 @@
 
   var siteHeader = document.querySelector(".site-header");
   var navSectionLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav-target]"));
-  var navSectionIds = ["experience", "research", "open-source", "contact"];
+  var navSectionIds = ["experience", "research", "events", "open-source", "contact"];
   var navSections = navSectionIds
     .map(function (id) {
       return document.getElementById(id);
@@ -302,6 +302,7 @@
     var eventPrev = eventCarousel.querySelector(".event-carousel__control--prev");
     var eventNext = eventCarousel.querySelector(".event-carousel__control--next");
     var eventToggle = eventCarousel.querySelector("#eventCarouselToggle");
+    var eventCount = document.getElementById("eventCarouselCount");
     var eventIndex = 0;
     var eventTimer = null;
     var eventIsPlaying = true;
@@ -313,6 +314,9 @@
       }
 
       eventIndex = (nextIndex + eventSlides.length) % eventSlides.length;
+      if (eventCount) {
+        eventCount.textContent = (eventIndex + 1) + " / " + eventSlides.length;
+      }
 
       eventSlides.forEach(function (slide, index) {
         var active = index === eventIndex;
@@ -873,6 +877,9 @@
     }
 
     function setChatDisabled(disabled) {
+      chatWidget.querySelectorAll("[data-chat-prompt]").forEach(function (button) {
+        button.disabled = disabled;
+      });
       if (chatInput) {
         chatInput.disabled = disabled;
       }
@@ -936,7 +943,7 @@
         { label: "Waking the chat service, this may take up to a minute.", delay: 0, timeout: 2500 },
         { label: "Still waking the chat service...", delay: 900, timeout: 6000 },
         { label: "Still waking the chat service...", delay: 1600, timeout: 10000 },
-        { label: "Almost ready...", delay: 2400, timeout: 15000 },
+        { label: "Waiting for the chat service to respond...", delay: 2400, timeout: 15000 },
         { label: "Still trying...", delay: 3200, timeout: 20000 }
       ];
 
@@ -954,7 +961,7 @@
                 }
                 proxyReadyAt = Date.now();
                 setChatStatus("", false);
-                setChatFallback(false);
+                setChatFallback(true);
                 return true;
               })
               .catch(function (error) {
@@ -1079,6 +1086,15 @@
     }
 
     if (chatForm && chatInput) {
+      chatWidget.querySelectorAll("[data-chat-prompt]").forEach(function (button) {
+        button.addEventListener("click", function () {
+          if (!chatInput.disabled) {
+            chatInput.value = button.getAttribute("data-chat-prompt");
+            chatInput.focus();
+          }
+        });
+      });
+
       chatInput.addEventListener("keydown", function (event) {
         if (
           event.key === "Enter" &&
@@ -1101,7 +1117,7 @@
         event.preventDefault();
 
         var content = chatInput.value.trim();
-        if (!content) {
+        if (!content || chatInput.disabled) {
           return;
         }
 
