@@ -622,12 +622,13 @@ html[data-theme="dark"] .hero__neural-field {
 }
 
 .hero h1 {
-  max-width: 9ch;
+  max-width: none;
   margin: 0;
   color: var(--text-strong);
-  font-size: clamp(3.7rem, 9vw, 7.5rem);
+  font-size: clamp(3.25rem, 8vw, 6.5rem);
   line-height: 0.92;
   letter-spacing: -0.025em;
+  white-space: nowrap;
 }
 
 .hero__lead {
@@ -2329,8 +2330,8 @@ html[data-theme="dark"] .chat-widget__panel {
   }
 
   .hero h1 {
-    max-width: 8ch;
-    font-size: clamp(3rem, 15vw, 4.2rem);
+    max-width: none;
+    font-size: clamp(2.35rem, 11vw, 4.2rem);
   }
 
   .timeline {
