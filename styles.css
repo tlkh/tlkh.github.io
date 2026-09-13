@@ -1190,7 +1190,7 @@ html[data-theme="dark"] .publication:focus-within {
 .media-coverage__item-heading {
   display: grid;
   justify-items: start;
-  gap: 0.55rem;
+  gap: 0.35rem;
 }
 
 .media-coverage__item h4 {
@@ -1200,6 +1200,15 @@ html[data-theme="dark"] .publication:focus-within {
   font-size: 1.05rem;
   line-height: 1.32;
   overflow-wrap: anywhere;
+}
+
+.media-coverage__location {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
 }
 
 .media-coverage__role {
