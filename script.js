@@ -26,6 +26,7 @@
     if (toggle) {
       toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
       toggle.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+      toggle.title = toggle.getAttribute("aria-label");
     }
   }
 
@@ -61,7 +62,7 @@
 
   var siteHeader = document.querySelector(".site-header");
   var navSectionLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav-target]"));
-  var navSectionIds = ["experience", "research", "events", "open-source", "contact"];
+  var navSectionIds = ["experience", "research", "events", "education", "awards", "skills", "open-source", "outside-work", "contact"];
   var navSections = navSectionIds
     .map(function (id) {
       return document.getElementById(id);
@@ -107,7 +108,9 @@
     });
 
     navMoreToggle.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowDown") {
+      if (event.key === "Escape") {
+        closeNavMore(true);
+      } else if (event.key === "ArrowDown") {
         event.preventDefault();
         setNavMoreOpen(true, true);
       }
@@ -167,6 +170,7 @@
     }
 
     var headerHeight = siteHeader ? siteHeader.offsetHeight : 0;
+    root.style.setProperty("--header-height", headerHeight + "px");
     var marker = headerHeight + Math.min(window.innerHeight * 0.28, 220);
     var activeSectionId = "";
 
@@ -191,8 +195,11 @@
     });
 
     if (navMoreToggle) {
-      var moreIsActive = activeSectionId === "open-source" || activeSectionId === "contact";
-      var moreSectionName = activeSectionId === "open-source" ? "Open source" : "Contact";
+      var moreActiveLink = navMoreLinks.find(function (link) {
+        return link.getAttribute("data-nav-target") === activeSectionId;
+      });
+      var moreIsActive = Boolean(moreActiveLink) && (activeSectionId !== "open-source" || navMobileQuery.matches);
+      var moreSectionName = moreActiveLink ? moreActiveLink.textContent.trim() : "";
       navMoreToggle.classList.toggle("is-active", moreIsActive);
       if (moreIsActive) {
         navMoreToggle.setAttribute("aria-label", "More, current section: " + moreSectionName);
@@ -219,9 +226,7 @@
   }
 
   function handleNavBreakpointChange() {
-    if (!navMobileQuery.matches) {
-      closeNavMore(false);
-    }
+    closeNavMore(false);
     scheduleActiveNavigationUpdate();
   }
 
@@ -305,8 +310,8 @@
     var eventCount = document.getElementById("eventCarouselCount");
     var eventIndex = 0;
     var eventTimer = null;
-    var eventIsPlaying = true;
     var eventMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    var eventIsPlaying = !eventMotionQuery.matches;
 
     function setEventSlide(nextIndex) {
       if (!eventSlides.length) {
@@ -354,7 +359,7 @@
 
     function startEventCarousel() {
       stopEventCarousel();
-      if (!eventIsPlaying || eventSlides.length < 2 || eventMotionQuery.matches || document.hidden) {
+      if (!eventIsPlaying || eventSlides.length < 2 || document.hidden) {
         return;
       }
       eventTimer = window.setInterval(function () {
@@ -412,9 +417,13 @@
     });
 
     if (eventMotionQuery.addEventListener) {
-      eventMotionQuery.addEventListener("change", startEventCarousel);
+      eventMotionQuery.addEventListener("change", function () {
+        if (eventMotionQuery.matches) { setEventPlayback(false); }
+      });
     } else if (eventMotionQuery.addListener) {
-      eventMotionQuery.addListener(startEventCarousel);
+      eventMotionQuery.addListener(function () {
+        if (eventMotionQuery.matches) { setEventPlayback(false); }
+      });
     }
 
     setEventSlide(0);
@@ -886,7 +895,7 @@
       if (chatForm) {
         var button = chatForm.querySelector("button");
         if (button) {
-          button.disabled = disabled;
+          button.disabled = disabled || !chatInput.value.trim();
         }
       }
     }
@@ -920,6 +929,7 @@
       var message = document.createElement("p");
       message.className = "chat-message chat-message--" + role;
       message.textContent = content;
+      message.setAttribute("aria-label", role === "user" ? "You" : "Portfolio assistant");
       chatMessages.appendChild(message);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
@@ -1021,6 +1031,10 @@
         return;
       }
 
+      if (chatMotionQuery.matches) {
+        finishChatClose();
+        return;
+      }
       chatPanel.classList.add("is-closing");
       var finished = false;
       var finish = function () {
@@ -1057,7 +1071,11 @@
       });
       window.requestAnimationFrame(function () {
         if (chatInput && chatPanel.open) {
-          chatInput.focus();
+          if (window.matchMedia("(pointer: fine)").matches) {
+            chatInput.focus();
+          } else {
+            chatClose.focus();
+          }
         }
       });
     }
@@ -1086,10 +1104,17 @@
     }
 
     if (chatForm && chatInput) {
+      function updateComposer() {
+        chatInput.style.height = "auto";
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 112) + "px";
+        chatForm.querySelector("button").disabled = chatInput.disabled || !chatInput.value.trim();
+      }
+      chatInput.addEventListener("input", updateComposer);
       chatWidget.querySelectorAll("[data-chat-prompt]").forEach(function (button) {
         button.addEventListener("click", function () {
           if (!chatInput.disabled) {
             chatInput.value = button.getAttribute("data-chat-prompt");
+            updateComposer();
             chatInput.focus();
           }
         });
@@ -1122,6 +1147,8 @@
         }
 
         chatInput.value = "";
+        updateComposer();
+        document.getElementById("chatWelcome").hidden = true;
         appendChatMessage("user", content);
         chatHistory.push({ role: "user", content: content });
         trimChatHistory();
@@ -1164,8 +1191,11 @@
           })
           .catch(function () {
             appendChatMessage("assistant", "I could not reach the chat service. Please try again in a moment.");
+            chatHistory.pop();
+            chatInput.value = content;
+            updateComposer();
             setChatFallback(true);
-            setChatStatus("", false);
+            setChatStatus("Your question is ready below. Send it again to retry.", false);
           })
           .finally(function () {
             setChatDisabled(false);
