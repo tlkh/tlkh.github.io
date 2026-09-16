@@ -1,0 +1,4 @@
+Generated with the built-in image_gen tool.
+Reference: user-provided screenshot of the five-year Good Conduct Medal ribbon.
+
+Use case: product-mockup. Asset type: small ribbon insignia for a professional portfolio. Create one clean front-facing five-year Good Conduct Medal service ribbon bar matching the user-provided reference: a flat horizontal rectangular ribbon approximately 3.5:1 width-to-height, orange at both ends with three narrow pale cream vertical stripes separated by muted light orange bands in the middle. Subtle realistic woven fabric texture, straight crisp edges, restrained natural shading. Center the single ribbon, fill almost the entire wide canvas with only a tiny transparent margin. Genuinely transparent background with alpha. No text, no medal pendant, no stars, no badges, no additional symbols, no frame, no dramatic shadow. Match the stripe arrangement of the screenshot in the conversation.
