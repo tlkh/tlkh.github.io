@@ -1,55 +1,45 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="color-scheme" content="light dark">
-    <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0d1118" media="(prefers-color-scheme: dark)">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f7f9fc" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1118" media="(prefers-color-scheme: dark)" />
     <meta
       name="description"
       content="Portfolio for Timothy Liu Kaihui, Senior Solutions Architect at NVIDIA AI Technology Centre and PhD in Natural Language Processing."
-    >
-    <meta property="og:title" content="Timothy Liu Kaihui | Portfolio">
+    />
+    <meta property="og:title" content="Timothy Liu | Applied AI, NLP &amp; GPU Systems" />
     <meta
       property="og:description"
       content="Applied AI, open models, foundation models, multimodal systems, accelerated computing, and NLP research."
-    >
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tlkh.github.io/">
-    <meta property="og:site_name" content="Timothy Liu Kaihui">
-    <meta property="og:locale" content="en_SG">
-    <meta property="og:image" content="https://tlkh.github.io/assets/ai-portfolio-hero.png">
-    <meta property="og:image:width" content="1774">
-    <meta property="og:image:height" content="887">
-    <meta property="og:image:alt" content="Timothy Liu Kaihui portfolio covering applied AI, research, and accelerated computing">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Timothy Liu Kaihui | Portfolio">
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tlkh.github.io/" />
+    <meta property="og:site_name" content="Timothy Liu Kaihui" />
+    <meta property="og:locale" content="en_SG" />
+    <meta property="og:image" content="https://tlkh.github.io/assets/ai-portfolio-hero.png" />
+    <meta property="og:image:width" content="1774" />
+    <meta property="og:image:height" content="887" />
+    <meta
+      property="og:image:alt"
+      content="Timothy Liu Kaihui portfolio covering applied AI, research, and accelerated computing"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Timothy Liu | Applied AI, NLP &amp; GPU Systems" />
     <meta
       name="twitter:description"
       content="Applied AI, open models, foundation models, multimodal systems, accelerated computing, and NLP research."
-    >
-    <meta name="twitter:image" content="https://tlkh.github.io/assets/ai-portfolio-hero.png">
-    <meta name="twitter:image:alt" content="Timothy Liu Kaihui portfolio covering applied AI, research, and accelerated computing">
-    <link rel="canonical" href="https://tlkh.github.io/">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link
-      rel="preload"
-      as="image"
-      href="assets/ai-portfolio-hero-960.avif"
-      type="image/avif"
-      media="(max-width: 620px)"
-      fetchpriority="high"
-    >
-    <link
-      rel="preload"
-      as="image"
-      href="assets/ai-portfolio-hero-1774.avif"
-      type="image/avif"
-      media="(min-width: 621px)"
-      fetchpriority="high"
-    >
-    <title>Timothy Liu Kaihui | Portfolio</title>
+    />
+    <meta name="twitter:image" content="https://tlkh.github.io/assets/ai-portfolio-hero.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Timothy Liu Kaihui portfolio covering applied AI, research, and accelerated computing"
+    />
+    <link rel="canonical" href="https://tlkh.github.io/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>Timothy Liu | Applied AI, NLP &amp; GPU Systems</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -96,7 +86,7 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -106,10 +96,9 @@
         <span class="brand__text">Timothy Liu Kaihui</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
+        <a class="nav__link" href="#work" data-nav-target="work">Projects</a>
         <a class="nav__link" href="#experience" data-nav-target="experience">Experience</a>
         <a class="nav__link" href="#research" data-nav-target="research">Research</a>
-        <a class="nav__link nav__link--supplemental" href="#open-source" data-nav-target="open-source">Open source</a>
-        <a class="nav__link" href="#contact" data-nav-target="contact">Contact</a>
         <div class="nav-more">
           <button
             class="nav-more__toggle"
@@ -124,77 +113,257 @@
             </svg>
           </button>
           <div class="nav-more__menu" id="navMoreMenu" hidden>
-            <a href="#events" data-nav-target="events">Speaking &amp; partnerships</a>
-            <a href="#education" data-nav-target="education">Education</a>
-            <a href="#awards" data-nav-target="awards">Recognition</a>
-            <a href="#skills" data-nav-target="skills">Tools and platforms</a>
             <a href="#open-source" data-nav-target="open-source">Open source</a>
-            <a href="#outside-work" data-nav-target="outside-work">Outside work</a>
+            <a href="#events" data-nav-target="events">Speaking &amp; Events</a>
+            <a href="#media-coverage" data-nav-target="media-coverage">Media coverage</a>
+            <a href="#about" data-nav-target="about">About</a>
+            <a href="#outside-work" data-nav-target="outside-work">Other work</a>
+            <a href="#contact" data-nav-target="contact">Contact</a>
+            <button type="button" data-open-chat hidden>Ask about my work</button>
           </div>
         </div>
       </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Switch color theme"
+        title="Switch color theme"
+      >
         <svg class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true" viewBox="0 0 24 24">
           <path d="M21 14.7A8.5 8.5 0 0 1 9.3 3a7 7 0 1 0 11.7 11.7Z"></path>
         </svg>
         <svg class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="4"></circle>
-          <path d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"></path>
+          <path
+            d="M12 2v2.2M12 19.8V22M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2 12h2.2M19.8 12H22M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6"
+          ></path>
         </svg>
       </button>
     </header>
 
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <canvas class="hero__neural-field" id="heroNeuralField" aria-hidden="true"></canvas>
-      <div class="ambient-light" id="ambientLight" aria-hidden="true"></div>
-      <div class="hero__layout">
-        <div class="hero__content">
-          <p class="eyebrow">Applied AI | Ecosystem Development | PhD in NLP</p>
-          <h1 id="hero-title">Timothy Liu</h1>
-          <p class="hero__lead">
-            Senior Solutions Architect, NVIDIA AI Technology Centre (NVAITC)
-          </p>
-          <p class="hero__summary">I connect AI research with practical adoption through applied AI programmes, prototypes, and partner collaboration, grounded in a PhD in natural language processing.</p>
-          <div class="hero__actions" role="group" aria-label="Primary and profile links">
-            <a class="button button--primary" href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-            <a class="button button--secondary" href="https://github.com/tlkh" target="_blank" rel="noopener">GitHub</a>
-            <a class="button button--secondary" href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="button button--secondary" href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
+    <main id="main" tabindex="-1">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__layout">
+          <div class="hero__content">
+            <h1 id="hero-title">Timothy Liu</h1>
+            <p class="hero__lead">Applied AI researcher &amp; solutions architect</p>
+            <p class="hero__summary">
+              I help research and engineering teams turn AI ideas into working systems. My work combines research,
+              hands-on engineering, and technical guidance across models, GPU computing, and AI infrastructure.
+            </p>
+            <p class="hero__credential">Senior Solutions Architect, NVIDIA AI Technology Centre &middot; PhD in NLP</p>
+            <div class="hero__actions" role="group" aria-label="Work experience">
+              <a class="button button--primary" href="#experience">Work Experience</a>
+            </div>
+            <div class="profile-links hero__profiles" aria-label="Profile links" role="group">
+              <a
+                class="profile-link"
+                href="https://www.linkedin.com/in/timothyliukaihui/"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+              <a class="profile-link" href="https://github.com/tlkh" target="_blank" rel="noopener">GitHub</a>
+              <a
+                class="profile-link"
+                href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en"
+                target="_blank"
+                rel="noopener"
+                >Google Scholar</a
+              >
+            </div>
+          </div>
+          <div class="hero__portrait">
+            <picture>
+              <source
+                type="image/avif"
+                srcset="
+                  assets/timothy-liu-kaihui-profile-400.avif 400w,
+                  assets/timothy-liu-kaihui-profile-800.avif 800w
+                "
+                sizes="(max-width: 620px) 112px, (max-width: 920px) 200px, 288px"
+              />
+              <source
+                type="image/webp"
+                srcset="
+                  assets/timothy-liu-kaihui-profile-400.webp 400w,
+                  assets/timothy-liu-kaihui-profile-800.webp 800w
+                "
+                sizes="(max-width: 620px) 112px, (max-width: 920px) 200px, 288px"
+              />
+              <img
+                src="assets/timothy-liu-kaihui-profile.jpeg"
+                width="800"
+                height="800"
+                alt="Portrait of Timothy"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </picture>
           </div>
         </div>
-        <div class="hero__portrait">
-          <picture>
-            <source
-              type="image/avif"
-              srcset="assets/timothy-liu-kaihui-profile-400.avif 400w, assets/timothy-liu-kaihui-profile-800.avif 800w"
-              sizes="(max-width: 920px) 48vw, 18rem"
-            >
-            <source
-              type="image/webp"
-              srcset="assets/timothy-liu-kaihui-profile-400.webp 400w, assets/timothy-liu-kaihui-profile-800.webp 800w"
-              sizes="(max-width: 920px) 48vw, 18rem"
-            >
-            <img
-              src="assets/timothy-liu-kaihui-profile.jpeg"
-              width="800"
-              height="800"
-              alt="Portrait of Timothy"
-              decoding="async"
-              fetchpriority="high"
-            >
-          </picture>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <main id="main" tabindex="-1">
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section__inner">
+          <div class="section-heading"><h2 id="work-title">Selected projects</h2></div>
+          <div class="feature-grid">
+            <article class="feature feature--primary" id="work-asitop">
+              <div class="feature__content">
+                <p class="feature__evidence">Engineering &middot; Python &middot; Apple Silicon</p>
+                <div class="feature__title"><h3>asitop</h3><a class="metric-badge" href="https://github.com/tlkh/asitop/stargazers" target="_blank" rel="noopener">4.6k+ stars</a></div>
+                <p>I built a terminal performance monitor for Apple Silicon that brings CPU and GPU activity,
+                  memory, swap, and power into one view. Powered by macOS <code>powermetrics</code> and
+                  <code>psutil</code>, it also tracks Neural Engine power as an indicator of activity.</p>
+                <dl class="impact-stats" aria-label="asitop impact highlights">
+                  <div><dt>Recorded PyPI downloads</dt><dd>340k<span>+</span></dd></div>
+                  <div><dt>Later projects inspired by asitop</dt><dd><button class="impact-project-trigger" id="impactProjectsOpen" type="button" aria-haspopup="dialog" aria-controls="impactProjectsDialog" aria-label="View 12 later projects inspired by asitop">12<span class="impact-project-trigger__hint">View projects &nearr;</span></button></dd></div>
+                </dl>
+                <a class="text-link" href="https://github.com/tlkh/asitop" target="_blank" rel="noopener"
+                  >Explore asitop on GitHub &rarr;</a
+                >
+              </div>
+              <figure class="feature__figure">
+                <img
+                  src="assets/asitop-screenshot.png"
+                  width="1732"
+                  height="1088"
+                  alt="asitop terminal display with CPU clusters, GPU utilisation, memory, Neural Engine power and power-history charts"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <dialog class="impact-dialog" id="impactProjectsDialog" aria-labelledby="impactProjectsTitle" aria-describedby="impactProjectsIntro">
+                <div class="impact-dialog__header">
+                  <h2 id="impactProjectsTitle">12 later projects inspired by asitop</h2>
+                  <button class="impact-dialog__close" id="impactProjectsClose" type="button" aria-label="Close project list" autofocus>&times;</button>
+                </div>
+                <div class="impact-dialog__body">
+                  <h3 id="asitop-influence-title">An influence beyond Apple Silicon</h3>
+                  <p id="impactProjectsIntro">From independent Go, Swift, and Rust implementations to a commercial Mac interface
+                    and Linux/NVIDIA monitoring, asitop has influenced tools beyond its original Python implementation.</p>
+                  <ol class="impact-project-list">
+                    <li><h3><a href="https://github.com/metaspartan/mactop" target="_blank" rel="noopener">mactop &nearr;</a></h3><p>Go monitor that credits asitop as its original inspiration.</p></li>
+                    <li><h3><a href="https://github.com/op06072/NeoAsitop" target="_blank" rel="noopener">NeoAsitop &nearr;</a></h3><p>Independent Swift implementation that describes itself as asitop-inspired.</p></li>
+                    <li><h3><a href="https://github.com/graelo/pumas" target="_blank" rel="noopener">pumas &nearr;</a></h3><p>A Rust reimplementation of asitop.</p></li>
+                    <li><h3><a href="https://github.com/FluidInference/fluidtop" target="_blank" rel="noopener">FluidTop &nearr;</a></h3><p>An enhanced fork for newer Apple Silicon, terminal compatibility, and local-AI workloads.</p></li>
+                    <li><h3><a href="https://www.bresink.com/osx/301025408/screenshots.html" target="_blank" rel="noopener">Mac Power Monitor &nearr;</a></h3><p>A commercial Mac app whose Apple Silicon summary window is designed to resemble asitop's display.</p></li>
+                    <li><h3><a href="https://pypi.org/project/asitop-csv-logger/" target="_blank" rel="noopener">asitop-csv-logger &nearr;</a></h3><p>A fork adding CSV logging for historical analysis.</p></li>
+                    <li><h3><a href="https://github.com/binlecode/actop" target="_blank" rel="noopener">actop &nearr;</a></h3><p>Credits asitop as inspiration while using an independent architecture and codebase.</p></li>
+                    <li><h3><a href="https://github.com/GigCoder-ai/dgxtop" target="_blank" rel="noopener">DGXTOP &nearr;</a></h3><p>Extends the inspiration to Ubuntu and NVIDIA DGX Spark hardware monitoring.</p></li>
+                    <li><h3><a href="https://github.com/kennss/SiliconScope" target="_blank" rel="noopener">SiliconScope &nearr;</a></h3><p>Formerly WhisPlayInfo; names asitop and NeoAsitop among the motivations for its native SwiftUI dashboard.</p></li>
+                    <li><h3><a href="https://github.com/tejasgajare/basitop" target="_blank" rel="noopener">basitop &nearr;</a></h3><p>Credits asitop as a reference for powermetrics plist parsing.</p></li>
+                    <li><h3><a href="https://docs.rs/silicon-monitor/latest/simonlib/silicon/apple/index.html" target="_blank" rel="noopener">silicon-monitor / simonlib &nearr;</a></h3><p>Its Apple monitoring module documents asitop as its basis; the credit applies to that component.</p></li>
+                    <li><h3><a href="https://github.com/vladkens/macmon" target="_blank" rel="noopener">macmon &nearr;</a></h3><p>Acknowledges asitop as the original tool in its related-project list, establishing a predecessor relationship.</p></li>
+                  </ol>
+                </div>
+              </dialog>
+              <details class="collection-disclosure impact-details" id="asitop-impact">
+                <summary>Media Coverage</summary>
+                <div class="collection-disclosure__body">
+                  <div class="impact-evidence-grid">
+                    <section aria-labelledby="asitop-recognition-title">
+                      <h4 id="asitop-recognition-title">Reviews and technical features</h4>
+                      <ul class="impact-credit-list">
+                        <li><a href="https://www.apfeltalk.de/magazin/news/ausprobiert-asitop-performance-analyse-tool-im-terminal/" target="_blank" rel="noopener">Apfeltalk</a>
+                          <span class="impact-source-note">&middot; July 2022</span><br>Michael Reimann's dedicated hands-on review explores performance analysis in the terminal.</li>
+                        <li><a href="https://www.jeffgeerling.com/blog/2025/top-10-ways-monitor-linux-console/" target="_blank" rel="noopener">Jeff Geerling</a>
+                          <span class="impact-source-note">&middot; January 2025</span><br>A dedicated section in his monitoring guide includes an asitop screenshot and installation instructions.</li>
+                        <li><a href="https://genmind.ch/posts/enhance-your-ai-engineer-toolbelt-with-asitop-and-nvitop/" target="_blank" rel="noopener">Genmind</a>
+                          <span class="impact-source-note">&middot; May 2022</span><br>Gian Paolo Santopaolo places asitop alongside nvitop in a practical AI-engineering toolkit.</li>
+                        <li><a href="https://labs.davlgd.com/posts/2024-01-apple-silicon-asitop/" target="_blank" rel="noopener">davlgd labs</a>
+                          <span class="impact-source-note">&middot; January 2024</span><br>A French-language article examines Apple Silicon monitoring and power consumption.</li>
+                      </ul>
+                    </section>
+                    <section aria-labelledby="asitop-international-title">
+                      <h4 id="asitop-international-title">International tutorials</h4>
+                      <p>Developer guides cover installation, troubleshooting, GPU activity, and energy monitoring across several languages.</p>
+                      <ul class="impact-credit-list">
+                        <li><strong>Chinese:</strong> <a href="https://wker.com/macos-asitop/" target="_blank" rel="noopener">Wker's overview</a> (2022)
+                          and <a href="https://blog.zhheo.com/p/e6a897a1.html" target="_blank" rel="noopener">Heo's setup and troubleshooting guide</a> (2023).</li>
+                        <li><strong>Korean:</strong> <a href="https://discuss.pytorch.kr/t/asitop-apple-silicon-cli-apple-silicon-top/3532" target="_blank" rel="noopener">PyTorchKR's community introduction</a>,
+                          <a href="https://macsplex.com/MACTIP/6558690" target="_blank" rel="noopener">Macsplex</a>,
+                          <a href="https://blog.iamwhatiam.co.kr/243" target="_blank" rel="noopener">IamwhatIam</a>, and
+                          <a href="https://wineskin.tistory.com/24" target="_blank" rel="noopener">Wineskin</a> (2024).</li>
+                        <li><strong>Japanese:</strong> <a href="https://zenn.dev/reij061/scraps/be1c56ad8dd3e7" target="_blank" rel="noopener">reij061's Zenn notebook</a>
+                          on Apple Silicon GPU monitoring (2024).</li>
+                      </ul>
+                    </section>
+                    <section aria-labelledby="asitop-continuing-title">
+                      <h4 id="asitop-continuing-title">Continuing recognition</h4>
+                      <p>Japanese publication AAPL Ch. continues to identify asitop when explaining later monitoring tools:
+                        the <a href="https://applech2.com/archives/20240529-mactop-apple-silicon-monitor-cli.html" target="_blank" rel="noopener">mactop launch</a> (2024),
+                        <a href="https://applech2.com/archives/20241203-macmon-mac-monitor-support-apple-m4.html" target="_blank" rel="noopener">macmon's M4 support</a> (2024),
+                        <a href="https://applech2.com/archives/20260223-mactop-for-apple-silicon-mac-monitor-support-menubar-gui.html" target="_blank" rel="noopener">mactop's menu-bar update</a> (2026), and
+                        <a href="https://applech2.com/archives/20260620-siliconscope-apple-silicon-mac-system-monitor.html" target="_blank" rel="noopener">SiliconScope's release</a> (2026).</p>
+                    </section>
+                    <section aria-labelledby="asitop-community-title">
+                      <h4 id="asitop-community-title">Community use and recommendations</h4>
+                      <p>A <a href="https://community.topazlabs.com/t/apple-silicon-m1-m2-pro-max-ultra-videoai-performance-neural-engine-or-gpu/39201/25" target="_blank" rel="noopener">Topaz Video AI community member</a>
+                        shared screenshots of asitop while investigating video-upscaling workloads. Other discussions include
+                        <a href="https://www.reddit.com/r/LocalLLaMA/comments/1b4insj/whats_your_best_monitor_tool/" target="_blank" rel="noopener">local-LLM monitoring recommendations</a>,
+                        <a href="https://blenderartists.org/t/mac-m3-hardware-accelerated-rt-part-1/1264658/4994" target="_blank" rel="noopener">Blender performance analysis</a>,
+                        <a href="https://news.ycombinator.com/item?id=39687132" target="_blank" rel="noopener">Hacker News recommendations</a>, and
+                        <a href="https://forums.macrumors.com/threads/cant-launch-asitop.2348372/" target="_blank" rel="noopener">MacRumors installation help</a>.</p>
+                    </section>
+                  </div>
+                </div>
+              </details>
+
+            </article>
+            <div class="feature feature--collaborations" aria-labelledby="collaborations-title">
+              <p class="feature__evidence" id="collaborations-title">Applied-AI collaboration</p>
+              <article class="collaboration-project" id="work-feddrip">
+                <p class="project-meta">IEEE Access 2025 <span class="publication__citations">13 citations</span></p>
+                <h3>FedDrip</h3>
+                <p>Diffusion-generated images help federated learning models learn across hospitals with different data.
+                  As co-supervisor of a master's thesis project, I contributed research direction, ideation, and
+                  evaluation setup; the team developed and evaluated the method.</p>
+                <a class="text-link" href="https://ieeexplore.ieee.org/document/10824802/" target="_blank" rel="noopener">Read the FedDrip paper &rarr;</a>
+              </article>
+              <article class="collaboration-project" id="work-newsmet">
+                <p class="project-meta">Findings of ACL 2023 <span class="publication__citations">29 citations</span></p>
+                <h3>NewsMet</h3>
+                <p>A news-headline dataset for interpreting and generating metaphors. I co-supervised the undergraduate
+                  capstone research project and advised as an NLP domain expert on dataset curation and benchmark development.</p>
+                <a class="text-link" href="https://aclanthology.org/2023.findings-acl.641/" target="_blank" rel="noopener">Read the NewsMet paper &rarr;</a>
+              </article>
+            </div>
+            <article class="feature" id="work-paraphrases">
+              <p class="feature__evidence">First-author research &middot; ACL 2022 <span class="publication__citations">25 citations</span></p>
+              <h3>Towards Better Characterization of Paraphrases</h3>
+              <p>
+                As first author, I introduced Word Position Deviation (WPD) and Lexical Deviation (LD) to measure
+                changes in word order and vocabulary between paraphrases without expert annotation. The paper uses
+                these metrics to evaluate datasets, improve model generalisation, and select paraphrases for data
+                augmentation and robustness testing.
+              </p>
+              <p>
+                I released <a href="https://pypi.org/project/paraphrase-metrics/" target="_blank"
+                  rel="noopener">paraphrase-metrics</a>, an open-source Python library with almost 5k downloads.
+                Hanyang University independently used WPD and LD to evaluate paraphrasing quality in its
+                <a href="https://aclanthology.org/2025.acl-long.1138/" target="_blank" rel="noopener">FCMR benchmark
+                  (published at ACL 2025)</a>, demonstrating external research adoption and validation of the metrics.
+              </p>
+              <div class="feature__links">
+                <a class="text-link" href="https://aclanthology.org/2022.acl-long.588/" target="_blank" rel="noopener"
+                  >Read the paper &rarr;</a
+                >
+                <a class="text-link" href="https://github.com/tlkh/paraphrase-metrics" target="_blank" rel="noopener"
+                  >Code on GitHub</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="experience">
         <div class="section__inner">
           <div class="section-heading">
             <h2>Experience</h2>
-            <p>Regional AI collaboration and enablement.</p>
+            <p>Research, architecture, and collaboration across Singapore and ASEAN/ANZ.</p>
           </div>
           <div class="timeline">
             <article class="timeline-item">
@@ -205,12 +374,21 @@
               <div class="timeline-item__body">
                 <h3>Senior Solutions Architect</h3>
                 <p>
-                  Support regional applied AI programmes across Singapore and ASEAN/ANZ with universities, research institutions, government, and industry.
+                  Support applied AI programmes with universities, research institutions, government, and industry
+                  across Singapore and ASEAN/ANZ.
                 </p>
                 <ul>
-                  <li>Advise strategic partners and NVAITC Joint Centres and Labs on research priorities, project portfolios, and technical roadmaps.</li>
-                  <li>Guide and mentor researchers, students, and engineers from problem scoping through architecture, prototyping, and validation across foundation models, multimodal and agentic AI, accelerated computing, simulation, and AI infrastructure.</li>
-                  <li>Align regional initiatives and represent NVAITC through <a href="#events">technical workshops and invited talks</a> and <a href="#media-coverage">regional centre launches and symposiums</a>, helping partners translate research into practical applications.</li>
+                  <li>
+                    Advise partners and NVAITC Joint Centres and Labs on research priorities and technical roadmaps.
+                  </li>
+                  <li>
+                    Mentor teams through scoping, architecture, prototyping, and validation across foundation models,
+                    multimodal and agentic AI, GPU computing, simulation, and infrastructure.
+                  </li>
+                  <li>
+                    Align regional initiatives through <a href="#events">technical workshops and talks</a> and
+                    <a href="#media-coverage">centre launches and symposiums</a>.
+                  </li>
                 </ul>
               </div>
             </article>
@@ -222,9 +400,10 @@
               </div>
               <div class="timeline-item__body">
                 <h3>Solutions Architect</h3>
-                <p>
-                  Supported applied AI programmes across ASEAN/ANZ, translating partner opportunities into research projects, prototypes, and technical roadmaps. Drove adoption of NVIDIA technologies across generative and multimodal AI, accelerated computing, and AI systems while mentoring research teams and postgraduate students. Co-organised <a href="#events">technical workshops and invited talks</a>, contributed to <a href="#research">publications</a>, and served on organising committees for <a href="#media-coverage">regional AI centre launches and symposiums</a>.
-                </p>
+                <p>Supported applied AI programmes across ASEAN/ANZ, translating partner opportunities into research
+                  projects, prototypes, and roadmaps across generative AI and accelerated computing. Mentored research
+                  teams, contributed to <a href="#research">publications</a>, and co-organised
+                  <a href="#events">workshops and talks</a> and <a href="#media-coverage">regional launches</a>.</p>
               </div>
             </article>
 
@@ -235,11 +414,11 @@
               </div>
               <div class="timeline-item__body">
                 <h3>Research Intern</h3>
-                <p>Researched multimodal foundation models and long-form image captioning with a Japanese R&amp;D team.</p>
-                <ul>
-                  <li>Improved paragraph-length captioning and synthetic data for image-text retrieval.</li>
-                  <li>Fine-tuned 7B+ multimodal models on ABCI with multi-GPU training and DeepSpeed.</li>
-                </ul>
+                <p>
+                  Researched multimodal foundation models, paragraph-length captioning, and synthetic data for
+                  image-text retrieval with a Japanese R&amp;D team. Fine-tuned 7B+ models on ABCI using multi-GPU
+                  training and DeepSpeed.
+                </p>
               </div>
             </article>
 
@@ -251,28 +430,29 @@
               <div class="timeline-item__body">
                 <h3>Solutions Architect Intern</h3>
                 <p>
-                  Completed a five-year NVIDIA internship alongside undergraduate and postgraduate studies.
+                  Built <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">ai-lab</a> for
+                  reproducible experiments and supported Kubernetes GPU workloads on-premises and in the cloud during a
+                  five-year internship alongside my studies. Earned NVIDIA DLI Certified Instructor status for NLP,
+                  RAPIDS, and multi-GPU courses.
                 </p>
-                <ul>
-                  <li>Built <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">a deep learning container</a> for reproducible experimentation.</li>
-                  <li>Supported GPU workloads on Kubernetes across on-premises and cloud environments.</li>
-                  <li>Earned NVIDIA DLI Certified Instructor status for NLP, RAPIDS, and multi-GPU courses.</li>
-                </ul>
               </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--muted section--tight" id="research">
+      <section class="section section--muted" id="research" aria-labelledby="research-title">
         <div class="section__inner">
-          <div class="section-heading">
-            <h2>Selected publications</h2>
-            <div class="profile-links profile-links--section" aria-label="Research profile links">
-              <a href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
-              <a href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener">Semantic Scholar</a>
-            </div>
+          <div class="section-heading"><h2 id="research-title">Selected research</h2></div>
+          <div class="profile-links profile-links--section" aria-label="Research profile links" role="group">
+            <a href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener"
+              >Google Scholar</a
+            >
+            <a href="https://www.semanticscholar.org/author/Timothy-Liu/2109992450" target="_blank" rel="noopener"
+              >Semantic Scholar</a
+            >
           </div>
+          <p class="metric-note">Google Scholar citation counts as of 17 Sep 2026.</p>
           <div class="publication-list">
             <article class="publication">
               <div class="publication__meta">
@@ -285,7 +465,10 @@
                 </a>
               </h3>
               <p class="publication__authors">Joseph R., <strong>Liu T.</strong>, Ng A.B., See S., Rai S.</p>
-              <p class="publication__takeaway">A hand-annotated news headline dataset supports evaluation of how language models interpret and generate metaphors.</p>
+              <p class="publication__takeaway">
+                A hand-annotated news headline dataset supports evaluation of how language models interpret and generate
+                metaphors.
+              </p>
             </article>
             <article class="publication">
               <div class="publication__meta">
@@ -298,7 +481,10 @@
                 </a>
               </h3>
               <p class="publication__authors"><strong>Liu T.</strong> and Soh D.</p>
-              <p class="publication__takeaway">Two measures describe changes in word order and vocabulary, helping researchers inspect paraphrase datasets and select generated paraphrases.</p>
+              <p class="publication__takeaway">
+                First-author work on structural and lexical variation.
+                <a href="#work-paraphrases">See selected work</a>.
+              </p>
             </article>
             <article class="publication">
               <div class="publication__meta">
@@ -311,7 +497,10 @@
                 </a>
               </h3>
               <p class="publication__authors">Huangsuwan K., <strong>Liu T.</strong>, See S., Ng A.B., Vateekul P.</p>
-              <p class="publication__takeaway">Diffusion-generated images train an additional model to help federated learning cope with differences in data across participating sites.</p>
+              <p class="publication__takeaway">
+                Diffusion-generated data for federated learning across heterogeneous sites.
+                <a href="#work-feddrip">See selected work</a>.
+              </p>
             </article>
             <article class="publication">
               <div class="publication__meta">
@@ -324,442 +513,877 @@
                   ESRA: Explainable Scientific Research Assistant
                 </a>
               </h3>
-              <p class="publication__authors">Hongwimol P., Kehasukcharoen P., Laohawarutchai P., Lertvittayakumjorn P., Ng A.B., Lai Z., <strong>Liu T.</strong>, Vateekul P.</p>
-              <p class="publication__takeaway">A literature search tool uses a knowledge graph to explain returned papers and show connections between research topics.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">arXiv 2026</span>
-                <span class="publication__citations">2 citations</span>
-              </div>
-              <h3>
-                <a href="https://arxiv.org/abs/2603.12840" target="_blank" rel="noopener">
-                  DAST: A Dual-Stream Voice Anonymization Attacker with Staged Training
-                </a>
-              </h3>
-              <p class="publication__authors">Arefeen R., Miao X., Tong R., Ng A.B., See S., <strong>Liu T.</strong></p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">arXiv 2026</span>
-                <span class="publication__citations">1 citation</span>
-              </div>
-              <h3>
-                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=YiAHfvQAAAAJ&amp;citation_for_view=YiAHfvQAAAAJ:YsMSGLbcyi4C" target="_blank" rel="noopener">
-                  The Periodic Table of LLM Reasoning: A Structured Survey of Reasoning Paradigms, Methods, and Failure Modes
-                </a>
-              </h3>
-              <p class="publication__authors">Anand A., Ramesh M., Mittal A., Kumar A., Vyalla R.R., Cambria E., Wang Z., <strong>Liu T.</strong>, Ng A.B., See S., Shah R.R.</p>
-              <p class="publication__takeaway">A structured survey maps LLM reasoning paradigms, methods, and failure modes across more than 300 recent papers.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">ACM MM Workshop 2025</span>
-                <span class="publication__citations">1 citation</span>
-              </div>
-              <h3>
-                <a href="https://doi.org/10.1145/3728487.3759233" target="_blank" rel="noopener">
-                  Advancing Agentic AI: Synthetic Data for Personified and Inclusive Human-AI Interactions
-                </a>
-              </h3>
-              <p class="publication__authors">Rajendran M., Tan D., <strong>Liu T.</strong>, Ng A.B., Lee J.S., Wei E.Y., See S.</p>
-              <p class="publication__takeaway">A modular panel of AI personas combines knowledge-grounded responses with synthetic data to make digital advisors more consistent, personalised, and inclusive.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">arXiv 2026</span>
-                <span class="publication__citations">1 citation</span>
-              </div>
-              <h3>
-                <a href="https://arxiv.org/abs/2606.22932" target="_blank" rel="noopener">
-                  FORGE: Fused On-Register Gradient Elimination for Memory-Efficient LLM Training
-                </a>
-              </h3>
-              <p class="publication__authors">Kukreja D., Prasad K., Anand A., Wang Z., Cambria E., <strong>Liu T.</strong>, Ng A.B., See S., Chatterjee B.</p>
-              <p class="publication__takeaway">FORGE updates model weights as gradients are computed instead of storing them, cutting optimizer memory by more than half and speeding small-batch LLM training.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">IEEE SOLI 2025</span>
-                <span class="publication__citations">0 citations</span>
-                <span class="publication__award">Best Paper Award</span>
-              </div>
-              <h3>
-                <a href="https://ieeexplore.ieee.org/abstract/document/11396164" target="_blank" rel="noopener">
-                  ShalDeepDP: A Survey and Comparison of Data Poisoning in Statistical, Classical Deep Learning and Foundation Models
-                </a>
-              </h3>
-              <p class="publication__authors">Chan J.Y., Guo H., <strong>Liu T.</strong>, Ng A.B., See S.</p>
-              <p class="publication__takeaway">A survey compares how data-poisoning attacks affect statistical models, conventional deep learning, and foundation models, helping practitioners weigh robustness against performance.</p>
-            </article>
-            <article class="publication">
-              <div class="publication__meta">
-                <span class="publication__venue">IEEE ISBI 2026</span>
-                <span class="publication__citations">0 citations</span>
-              </div>
-              <h3>
-                <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=YiAHfvQAAAAJ&amp;citation_for_view=YiAHfvQAAAAJ:ufrVoPGSRksC" target="_blank" rel="noopener">
-                  ADAPT: Multibeamformer with Tunable Weight Fusion and Patch-Wise Learning for Ultrasound Imaging
-                </a>
-              </h3>
-              <p class="publication__authors">Gopikrishna G., Panicke M.R., <strong>Liu T.</strong>, Ng A.B., See S.</p>
-              <p class="publication__takeaway">A deep learning multibeamformer uses tunable weight fusion and patch-wise learning for efficient, depth-independent ultrasound reconstruction.</p>
+              <p class="publication__authors">
+                Hongwimol P., Kehasukcharoen P., Laohawarutchai P., Lertvittayakumjorn P., Ng A.B., Lai Z.,
+                <strong>Liu T.</strong>, Vateekul P.
+              </p>
+              <p class="publication__takeaway">
+                A literature search tool uses a knowledge graph to explain returned papers and show connections between
+                research topics.
+              </p>
             </article>
           </div>
+          <details id="all-publications" class="collection-disclosure">
+            <summary>All publications (10)</summary>
+            <div class="collection-disclosure__body">
+              <p>
+                The four selected papers above and the six additional publications below form the complete portfolio
+                bibliography.
+              </p>
+              <div class="publication-list">
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://arxiv.org/abs/2603.12840" target="_blank" rel="noopener">
+                      DAST: A Dual-Stream Voice Anonymization Attacker with Staged Training
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Arefeen R., Miao X., Tong R., Ng A.B., See S., <strong>Liu T.</strong>
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a
+                      href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=YiAHfvQAAAAJ&amp;citation_for_view=YiAHfvQAAAAJ:YsMSGLbcyi4C"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      The Periodic Table of LLM Reasoning: A Structured Survey of Reasoning Paradigms, Methods, and
+                      Failure Modes
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Anand A., Ramesh M., Mittal A., Kumar A., Vyalla R.R., Cambria E., Wang Z., <strong>Liu T.</strong>,
+                    Ng A.B., See S., Shah R.R.
+                  </p>
+                  <p class="publication__takeaway">
+                    A structured survey maps LLM reasoning paradigms, methods, and failure modes across more than 300
+                    recent papers.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">ACM MM Workshop 2025</span>
+                  </div>
+                  <h3>
+                    <a href="https://doi.org/10.1145/3728487.3759233" target="_blank" rel="noopener">
+                      Advancing Agentic AI: Synthetic Data for Personified and Inclusive Human-AI Interactions
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Rajendran M., Tan D., <strong>Liu T.</strong>, Ng A.B., Lee J.S., Wei E.Y., See S.
+                  </p>
+                  <p class="publication__takeaway">
+                    A modular panel of AI personas combines knowledge-grounded responses with synthetic data to make
+                    digital advisors more consistent, personalised, and inclusive.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://arxiv.org/abs/2606.22932" target="_blank" rel="noopener">
+                      FORGE: Fused On-Register Gradient Elimination for Memory-Efficient LLM Training
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Kukreja D., Prasad K., Anand A., Wang Z., Cambria E., <strong>Liu T.</strong>, Ng A.B., See S.,
+                    Chatterjee B.
+                  </p>
+                  <p class="publication__takeaway">
+                    FORGE updates model weights as gradients are computed instead of storing them, cutting optimizer
+                    memory by more than half and speeding small-batch LLM training.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">IEEE SOLI 2025</span>
+                    <span class="publication__award">Best Paper Award</span>
+                  </div>
+                  <h3>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/11396164" target="_blank" rel="noopener">
+                      ShalDeepDP: A Survey and Comparison of Data Poisoning in Statistical, Classical Deep Learning and
+                      Foundation Models
+                    </a>
+                  </h3>
+                  <p class="publication__authors">Chan J.Y., Guo H., <strong>Liu T.</strong>, Ng A.B., See S.</p>
+                  <p class="publication__takeaway">
+                    A survey compares how data-poisoning attacks affect statistical models, conventional deep learning,
+                    and foundation models, helping practitioners weigh robustness against performance.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">IEEE ISBI 2026</span>
+                  </div>
+                  <h3>
+                    <a
+                      href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=YiAHfvQAAAAJ&amp;citation_for_view=YiAHfvQAAAAJ:ufrVoPGSRksC"
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      ADAPT: Multibeamformer with Tunable Weight Fusion and Patch-Wise Learning for Ultrasound Imaging
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Gopikrishna G., Panicke M.R., <strong>Liu T.</strong>, Ng A.B., See S.
+                  </p>
+                  <p class="publication__takeaway">
+                    A deep learning multibeamformer uses tunable weight fusion and patch-wise learning for efficient,
+                    depth-independent ultrasound reconstruction.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </details>
         </div>
       </section>
 
-      <section class="section section--muted" id="events" aria-labelledby="events-title">
+      <section class="section" id="open-source" aria-labelledby="open-source-title">
         <div class="section__inner">
-          <div class="section-heading">
-            <h2 id="events-title">Speaking and partnerships</h2>
-          </div>
-          <div class="event-carousel" id="eventCarousel" role="region" aria-roledescription="carousel" aria-label="Event highlights">
-            <div class="event-carousel__viewport">
-              <figure class="event-carousel__slide is-active" role="group" aria-roledescription="slide" aria-label="Event photo 1 of 8" aria-hidden="false">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-8-640.avif 640w, assets/event-carousel-8-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-8-640.webp 640w, assets/event-carousel-8-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-8.jpg" width="2160" height="1620" alt="Workshop on NVIDIA NIM, Nemtron and NemoClaw at Chulalongkorn University" loading="lazy" decoding="async">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇹🇭 Chulalongkorn University</span>Workshop on NVIDIA NIM, Nemtron and NemoClaw</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 2 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-2-640.avif 640w, assets/event-carousel-2-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-2-640.webp 640w, assets/event-carousel-2-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-2.jpg" width="2048" height="1366" alt="Timothy Liu delivering an invited talk on Trustworthy Agentic AI with NVIDIA NIM at the AAAI 2026 workshop at Singapore EXPO" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 AAAI 2026</span>Workshop co-organiser and invited speaker: Trustworthy Agentic AI with NIM</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 3 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-3-640.avif 640w, assets/event-carousel-3-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-3-640.webp 640w, assets/event-carousel-3-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-3.jpg" width="2048" height="1536" alt="Presenters and attendees at Milipol TechX Summit 2026 in a busy exhibition hall" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 Milipol TechX Summit 2026</span>Invited talk on NVIDIA NIM and applied research</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 4 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-4-640.avif 640w, assets/event-carousel-4-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-4-640.webp 640w, assets/event-carousel-4-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-4.jpg" width="2048" height="1365" alt="Timothy Liu speaking at a Republic Polytechnic podium during an invited talk" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 Republic Polytechnic</span>Invited talk on Physical AI and humanoid robotics</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 5 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-5-640.avif 640w, assets/event-carousel-5-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-5-640.webp 640w, assets/event-carousel-5-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-5.jpg" width="2048" height="1536" alt="Timothy Liu at Universitas Gadjah Mada" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇮🇩 Universitas Gadjah Mada</span>Opening remarks and invited talk: NIM, MONAI, Metropolis</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 6 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-6-640.avif 640w, assets/event-carousel-6-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-6-640.webp 640w, assets/event-carousel-6-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-6.jpg" width="2048" height="1538" alt="Workshop on agentic AI use cases for financial services" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 Institute of Singapore Chartered Accountants</span>Workshop co-organiser and invited speaker: AI for financial services</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 7 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-7-640.avif 640w, assets/event-carousel-7-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-7-640.webp 640w, assets/event-carousel-7-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-7.jpg" width="2048" height="1536" alt="Timothy Liu presenting the NVIDIA Accelerated Computing Platform at Imperial College" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇬🇧 Imperial College</span>Invited talk on the NVIDIA Accelerated Computing Platform and AI research</figcaption>
-              </figure>
-              <figure class="event-carousel__slide" role="group" aria-roledescription="slide" aria-label="Event photo 8 of 8" aria-hidden="true">
-                <picture>
-                  <source type="image/avif" srcset="assets/event-carousel-1-640.avif 640w, assets/event-carousel-1-1280.avif 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <source type="image/webp" srcset="assets/event-carousel-1-640.webp 640w, assets/event-carousel-1-1280.webp 1280w" sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px">
-                  <img src="assets/event-carousel-1.jpg" width="2048" height="1536" alt="Timothy Liu presenting the NVIDIA AI-Q Research Agent at a Hitachi Asia event" loading="lazy" decoding="async" fetchpriority="low">
-                </picture>
-                <figcaption><span class="event-carousel__location">🇸🇬 Hitachi Asia</span>Invited talk on NVIDIA NIM and AI-Q Blueprint</figcaption>
-              </figure>
-            </div>
-            <button class="event-carousel__control event-carousel__control--prev" type="button" aria-label="Previous event photo">
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="m15 18-6-6 6-6"></path>
-              </svg>
-            </button>
-            <button class="event-carousel__control event-carousel__control--next" type="button" aria-label="Next event photo">
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="m9 6 6 6-6 6"></path>
-              </svg>
-            </button>
-            <button class="event-carousel__toggle" id="eventCarouselToggle" type="button" aria-label="Pause event slideshow" aria-pressed="true">
-              <svg class="event-carousel__toggle-icon event-carousel__toggle-icon--pause" aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M8 6v12M16 6v12"></path>
-              </svg>
-              <svg class="event-carousel__toggle-icon event-carousel__toggle-icon--play" aria-hidden="true" viewBox="0 0 24 24">
-                <path d="m9 6 8 6-8 6z"></path>
-              </svg>
-            </button>
-            <div class="event-carousel__dots" role="group" aria-label="Choose event photo">
-              <button class="is-active" type="button" aria-label="Show event photo 1" aria-current="true"></button>
-              <button type="button" aria-label="Show event photo 2"></button>
-              <button type="button" aria-label="Show event photo 3"></button>
-              <button type="button" aria-label="Show event photo 4"></button>
-              <button type="button" aria-label="Show event photo 5"></button>
-              <button type="button" aria-label="Show event photo 6"></button>
-              <button type="button" aria-label="Show event photo 7"></button>
-              <button type="button" aria-label="Show event photo 8"></button>
-            </div>
-            <p class="event-carousel__count" id="eventCarouselCount">1 / 8</p>
-          </div>
-          <section class="media-coverage" id="media-coverage" aria-labelledby="media-coverage-title">
-            <h3 id="media-coverage-title">Media Coverage of Activities</h3>
-            <ul class="media-coverage__list">
-              <li class="media-coverage__item">
-                <div class="media-coverage__item-heading">
-                  <h4>Launch of SNAIC (2025)</h4>
-                  <p class="media-coverage__location">🇸🇬 Punggol, Singapore</p>
-                  <span class="media-coverage__role">Organising Committee</span>
-                </div>
-                <p class="media-coverage__summary">SIT and NVIDIA launched SNAIC at Punggol to advance AI research, partnerships, and talent development.</p>
-                <div class="media-coverage__links" aria-label="Coverage sources for Launch of SNAIC">
-                  <a href="https://www.singaporetech.edu.sg/news/sit-marks-opening-its-flagship-ai-centre-sit-punggol-campus-key-initiatives-and-partnerships-advance" target="_blank" rel="noopener">Singapore Institute of Technology</a>
-                  <a href="https://sbr.com.sg/hr-education/news/sit-and-nvidia-launch-ai-research-centre-punggol-campus" target="_blank" rel="noopener">Singapore Business Review</a>
-                  <a href="https://www.businesstimes.com.sg/companies-markets/sit-and-nvidia-jointly-train-200-ai-specialists-over-three-years" target="_blank" rel="noopener">The Business Times</a>
-                  <a href="https://www.zaobao.com.sg/realtime/singapore/story20251002-7604565" target="_blank" rel="noopener">Lianhe Zaobao</a>
-                </div>
-              </li>
-              <li class="media-coverage__item">
-                <div class="media-coverage__item-heading">
-                  <h4>CU x NVAITC Symposium 2026</h4>
-                  <p class="media-coverage__location">🇹🇭 Bangkok, Thailand</p>
-                  <span class="media-coverage__role">Organising Committee</span>
-                </div>
-                <p class="media-coverage__summary">The symposium brought Chulalongkorn University and NVAITC partners together around applied AI research and collaboration.</p>
-                <div class="media-coverage__links" aria-label="Coverage sources for CU x NVAITC Symposium 2026">
-                  <a href="https://www.chula.ac.th/en/news/418395/" target="_blank" rel="noopener">Chulalongkorn University</a>
-                  <a href="https://qs-gen.com/chula-hosts-cu-x-nvaitc-symposium-2026/" target="_blank" rel="noopener">QS GEN</a>
-                  <a href="https://www.newswise.com/articles/chula-hosts-cu-nvaitc-symposium-2026" target="_blank" rel="noopener">Newswise</a>
-                </div>
-              </li>
-              <li class="media-coverage__item">
-                <div class="media-coverage__item-heading">
-                  <h4>Launch of UGM Indosat NVAITC (2026)</h4>
-                  <p class="media-coverage__location">🇮🇩 Yogyakarta, Indonesia</p>
-                  <span class="media-coverage__role">Organising Committee</span>
-                </div>
-                <p class="media-coverage__summary">UGM, Indosat, and NVIDIA launched an AI Technology Center to strengthen Indonesia's research and education ecosystem.</p>
-                <div class="media-coverage__links" aria-label="Coverage sources for Launch of UGM Indosat NVAITC">
-                  <a href="https://ai.ugm.ac.id/2026/08/18/ugm-indosat-and-nvidia-officially-launch-ai-technology-center-to-advance-indonesias-ai-innovation/" target="_blank" rel="noopener">Universitas Gadjah Mada</a>
-                  <a href="https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/" target="_blank" rel="noopener">NVIDIA Blog</a>
-                  <a href="https://ioh.co.id/EN/contents?slug=komdigi-indosat-nvidia-and-ugm-open-ugm-indosat-nvidia-ai-technology-center-to-advance-national-research-and-education" target="_blank" rel="noopener">Indosat Ooredoo Hutchison</a>
-                  <a href="https://www.telecomtv.com/content/ai/ioh-and-nvidia-launch-ai-research-hub-in-indonesia-56074/" target="_blank" rel="noopener">TelecomTV</a>
-                  <a href="https://inet.detik.com/telecommunication/d-8616905/indosat-nvidia-gandeng-komdigi-buka-pusat-teknologi-ai-di-ugm/amp" target="_blank" rel="noopener">detikINET</a>
-                  <a href="https://rejogja.republika.co.id/berita/tjpb70291/ugm-indosat-dan-nvidia-luncurkan-pusat-teknologi-ai-di-yogyakarta" target="_blank" rel="noopener">Republika Online</a>
-                </div>
-              </li>
-              <li class="media-coverage__item">
-                <div class="media-coverage__item-heading">
-                  <h4>The Future of Artificial Intelligence Chapter 4 (2026)</h4>
-                  <p class="media-coverage__location">🇻🇳 Ho Chi Minh City, Vietnam</p>
-                  <span class="media-coverage__role">Organising Committee</span>
-                </div>
-                <p class="media-coverage__summary">The Vietnam forum examined practical paths for organizations to move from AI interest to real-world adoption.</p>
-                <div class="media-coverage__links" aria-label="Coverage sources for The Future of Artificial Intelligence Chapter 4">
-                  <a href="https://jdi.group/event-recap-the-future-of-artificial-intelligence-chapter-4/" target="_blank" rel="noopener">JDI Group</a>
-                  <a href="https://the-future-of-artificial-intelligence.webflow.io/" target="_blank" rel="noopener">Event website</a>
-                  <a href="https://tuoitre.vn/74-doanh-nghiep-vua-va-nho-moi-dung-ai-o-muc-co-ban-vuong-o-dau-100260818161116694.htm" target="_blank" rel="noopener">Tuoi Tre</a>
-                  <a href="https://baotintuc.vn/doanh-nghiep-san-pham-dich-vu/doanh-nghiep-ban-cach-dua-ai-vao-van-hanh-thuc-te-20260811092953586.htm" target="_blank" rel="noopener">Vietnam News Agency</a>
-                </div>
-              </li>
-              <li class="media-coverage__item">
-                <div class="media-coverage__item-heading">
-                  <h4>The Future of Artificial Intelligence Chapter 3 (2025)</h4>
-                  <p class="media-coverage__location">🇻🇳 Ho Chi Minh City, Vietnam</p>
-                  <span class="media-coverage__role">Organising Committee</span>
-                </div>
-                <p class="media-coverage__summary">The earlier chapter convened regional speakers and businesses to discuss the future of applied AI in Vietnam.</p>
-                <div class="media-coverage__links" aria-label="Coverage sources for The Future of Artificial Intelligence Chapter 3">
-                  <a href="https://jdi.group/event-recap-the-future-of-artificial-intelligence-chapter-3/" target="_blank" rel="noopener">JDI Group</a>
-                  <a href="https://english.thesaigontimes.vn/ai-future-conference-set-for-august-20-in-hcmc/" target="_blank" rel="noopener">The Saigon Times</a>
-                </div>
-              </li>
-            </ul>
-          </section>
-        </div>
-      </section>
-
-      <section class="section section--muted section--tight" id="education">
-        <div class="section__inner">
-          <div class="section-heading">
-            <h2>Education</h2>
-            <p>Singapore University of Technology and Design</p>
-          </div>
-          <div class="education-grid">
-            <article class="detail-card">
-              <span class="date">Sep 2020 - Aug 2024</span>
-              <h3>PhD, Natural Language Processing</h3>
-              <p>President's Graduate Fellowship scholar. Thesis: Foundations and Applications of Paraphrasing in NLP.</p>
-            </article>
-            <article class="detail-card">
-              <span class="date">May 2017 - Aug 2020</span>
-              <h3>Bachelor of Engineering (Honours)</h3>
-              <p>Information Systems Technology and Design, with cybersecurity research and student workshops.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--tight" id="awards">
-        <div class="section__inner">
-          <div class="section-heading">
-            <h2>Selected recognition and community work</h2>
-          </div>
-          <div class="award-grid">
-            <article class="detail-card">
-              <h3>Hyperhack Datathon</h3>
-              <p>Gold Award for modelling medical-shock financial vulnerability with XGBoost and Tableau.</p>
-            </article>
-            <article class="detail-card">
-              <h3>AI &amp; Security Hackathons</h3>
-              <p>Finalist at YITU Singapore AI Hackathon; winner at Google “Fake News Must Die” and Red Hack.</p>
-            </article>
-            <article class="detail-card">
-              <h3>Black Hat Asia</h3>
-              <p>Featured project for Prowler, a Raspberry Pi cluster network vulnerability scanner.</p>
-            </article>
-            <article class="detail-card">
-              <h3>Community Teaching</h3>
-              <p>Mentor at AI Saturdays Singapore and co-lead for Intel Make Tomorrow Catalyst workshops.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section--muted" id="skills" aria-labelledby="tools-title">
-        <div class="section__inner">
-          <div class="section-heading">
-            <h2 id="tools-title">Tools and platforms</h2>
-          </div>
-          <dl class="toolkit-list">
-            <div>
-              <dt>Languages</dt>
-              <dd>Python, SQL, Bash, HTML/CSS/JavaScript, Java</dd>
-            </div>
-            <div>
-              <dt>Frameworks</dt>
-              <dd>PyTorch, TensorFlow, HuggingFace Transformers, DeepSpeed, vLLM, SpaCy, NumPy, SciPy, OpenCV, XGBoost, Dask</dd>
-            </div>
-            <div>
-              <dt>Platforms</dt>
-              <dd>Linux/Unix, Git, Docker, Kubernetes, AWS, GCP, Azure, PBS, Slurm</dd>
-            </div>
-            <div>
-              <dt>Agentic coding</dt>
-              <dd>Codex, Claude Code, AWS Kiro, Cursor</dd>
-            </div>
-            <div class="toolkit-list__wide">
-              <dt>NVIDIA technologies</dt>
-              <dd>GPU cluster deployment and management; NIM, Nemotron models, Blueprints, Brev, NeMo, RAPIDS, CuPy, Visual Search and Summarization (VSS), and MONAI</dd>
-            </div>
-          </dl>
-          <p class="toolkit-languages"><strong>Spoken languages:</strong> English and Mandarin Chinese</p>
-        </div>
-      </section>
-
-      <section class="section section--tight" id="open-source">
-        <div class="section__inner">
-          <div class="section-heading">
-            <h2>Featured open-source work</h2>
-            <div class="profile-links profile-links--section" aria-label="Open-source profile links">
-              <a href="https://github.com/tlkh" target="_blank" rel="noopener">All repositories</a>
-            </div>
-          </div>
+          <div class="section-heading"><h2 id="open-source-title">More open source</h2></div>
           <div class="repository-grid">
-            <article class="detail-card repository-card">
-              <h3>
-                <a href="https://github.com/tlkh/asitop" target="_blank" rel="noopener">asitop</a>
-              </h3>
-              <p class="project-meta">Python | 4.6k stars | 211 forks</p>
-              <p>Apple Silicon telemetry CLI for CPU, GPU, ANE, memory, and power.</p>
-            </article>
             <article class="detail-card repository-card">
               <h3>
                 <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">ai-lab</a>
               </h3>
-              <p class="project-meta">JavaScript | 434 stars | 66 forks</p>
+              <p class="project-meta">JavaScript</p>
               <p>GPU-enabled AI development container for rapid prototyping and JupyterHub.</p>
             </article>
             <article class="detail-card repository-card">
               <h3>
-                <a href="https://github.com/tlkh/tf-metal-experiments" target="_blank" rel="noopener">tf-metal-experiments</a>
+                <a href="https://github.com/tlkh/tf-metal-experiments" target="_blank" rel="noopener"
+                  >tf-metal-experiments</a
+                >
               </h3>
-              <p class="project-meta">Jupyter Notebook | 279 stars | 31 forks</p>
+              <p class="project-meta">Jupyter Notebook</p>
               <p>TensorFlow Metal experiments and model benchmarks on Apple Silicon.</p>
-            </article>
-            <article class="detail-card repository-card">
-              <h3>
-                <a href="https://github.com/tlkh/text-emotion-classification" target="_blank" rel="noopener">text-emotion-classification</a>
-              </h3>
-              <p class="project-meta">Jupyter Notebook | 199 stars | 79 forks</p>
-              <p>CNN/LSTM experiments for five-class emotion classification of short text.</p>
             </article>
             <article class="detail-card repository-card">
               <h3>
                 <a href="https://github.com/tlkh/prowler" target="_blank" rel="noopener">prowler</a>
               </h3>
-              <p class="project-meta">Python | 124 stars | 28 forks</p>
+              <p class="project-meta">Python</p>
               <p>Raspberry Pi cluster-based distributed network vulnerability scanner.</p>
             </article>
-            <article class="detail-card repository-card">
-              <h3>
-                <a href="https://github.com/tlkh/m1-cpu-benchmarks" target="_blank" rel="noopener">m1-cpu-benchmarks</a>
-              </h3>
-              <p class="project-meta">Jupyter Notebook | 54 stars | 10 forks</p>
-              <p>CPU benchmark notebooks comparing Apple Silicon across numerical and NLP workloads.</p>
-            </article>
           </div>
-          <aside class="upstream-note" aria-labelledby="upstream-title">
+          <aside class="upstream-note" id="all-repositories" aria-labelledby="upstream-title">
             <h3 id="upstream-title">Upstream Contributions</h3>
-            <p>Contributions to HuggingFace Transformers, TensorFlow docs, and JupyterHub GPU guidance.</p>
+            <div class="repository-grid">
+              <article class="repository-card">
+                <h4>Hugging Face Transformers</h4>
+                <p>Improved TensorFlow examples and benchmarks with
+                  <a href="https://github.com/huggingface/transformers/pull/1508" target="_blank" rel="noopener">XLA and automatic mixed precision</a>,
+                  added <a href="https://github.com/huggingface/transformers/pull/1667" target="_blank" rel="noopener">FP16 benchmarking</a>,
+                  and <a href="https://github.com/huggingface/transformers/pull/1668" target="_blank" rel="noopener">fixed TensorFlow XLM training</a>.</p>
+              </article>
+              <article class="repository-card">
+                <h4>TensorFlow documentation</h4>
+                <p>Documented <a href="https://github.com/tensorflow/tensorflow/pull/29249" target="_blank" rel="noopener">TensorFlow's automatic mixed-precision API</a>, helping developers configure faster training with lower-precision computation.</p>
+              </article>
+              <article class="repository-card">
+                <h4>JupyterHub GPU guidance</h4>
+                <p>Contributed <a href="https://github.com/jupyterhub/zero-to-jupyterhub-k8s/pull/1358" target="_blank" rel="noopener">GPU and shared-memory setup instructions</a> for Kubernetes-hosted notebooks, alongside
+                  <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">ai-lab</a>,
+                  a reproducible development container for GPU workstations and JupyterHub.</p>
+              </article>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section class="section section--muted section--tight" id="outside-work" aria-labelledby="outside-work-title">
-        <div class="section__inner split">
-          <div>
-            <h2 id="outside-work-title">Outside work</h2>
+      <section class="section section--muted" id="events" aria-labelledby="events-title">
+        <div class="section__inner">
+          <div class="section-heading"><h2 id="events-title">Speaking &amp; Events</h2></div>
+          <div id="event-gallery">
+            <div
+              class="event-carousel"
+              id="eventCarousel"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Event highlights"
+            >
+              <div class="event-carousel__viewport">
+                <figure
+                  class="event-carousel__slide is-active"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 1 of 8"
+                  aria-hidden="false"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-8-640.avif 640w, assets/event-carousel-8-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-8-640.webp 640w, assets/event-carousel-8-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-8.jpg"
+                      width="2160"
+                      height="1620"
+                      alt="Workshop on NVIDIA NIM, Nemotron and NemoClaw at Chulalongkorn University"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇹🇭 Chulalongkorn University</span>Workshop on NVIDIA NIM,
+                    Nemotron and NemoClaw
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 2 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-2-640.avif 640w, assets/event-carousel-2-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-2-640.webp 640w, assets/event-carousel-2-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-2.jpg"
+                      width="2048"
+                      height="1366"
+                      alt="Timothy Liu delivering an invited talk on Trustworthy Agentic AI with NVIDIA NIM at the AAAI 2026 workshop at Singapore EXPO"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇸🇬 AAAI 2026</span>Workshop co-organiser and invited speaker:
+                    Trustworthy Agentic AI with NVIDIA NIM
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 3 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-3-640.avif 640w, assets/event-carousel-3-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-3-640.webp 640w, assets/event-carousel-3-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-3.jpg"
+                      width="2048"
+                      height="1536"
+                      alt="Presenters and attendees at Milipol TechX Summit 2026 in a busy exhibition hall"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇸🇬 Milipol TechX Summit 2026</span>Invited talk on NVIDIA NIM
+                    and applied research
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 4 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-4-640.avif 640w, assets/event-carousel-4-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-4-640.webp 640w, assets/event-carousel-4-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-4.jpg"
+                      width="2048"
+                      height="1365"
+                      alt="Timothy Liu speaking at a Republic Polytechnic podium during an invited talk"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇸🇬 Republic Polytechnic</span>Invited talk on Physical AI and
+                    humanoid robotics
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 5 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-5-640.avif 640w, assets/event-carousel-5-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-5-640.webp 640w, assets/event-carousel-5-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-5.jpg"
+                      width="2048"
+                      height="1536"
+                      alt="Timothy Liu at Universitas Gadjah Mada"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇮🇩 Universitas Gadjah Mada</span>Opening remarks and invited
+                    talk: NIM, MONAI, Metropolis
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 6 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-6-640.avif 640w, assets/event-carousel-6-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-6-640.webp 640w, assets/event-carousel-6-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-6.jpg"
+                      width="2048"
+                      height="1538"
+                      alt="Workshop on agentic AI use cases for financial services"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇸🇬 Institute of Singapore Chartered Accountants</span
+                    >Workshop co-organiser and invited speaker: Agentic AI use cases for financial services
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 7 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-7-640.avif 640w, assets/event-carousel-7-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-7-640.webp 640w, assets/event-carousel-7-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-7.jpg"
+                      width="2048"
+                      height="1536"
+                      alt="Timothy Liu presenting the NVIDIA Accelerated Computing Platform at Imperial College"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇬🇧 Imperial College</span>Invited talk on the NVIDIA
+                    Accelerated Computing Platform and AI research
+                  </figcaption>
+                </figure>
+                <figure
+                  class="event-carousel__slide"
+                  role="group"
+                  aria-roledescription="slide"
+                  aria-label="Event photo 8 of 8"
+                  aria-hidden="true"
+                >
+                  <picture>
+                    <source
+                      type="image/avif"
+                      srcset="assets/event-carousel-1-640.avif 640w, assets/event-carousel-1-1280.avif 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <source
+                      type="image/webp"
+                      srcset="assets/event-carousel-1-640.webp 640w, assets/event-carousel-1-1280.webp 1280w"
+                      sizes="(max-width: 620px) calc(100vw - 2.5rem), (max-width: 920px) 75vw, 690px"
+                    />
+                    <img
+                      src="assets/event-carousel-1.jpg"
+                      width="2048"
+                      height="1536"
+                      alt="Timothy Liu presenting the NVIDIA AI-Q Research Agent at a Hitachi Asia event"
+                      loading="lazy"
+                      decoding="async"
+                      fetchpriority="low"
+                    />
+                  </picture>
+                  <figcaption>
+                    <span class="event-carousel__location">🇸🇬 Hitachi Asia</span>Invited talk on NVIDIA NIM and AI-Q
+                    Blueprint
+                  </figcaption>
+                </figure>
+              </div>
+              <button
+                class="event-carousel__control event-carousel__control--prev"
+                type="button"
+                aria-label="Previous event photo"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m15 18-6-6 6-6"></path>
+                </svg>
+              </button>
+              <button
+                class="event-carousel__control event-carousel__control--next"
+                type="button"
+                aria-label="Next event photo"
+              >
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="m9 6 6 6-6 6"></path>
+                </svg>
+              </button>
+              <button
+                class="event-carousel__toggle is-paused"
+                id="eventCarouselToggle"
+                type="button"
+                aria-label="Play event slideshow"
+                aria-pressed="false"
+              >
+                <svg
+                  class="event-carousel__toggle-icon event-carousel__toggle-icon--pause"
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 6v12M16 6v12"></path>
+                </svg>
+                <svg
+                  class="event-carousel__toggle-icon event-carousel__toggle-icon--play"
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="m9 6 8 6-8 6z"></path>
+                </svg>
+              </button>
+              <div class="event-carousel__dots" role="group" aria-label="Choose event photo">
+                <button class="is-active" type="button" aria-label="Show event photo 1" aria-current="true"></button>
+                <button type="button" aria-label="Show event photo 2"></button>
+                <button type="button" aria-label="Show event photo 3"></button>
+                <button type="button" aria-label="Show event photo 4"></button>
+                <button type="button" aria-label="Show event photo 5"></button>
+                <button type="button" aria-label="Show event photo 6"></button>
+                <button type="button" aria-label="Show event photo 7"></button>
+                <button type="button" aria-label="Show event photo 8"></button>
+              </div>
+              <p class="event-carousel__count" id="eventCarouselCount">1 / 8</p>
+            </div>
           </div>
-          <div class="stacked-cards">
-            <article class="detail-card outside-work__service">
-              <h3>NSman</h3>
-              <p class="project-meta">Mar 2023 - Present | Digital and Intelligence Service</p>
-              <p>Received a Letter of Commendation for Formation NSman of the Year and was invited to the Presidential Garden Reception 2026.</p>
-              <figure class="service-recognition">
-                <img src="assets/nsman-five-year-ribbon.png" width="2098" height="749" alt="" loading="lazy" decoding="async">
-                <figcaption>5 years of service <span>SAF Good Service Medal</span></figcaption>
-              </figure>
-            </article>
-            <article class="detail-card">
-              <h3>
-                <a href="https://tlkh.github.io/spotterdex/" target="_blank" rel="noopener">SpotterDex</a>
-              </h3>
-              <p class="project-meta">Hobby project | Aircraft spotting and photography</p>
+        </div>
+      </section>
+
+      <section class="section" id="media-coverage" aria-labelledby="media-coverage-title">
+        <div class="section__inner">
+          <div class="section-heading"><h2 id="media-coverage-title">Selected media coverage</h2></div>
+          <div id="all-coverage">
+          <ul class="media-coverage__list">
+            <li class="media-coverage__item">
+              <div class="media-coverage__item-heading">
+                <h3>Launch of UGM Indosat NVAITC (2026)</h3>
+                <p class="media-coverage__location">🇮🇩 Yogyakarta, Indonesia</p>
+                <span class="media-coverage__role">Organising Committee</span>
+              </div>
+              <p class="media-coverage__summary">
+                UGM, Indosat, and NVIDIA launched an AI Technology Center to strengthen Indonesia's research and
+                education ecosystem.
+              </p>
+              <div
+                class="media-coverage__links"
+                aria-label="Coverage sources for Launch of UGM Indosat NVAITC"
+                role="group"
+              >
+                <a
+                  href="https://ai.ugm.ac.id/2026/08/18/ugm-indosat-and-nvidia-officially-launch-ai-technology-center-to-advance-indonesias-ai-innovation/"
+                  target="_blank"
+                  rel="noopener"
+                  >Universitas Gadjah Mada</a
+                >
+
+                    <a
+                      href="https://blogs.nvidia.com/blog/ugm-indosat-nvidia-ai-technology-center/"
+                      target="_blank"
+                      rel="noopener"
+                      >NVIDIA Blog</a
+                    ><a
+                      href="https://ioh.co.id/EN/contents?slug=komdigi-indosat-nvidia-and-ugm-open-ugm-indosat-nvidia-ai-technology-center-to-advance-national-research-and-education"
+                      target="_blank"
+                      rel="noopener"
+                      >Indosat Ooredoo Hutchison</a
+                    ><a
+                      href="https://www.telecomtv.com/content/ai/ioh-and-nvidia-launch-ai-research-hub-in-indonesia-56074/"
+                      target="_blank"
+                      rel="noopener"
+                      >TelecomTV</a
+                    ><a
+                      href="https://inet.detik.com/telecommunication/d-8616905/indosat-nvidia-gandeng-komdigi-buka-pusat-teknologi-ai-di-ugm/amp"
+                      target="_blank"
+                      rel="noopener"
+                      >detikINET</a
+                    ><a
+                      href="https://rejogja.republika.co.id/berita/tjpb70291/ugm-indosat-dan-nvidia-luncurkan-pusat-teknologi-ai-di-yogyakarta"
+                      target="_blank"
+                      rel="noopener"
+                      >Republika Online</a
+                    >
+
+              </div>
+            </li>
+            <li class="media-coverage__item">
+              <div class="media-coverage__item-heading">
+                <h3>The Future of Artificial Intelligence Chapter 4 (2026)</h3>
+                <p class="media-coverage__location">🇻🇳 Ho Chi Minh City, Vietnam</p>
+                <span class="media-coverage__role">Organising Committee</span>
+              </div>
+              <p class="media-coverage__summary">
+                The Vietnam forum examined practical paths for organizations to move from AI interest to real-world
+                adoption.
+              </p>
+              <div
+                class="media-coverage__links"
+                aria-label="Coverage sources for The Future of Artificial Intelligence Chapter 4"
+                role="group"
+              >
+                <a
+                  href="https://jdi.group/event-recap-the-future-of-artificial-intelligence-chapter-4/"
+                  target="_blank"
+                  rel="noopener"
+                  >JDI Group</a
+                >
+
+                    <a href="https://the-future-of-artificial-intelligence.webflow.io/" target="_blank" rel="noopener"
+                      >Event website</a
+                    ><a
+                      href="https://tuoitre.vn/74-doanh-nghiep-vua-va-nho-moi-dung-ai-o-muc-co-ban-vuong-o-dau-100260818161116694.htm"
+                      target="_blank"
+                      rel="noopener"
+                      >Tuoi Tre</a
+                    ><a
+                      href="https://baotintuc.vn/doanh-nghiep-san-pham-dich-vu/doanh-nghiep-ban-cach-dua-ai-vao-van-hanh-thuc-te-20260811092953586.htm"
+                      target="_blank"
+                      rel="noopener"
+                      >Vietnam News Agency</a
+                    >
+
+              </div>
+            </li>
+            <li class="media-coverage__item">
+              <div class="media-coverage__item-heading">
+                <h3>CU x NVAITC Symposium 2026</h3>
+                <p class="media-coverage__location">🇹🇭 Bangkok, Thailand</p>
+                <span class="media-coverage__role">Organising Committee</span>
+              </div>
+              <p class="media-coverage__summary">
+                The symposium brought Chulalongkorn University and NVAITC partners together around applied AI research
+                and collaboration.
+              </p>
+              <div
+                class="media-coverage__links"
+                aria-label="Coverage sources for CU x NVAITC Symposium 2026"
+                role="group"
+              >
+                <a href="https://www.chula.ac.th/en/news/418395/" target="_blank" rel="noopener"
+                  >Chulalongkorn University</a
+                >
+
+                    <a href="https://qs-gen.com/chula-hosts-cu-x-nvaitc-symposium-2026/" target="_blank" rel="noopener"
+                      >QS GEN</a
+                    ><a
+                      href="https://www.newswise.com/articles/chula-hosts-cu-nvaitc-symposium-2026"
+                      target="_blank"
+                      rel="noopener"
+                      >Newswise</a
+                    >
+
+              </div>
+            </li>
+            <li class="media-coverage__item">
+              <div class="media-coverage__item-heading">
+                <h3>Launch of SNAIC (2025)</h3>
+                <p class="media-coverage__location">🇸🇬 Punggol, Singapore</p>
+                <span class="media-coverage__role">Organising Committee</span>
+              </div>
+              <p class="media-coverage__summary">
+                SIT and NVIDIA launched SNAIC at Punggol to advance AI research, partnerships, and talent development.
+              </p>
+              <div class="media-coverage__links" aria-label="Coverage sources for Launch of SNAIC" role="group">
+                <a
+                  href="https://www.singaporetech.edu.sg/news/sit-marks-opening-its-flagship-ai-centre-sit-punggol-campus-key-initiatives-and-partnerships-advance"
+                  target="_blank"
+                  rel="noopener"
+                  >Singapore Institute of Technology</a
+                >
+
+                    <a
+                      href="https://sbr.com.sg/hr-education/news/sit-and-nvidia-launch-ai-research-centre-punggol-campus"
+                      target="_blank"
+                      rel="noopener"
+                      >Singapore Business Review</a
+                    ><a
+                      href="https://www.businesstimes.com.sg/companies-markets/sit-and-nvidia-jointly-train-200-ai-specialists-over-three-years"
+                      target="_blank"
+                      rel="noopener"
+                      >The Business Times</a
+                    ><a
+                      href="https://www.zaobao.com.sg/realtime/singapore/story20251002-7604565"
+                      target="_blank"
+                      rel="noopener"
+                      >Lianhe Zaobao</a
+                    >
+
+              </div>
+            </li>
+
+                <li class="media-coverage__item">
+                  <div class="media-coverage__item-heading">
+                    <h3>The Future of Artificial Intelligence Chapter 3 (2025)</h3>
+                    <p class="media-coverage__location">🇻🇳 Ho Chi Minh City, Vietnam</p>
+                    <span class="media-coverage__role">Organising Committee</span>
+                  </div>
+                  <p class="media-coverage__summary">
+                    The earlier chapter convened regional speakers and businesses to discuss the future of applied AI in
+                    Vietnam.
+                  </p>
+                  <div
+                    class="media-coverage__links"
+                    aria-label="Coverage sources for The Future of Artificial Intelligence Chapter 3"
+                    role="group"
+                  >
+                    <a
+                      href="https://jdi.group/event-recap-the-future-of-artificial-intelligence-chapter-3/"
+                      target="_blank"
+                      rel="noopener"
+                      >JDI Group</a
+                    >
+                    <a
+                      href="https://english.thesaigontimes.vn/ai-future-conference-set-for-august-20-in-hcmc/"
+                      target="_blank"
+                      rel="noopener"
+                      >The Saigon Times</a
+                    >
+                  </div>
+                </li>
+                        </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section section--muted" id="about" aria-labelledby="about-title">
+        <div class="section__inner">
+          <div class="section-heading"><h2 id="about-title">About</h2></div>
+          <p class="section-intro">
+            My background spans NLP research, hands-on engineering, and technical collaboration.
+          </p>
+          <div class="capability-grid">
+            <article>
+              <h3>Model development &amp; evaluation</h3>
               <p>
-                A personal aircraft-spotting logbook and aviation photography field guide, with an interactive world
-                map, aircraft index, squadron records, airshow collections, and spotting statistics.
+                PyTorch, TensorFlow, HuggingFace Transformers, and DeepSpeed; paraphrasing, multimodal models, and
+                synthetic data.
               </p>
             </article>
+            <article>
+              <h3>GPU systems &amp; workflows</h3>
+              <p>
+                Docker, Kubernetes, Slurm, and PBS; reproducible experiments, GPU workloads, and multi-GPU training.
+              </p>
+            </article>
+            <article>
+              <h3>Applied-AI architecture &amp; collaboration</h3>
+              <p>Technical roadmaps, research mentorship, and prototyping with NVIDIA NIM, NeMo, and MONAI.</p>
+            </article>
           </div>
+          <section class="about-education" id="education" aria-labelledby="education-title">
+            <h3 id="education-title">Education</h3>
+            <p>Singapore University of Technology and Design</p>
+            <div class="education-grid">
+              <article class="detail-card">
+                <span class="date">Sep 2020 - Aug 2024</span>
+                <h4>PhD, Natural Language Processing</h4>
+                <p>
+                  President's Graduate Fellowship scholar. Thesis: Foundations and Applications of Paraphrasing in NLP.
+                </p>
+              </article>
+              <article class="detail-card">
+                <span class="date">May 2017 - Aug 2020</span>
+                <h4>Bachelor of Engineering (Honours)</h4>
+                <p>Information Systems Technology and Design, with cybersecurity research and student workshops.</p>
+              </article>
+            </div>
+          </section>
+          <details id="skills" class="collection-disclosure">
+            <summary id="tools-title">Complete toolkit</summary>
+            <div class="collection-disclosure__body">
+              <dl class="toolkit-list">
+                <div>
+                  <dt>Languages</dt>
+                  <dd>Python, SQL, Bash, HTML/CSS/JavaScript, Java</dd>
+                </div>
+                <div>
+                  <dt>Frameworks</dt>
+                  <dd>
+                    PyTorch, TensorFlow, HuggingFace Transformers, DeepSpeed, vLLM, SpaCy, NumPy, SciPy, OpenCV,
+                    XGBoost, Dask
+                  </dd>
+                </div>
+                <div>
+                  <dt>Platforms</dt>
+                  <dd>Linux/Unix, Git, Docker, Kubernetes, AWS, GCP, Azure, PBS, Slurm</dd>
+                </div>
+                <div>
+                  <dt>Agentic coding</dt>
+                  <dd>Codex, Claude Code, AWS Kiro, Cursor</dd>
+                </div>
+                <div class="toolkit-list__wide">
+                  <dt>NVIDIA technologies</dt>
+                  <dd>
+                    GPU cluster deployment and management; NIM, Nemotron models, Blueprints, Brev, NeMo, RAPIDS, CuPy,
+                    Visual Search and Summarization (VSS), and MONAI
+                  </dd>
+                </div>
+              </dl>
+              <p class="toolkit-languages"><strong>Spoken languages:</strong> English and Mandarin Chinese</p>
+            </div>
+          </details>
+          <details id="awards" class="collection-disclosure">
+            <summary>Recognition and community work</summary>
+            <div class="collection-disclosure__body">
+              <div class="award-grid">
+                <article class="detail-card">
+                  <h3>Hyperhack Datathon</h3>
+                  <p>Gold Award for modelling medical-shock financial vulnerability with XGBoost and Tableau.</p>
+                </article>
+                <article class="detail-card">
+                  <h3>AI &amp; Security Hackathons</h3>
+                  <p>Finalist at YITU Singapore AI Hackathon; winner at Google “Fake News Must Die” and Red Hack.</p>
+                </article>
+                <article class="detail-card">
+                  <h3>Black Hat Asia</h3>
+                  <p>Featured project for Prowler, a Raspberry Pi cluster network vulnerability scanner.</p>
+                </article>
+                <article class="detail-card">
+                  <h3>Community Teaching</h3>
+                  <p>Mentor at AI Saturdays Singapore and co-lead for Intel Make Tomorrow Catalyst workshops.</p>
+                </article>
+              </div>
+            </div>
+          </details>
+
+        </div>
+      </section>
+
+      <section class="section" id="outside-work" aria-labelledby="outside-work-title">
+        <div class="section__inner">
+          <div class="section-heading"><h2 id="outside-work-title">Other work</h2></div>
+              <div class="stacked-cards">
+                <article class="detail-card outside-work__service">
+                  <h3>NSman</h3>
+                  <p class="project-meta">Mar 2023 - Present | Digital and Intelligence Service</p>
+                  <p>
+                    Received a Letter of Commendation for Formation NSman of the Year and was invited to the
+                    Presidential Garden Reception 2026.
+                  </p>
+                  <figure class="service-recognition">
+                    <img
+                      src="assets/nsman-five-year-ribbon.png"
+                      width="2098"
+                      height="749"
+                      alt=""
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <figcaption>5 years of service <span>SAF Good Service Medal</span></figcaption>
+                  </figure>
+                </article>
+                <article class="detail-card">
+                  <h3>
+                    <a href="https://tlkh.github.io/spotterdex/" target="_blank" rel="noopener">SpotterDex</a>
+                  </h3>
+                  <p class="project-meta">Hobby project | Aircraft spotting and photography</p>
+                  <p>
+                    A personal aircraft-spotting logbook and aviation photography field guide, with an interactive world
+                    map, aircraft index, squadron records, airshow collections, and spotting statistics.
+                  </p>
+                </article>
+              </div>
         </div>
       </section>
 
       <section class="contact-section" id="contact" aria-labelledby="contact-title">
         <div class="contact-section__inner">
-          <h2 id="contact-title">For collaborations or advisory work, connect on LinkedIn</h2>
+          <h2 id="contact-title">Let’s connect</h2>
+          <p>For research collaboration, technical exchange, or a speaking invitation, connect with me on LinkedIn.</p>
           <div class="contact-links">
-            <a class="contact-link--primary" href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">LinkedIn</a>
+            <a
+              class="contact-link--primary"
+              href="https://www.linkedin.com/in/timothyliukaihui/"
+              target="_blank"
+              rel="noopener"
+              >Connect on LinkedIn</a
+            >
             <a href="https://github.com/tlkh" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://scholar.google.com/citations?user=YiAHfvQAAAAJ&amp;hl=en" target="_blank" rel="noopener"
+              >Google Scholar</a
+            >
           </div>
         </div>
       </section>
@@ -777,7 +1401,7 @@
         class="chat-widget__launcher"
         id="chatLauncher"
         type="button"
-        aria-label="Ask about Timothy"
+        aria-label="Ask about my work"
         aria-controls="chatPanel"
         aria-expanded="false"
       >
@@ -785,7 +1409,7 @@
           <path d="M21 12a8.5 8.5 0 0 1-8.5 8.5 9.2 9.2 0 0 1-3.7-.8L3 21l1.4-5.5A8.5 8.5 0 1 1 21 12Z"></path>
           <path d="M8 11.2h8M8 14.4h5.2"></path>
         </svg>
-        <span>Ask about Timothy</span>
+        <span>Ask about my work</span>
       </button>
       <dialog class="chat-widget__panel" id="chatPanel" aria-modal="true" aria-labelledby="chatTitle" aria-busy="false">
         <header class="chat-widget__header">
@@ -802,15 +1426,28 @@
             </svg>
           </button>
         </header>
-        <div class="chat-widget__messages" id="chatMessages" role="log" aria-live="polite" aria-relevant="additions" aria-busy="false">
+        <div
+          class="chat-widget__messages"
+          id="chatMessages"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+          aria-busy="false"
+        >
           <div class="chat-widget__welcome" id="chatWelcome">
             <p class="chat-widget__eyebrow">A little more about my work</p>
             <h3>What would you like to know?</h3>
             <p>Explore my experience, research, and the things I've built. Pick a question or ask your own.</p>
             <div class="chat-widget__suggestions" role="group" aria-label="Suggested questions">
-              <button type="button" data-chat-prompt="Can you summarize Timothy's professional experience?">Summarize my experience <span aria-hidden="true">&nearr;</span></button>
-              <button type="button" data-chat-prompt="What GPU and accelerated computing projects has Timothy worked on?">Explore my GPU projects <span aria-hidden="true">&nearr;</span></button>
-              <button type="button" data-chat-prompt="What are Timothy's main research interests?">Discover my research <span aria-hidden="true">&nearr;</span></button>
+              <button type="button" data-chat-prompt="Which projects demonstrate hands-on engineering?">
+                Hands-on engineering <span aria-hidden="true">&nearr;</span>
+              </button>
+              <button type="button" data-chat-prompt="What experience is relevant to multimodal AI?">
+                Multimodal AI experience <span aria-hidden="true">&nearr;</span>
+              </button>
+              <button type="button" data-chat-prompt="Where can I read Timothy's research?">
+                Read my research <span aria-hidden="true">&nearr;</span>
+              </button>
             </div>
           </div>
         </div>
@@ -818,8 +1455,15 @@
         <form class="chat-widget__form" id="chatForm">
           <div class="chat-widget__composer">
             <label class="sr-only" for="chatInput">Message</label>
-            <textarea id="chatInput" name="message" rows="1" maxlength="900"
-              placeholder="Ask about my work..." aria-keyshortcuts="Enter" aria-describedby="chatPrivacy"></textarea>
+            <textarea
+              id="chatInput"
+              name="message"
+              rows="1"
+              maxlength="900"
+              placeholder="Ask about my work..."
+              aria-keyshortcuts="Enter"
+              aria-describedby="chatPrivacy"
+            ></textarea>
             <button type="submit" aria-label="Send message" title="Send message (Enter)" disabled>
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6" /></svg>
             </button>
@@ -827,7 +1471,10 @@
           <p class="chat-widget__privacy" id="chatPrivacy">AI can make mistakes. Avoid sharing sensitive details.</p>
         </form>
         <p class="chat-widget__fallback" id="chatFallback">
-          Prefer a conversation? <a href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener">Connect on LinkedIn <span aria-hidden="true">&nearr;</span></a>
+          Prefer a conversation?
+          <a href="https://www.linkedin.com/in/timothyliukaihui/" target="_blank" rel="noopener"
+            >Connect on LinkedIn <span aria-hidden="true">&nearr;</span></a
+          >
         </p>
       </dialog>
     </div>

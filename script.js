@@ -16,10 +16,6 @@
     }
   }
 
-  function clamp(value, min, max) {
-    return Math.max(min, Math.min(max, value));
-  }
-
   function setTheme(theme, source) {
     root.dataset.theme = theme;
     root.dataset.themeSource = source;
@@ -62,7 +58,7 @@
 
   var siteHeader = document.querySelector(".site-header");
   var navSectionLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav-target]"));
-  var navSectionIds = ["experience", "research", "events", "education", "awards", "skills", "open-source", "outside-work", "contact"];
+  var navSectionIds = ["work", "experience", "research", "open-source", "events", "media-coverage", "about", "outside-work", "contact"];
   var navSections = navSectionIds
     .map(function (id) {
       return document.getElementById(id);
@@ -72,7 +68,7 @@
   var navMoreToggle = document.getElementById("navMoreToggle");
   var navMoreMenu = document.getElementById("navMoreMenu");
   var navMoreLinks = navMoreMenu
-    ? Array.prototype.slice.call(navMoreMenu.querySelectorAll("a"))
+    ? Array.prototype.slice.call(navMoreMenu.querySelectorAll("a, button"))
     : [];
   var navMobileQuery = window.matchMedia("(max-width: 620px)");
   var navUpdateFrame = null;
@@ -117,7 +113,8 @@
     });
 
     navMoreMenu.addEventListener("keydown", function (event) {
-      var currentIndex = navMoreLinks.indexOf(document.activeElement);
+      var availableLinks = navMoreLinks.filter(function (link) { return !link.hidden; });
+      var currentIndex = availableLinks.indexOf(document.activeElement);
       var nextIndex = currentIndex;
 
       if (event.key === "Escape") {
@@ -127,24 +124,26 @@
       }
 
       if (event.key === "ArrowDown") {
-        nextIndex = (currentIndex + 1) % navMoreLinks.length;
+        nextIndex = (currentIndex + 1) % availableLinks.length;
       } else if (event.key === "ArrowUp") {
-        nextIndex = (currentIndex - 1 + navMoreLinks.length) % navMoreLinks.length;
+        nextIndex = (currentIndex - 1 + availableLinks.length) % availableLinks.length;
       } else if (event.key === "Home") {
         nextIndex = 0;
       } else if (event.key === "End") {
-        nextIndex = navMoreLinks.length - 1;
+        nextIndex = availableLinks.length - 1;
       } else {
         return;
       }
 
       event.preventDefault();
-      navMoreLinks[nextIndex].focus();
+      availableLinks[nextIndex].focus();
     });
 
     navMoreLinks.forEach(function (link) {
       link.addEventListener("click", function () {
-        closeNavMore(false);
+        if (!link.hasAttribute("data-open-chat")) {
+          closeNavMore(false);
+        }
       });
     });
 
@@ -198,7 +197,7 @@
       var moreActiveLink = navMoreLinks.find(function (link) {
         return link.getAttribute("data-nav-target") === activeSectionId;
       });
-      var moreIsActive = Boolean(moreActiveLink) && (activeSectionId !== "open-source" || navMobileQuery.matches);
+      var moreIsActive = Boolean(moreActiveLink);
       var moreSectionName = moreActiveLink ? moreActiveLink.textContent.trim() : "";
       navMoreToggle.classList.toggle("is-active", moreIsActive);
       if (moreIsActive) {
@@ -236,68 +235,28 @@
     navMobileQuery.addListener(handleNavBreakpointChange);
   }
 
-  var hero = document.getElementById("top");
-  var ambientLight = document.getElementById("ambientLight");
-  var ambientPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-  var ambientMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-  var ambientFrame = null;
-
-  function moveAmbientLight(event) {
-    if (!ambientLight || !hero || !ambientPointerQuery.matches || ambientMotionQuery.matches) {
-      if (ambientLight) {
-        ambientLight.classList.remove("is-active");
+  var impactProjectsDialog = document.getElementById("impactProjectsDialog");
+  var impactProjectsOpen = document.getElementById("impactProjectsOpen");
+  var impactProjectsClose = document.getElementById("impactProjectsClose");
+  if (impactProjectsDialog && impactProjectsOpen && impactProjectsClose) {
+    impactProjectsOpen.addEventListener("click", function () {
+      impactProjectsDialog.showModal();
+    });
+    impactProjectsClose.addEventListener("click", function () {
+      impactProjectsDialog.close();
+    });
+    impactProjectsDialog.addEventListener("click", function (event) {
+      var bounds = impactProjectsDialog.getBoundingClientRect();
+      if (event.target === impactProjectsDialog &&
+          (event.clientX < bounds.left || event.clientX > bounds.right ||
+           event.clientY < bounds.top || event.clientY > bounds.bottom)) {
+        impactProjectsDialog.close();
       }
-      return;
-    }
-
-    var heroRect = hero.getBoundingClientRect();
-    if (
-      event.clientX < heroRect.left ||
-      event.clientX > heroRect.right ||
-      event.clientY < heroRect.top ||
-      event.clientY > heroRect.bottom
-    ) {
-      ambientLight.classList.remove("is-active");
-      return;
-    }
-
-    if (ambientFrame) {
-      window.cancelAnimationFrame(ambientFrame);
-    }
-
-    ambientFrame = window.requestAnimationFrame(function () {
-      ambientLight.style.setProperty("--ambient-x", event.clientX - heroRect.left + "px");
-      ambientLight.style.setProperty("--ambient-y", event.clientY - heroRect.top + "px");
-      ambientLight.classList.add("is-active");
-      ambientFrame = null;
+    });
+    impactProjectsDialog.addEventListener("close", function () {
+      impactProjectsOpen.focus({ preventScroll: true });
     });
   }
-
-  if (ambientLight) {
-    window.addEventListener("pointermove", moveAmbientLight, { passive: true });
-    document.documentElement.addEventListener("mouseleave", function () {
-      ambientLight.classList.remove("is-active");
-    });
-  }
-
-  var pointerCards = Array.prototype.slice.call(document.querySelectorAll(".publication"));
-
-  pointerCards.forEach(function (card) {
-    card.addEventListener("pointermove", function (event) {
-      if (!ambientPointerQuery.matches || ambientMotionQuery.matches) {
-        return;
-      }
-
-      var rect = card.getBoundingClientRect();
-      card.style.setProperty("--card-spot-x", event.clientX - rect.left + "px");
-      card.style.setProperty("--card-spot-y", event.clientY - rect.top + "px");
-      card.classList.add("is-pointer-lit");
-    });
-
-    card.addEventListener("pointerleave", function () {
-      card.classList.remove("is-pointer-lit");
-    });
-  });
 
   var eventCarousel = document.getElementById("eventCarousel");
 
@@ -311,7 +270,9 @@
     var eventIndex = 0;
     var eventTimer = null;
     var eventMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var eventIsPlaying = !eventMotionQuery.matches;
+    // Slideshow is paused by default; users can opt in with the play control.
+    var eventIsPlaying = false;
+    var eventGallery = eventCarousel.closest("details");
 
     function setEventSlide(nextIndex) {
       if (!eventSlides.length) {
@@ -359,7 +320,7 @@
 
     function startEventCarousel() {
       stopEventCarousel();
-      if (!eventIsPlaying || eventSlides.length < 2 || document.hidden) {
+      if (!eventIsPlaying || eventSlides.length < 2 || document.hidden || (eventGallery && !eventGallery.open)) {
         return;
       }
       eventTimer = window.setInterval(function () {
@@ -426,358 +387,18 @@
       });
     }
 
+    if (eventGallery) {
+      eventGallery.addEventListener("toggle", function () {
+        if (!eventGallery.open) setEventPlayback(false);
+      });
+    }
+
     setEventSlide(0);
     updateEventToggle();
     startEventCarousel();
   }
 
-  var heroNeuralField = document.getElementById("heroNeuralField");
-  var heroPortrait = hero ? hero.querySelector(".hero__portrait") : null;
-
-  if (hero && heroPortrait) {
-    var portraitPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-    var portraitMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-    hero.addEventListener("pointermove", function (event) {
-      if (!portraitPointerQuery.matches || portraitMotionQuery.matches) {
-        return;
-      }
-
-      var portraitRect = heroPortrait.getBoundingClientRect();
-      var portraitX = clamp((event.clientX - portraitRect.left) / portraitRect.width, 0, 1) - 0.5;
-      var portraitY = clamp((event.clientY - portraitRect.top) / portraitRect.height, 0, 1) - 0.5;
-
-      heroPortrait.style.setProperty("--portrait-tilt-x", (-portraitY * 3).toFixed(2) + "deg");
-      heroPortrait.style.setProperty("--portrait-tilt-y", (portraitX * 4).toFixed(2) + "deg");
-    });
-
-    hero.addEventListener("pointerleave", function () {
-      heroPortrait.style.setProperty("--portrait-tilt-x", "0deg");
-      heroPortrait.style.setProperty("--portrait-tilt-y", "0deg");
-    });
-  }
-
-  if (hero && heroNeuralField && heroNeuralField.getContext) {
-    var neuralContext = heroNeuralField.getContext("2d");
-    var neuralMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    var neuralPointerQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
-    var neuralFrame = null;
-    var neuralWidth = 0;
-    var neuralHeight = 0;
-    var neuralDpr = 1;
-    var neuralHeroVisible = true;
-    var neuralSeed = 1;
-    var neuralNodes = [];
-    var neuralLinks = [];
-    var neuralPulses = [];
-    var neuralTrails = [];
-    var neuralPointer = {
-      x: 0,
-      y: 0,
-      targetX: 0,
-      targetY: 0,
-      active: false,
-      lastTrailAt: 0
-    };
-
-    function neuralRandom() {
-      neuralSeed = (neuralSeed * 16807) % 2147483647;
-      return (neuralSeed - 1) / 2147483646;
-    }
-
-    function resizeNeuralField() {
-      var rect = hero.getBoundingClientRect();
-      neuralWidth = Math.max(1, Math.round(rect.width));
-      neuralHeight = Math.max(1, Math.round(rect.height));
-      neuralDpr = Math.min(window.devicePixelRatio || 1, 2);
-
-      heroNeuralField.width = Math.round(neuralWidth * neuralDpr);
-      heroNeuralField.height = Math.round(neuralHeight * neuralDpr);
-      neuralContext.setTransform(neuralDpr, 0, 0, neuralDpr, 0, 0);
-
-      neuralPointer.x = neuralPointer.targetX || neuralWidth * 0.62;
-      neuralPointer.y = neuralPointer.targetY || neuralHeight * 0.46;
-      buildNeuralField();
-      drawNeuralField(window.performance ? window.performance.now() : Date.now());
-    }
-
-    function buildNeuralField() {
-      var area = neuralWidth * neuralHeight;
-      var nodeCount = Math.round(clamp(area / 30000, 18, 48));
-      var linkDistance = neuralWidth < 680 ? 118 : 168;
-      var i;
-      var j;
-
-      neuralSeed = Math.max(2, Math.round(neuralWidth * 31 + neuralHeight * 17));
-      neuralNodes = [];
-      neuralLinks = [];
-      neuralPulses = [];
-      neuralTrails = [];
-
-      for (i = 0; i < nodeCount; i += 1) {
-        var rightBias = i % 5 === 0 ? 0.16 + neuralRandom() * 0.82 : neuralRandom();
-        var x = rightBias * neuralWidth;
-        var y = neuralRandom() * neuralHeight;
-
-        neuralNodes.push({
-          baseX: x,
-          baseY: y,
-          x: x,
-          y: y,
-          radius: 0.9 + neuralRandom() * 1.6,
-          phase: neuralRandom() * Math.PI * 2,
-          drift: 0.72 + neuralRandom() * 1.45,
-          charge: 0
-        });
-      }
-
-      for (i = 0; i < neuralNodes.length; i += 1) {
-        for (j = i + 1; j < neuralNodes.length; j += 1) {
-          var dx = neuralNodes[i].baseX - neuralNodes[j].baseX;
-          var dy = neuralNodes[i].baseY - neuralNodes[j].baseY;
-          var distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < linkDistance) {
-            neuralLinks.push({ a: i, b: j, distance: distance, max: linkDistance });
-          }
-        }
-      }
-
-      neuralLinks.sort(function (a, b) {
-        return a.distance - b.distance;
-      });
-      neuralLinks = neuralLinks.slice(0, Math.round(nodeCount * 2.4));
-
-      for (i = 0; i < Math.min(10, Math.max(5, Math.round(neuralLinks.length / 6))); i += 1) {
-        neuralPulses.push({
-          link: neuralLinks[Math.floor(neuralRandom() * neuralLinks.length)],
-          offset: neuralRandom(),
-          speed: 0.000045 + neuralRandom() * 0.000075,
-          radius: 1.5 + neuralRandom() * 1.4
-        });
-      }
-    }
-
-    function neuralPalette() {
-      var tokens = getComputedStyle(root);
-
-      function rgbaToken(name) {
-        return "rgba(" + tokens.getPropertyValue(name).trim() + ", ";
-      }
-
-      return {
-        link: rgbaToken("--neural-link"),
-        node: rgbaToken("--neural-node"),
-        pulse: rgbaToken("--neural-pulse"),
-        trail: rgbaToken("--neural-trail"),
-        accent: rgbaToken("--neural-accent")
-      };
-    }
-
-    function addNeuralTrail(x, y, time) {
-      if (time - neuralPointer.lastTrailAt < 60) {
-        return;
-      }
-
-      neuralPointer.lastTrailAt = time;
-      neuralTrails.push({
-        x: x,
-        y: y,
-        radius: 5 + neuralRandom() * 12,
-        life: 1
-      });
-
-      if (neuralTrails.length > 16) {
-        neuralTrails.shift();
-      }
-    }
-
-    function drawNeuralField(time) {
-      var palette = neuralPalette();
-      var pointerRadius = clamp(neuralWidth * 0.18, 150, 260);
-      var i;
-
-      neuralContext.clearRect(0, 0, neuralWidth, neuralHeight);
-      neuralPointer.x += (neuralPointer.targetX - neuralPointer.x) * 0.08;
-      neuralPointer.y += (neuralPointer.targetY - neuralPointer.y) * 0.08;
-
-      for (i = neuralTrails.length - 1; i >= 0; i -= 1) {
-        var trail = neuralTrails[i];
-        var trailAlpha = trail.life * (root.dataset.theme === "dark" ? 0.2 : 0.12);
-        neuralContext.beginPath();
-        neuralContext.arc(trail.x, trail.y, trail.radius * (1.15 - trail.life * 0.35), 0, Math.PI * 2);
-        neuralContext.strokeStyle = palette.trail + trailAlpha + ")";
-        neuralContext.lineWidth = 1.1;
-        neuralContext.stroke();
-        trail.life -= 0.018;
-
-        if (trail.life <= 0) {
-          neuralTrails.splice(i, 1);
-        }
-      }
-
-      neuralNodes.forEach(function (node) {
-        var driftX = Math.cos(time * 0.00024 * node.drift + node.phase) * 4.5;
-        var driftY = Math.sin(time * 0.0003 * node.drift + node.phase) * 4.5;
-        var pushX = 0;
-        var pushY = 0;
-        node.charge = 0;
-
-        if (neuralPointer.active) {
-          var dx = node.baseX - neuralPointer.x;
-          var dy = node.baseY - neuralPointer.y;
-          var distance = Math.sqrt(dx * dx + dy * dy) || 1;
-
-          if (distance < pointerRadius) {
-            var force = (1 - distance / pointerRadius);
-            node.charge = force;
-            pushX = (dx / distance) * force * 24;
-            pushY = (dy / distance) * force * 24;
-          }
-        }
-
-        node.x = node.baseX + driftX + pushX;
-        node.y = node.baseY + driftY + pushY;
-      });
-
-      neuralContext.lineCap = "round";
-
-      neuralLinks.forEach(function (link) {
-        var source = neuralNodes[link.a];
-        var target = neuralNodes[link.b];
-        var dx = source.x - target.x;
-        var dy = source.y - target.y;
-        var distance = Math.sqrt(dx * dx + dy * dy);
-        var charge = Math.max(source.charge, target.charge);
-        var alpha = clamp((1 - distance / link.max) * 0.2 + charge * 0.18, 0.025, 0.34);
-
-        neuralContext.beginPath();
-        neuralContext.moveTo(source.x, source.y);
-        neuralContext.lineTo(target.x, target.y);
-        neuralContext.strokeStyle = palette.link + alpha + ")";
-        neuralContext.lineWidth = 0.8 + charge * 0.8;
-        neuralContext.stroke();
-      });
-
-      neuralPulses.forEach(function (pulse, index) {
-        if (!pulse.link) {
-          return;
-        }
-
-        var source = neuralNodes[pulse.link.a];
-        var target = neuralNodes[pulse.link.b];
-        var progress = (pulse.offset + time * pulse.speed) % 1;
-        var x = source.x + (target.x - source.x) * progress;
-        var y = source.y + (target.y - source.y) * progress;
-        var pulseAlpha = root.dataset.theme === "dark" ? 0.74 : 0.5;
-
-        neuralContext.beginPath();
-        neuralContext.arc(x, y, pulse.radius, 0, Math.PI * 2);
-        neuralContext.fillStyle = (index % 5 === 0 ? palette.accent : palette.pulse) + pulseAlpha + ")";
-        neuralContext.fill();
-      });
-
-      neuralNodes.forEach(function (node) {
-        var glow = 0.4 + node.charge * 0.46;
-        neuralContext.beginPath();
-        neuralContext.arc(node.x, node.y, node.radius + node.charge * 1.3, 0, Math.PI * 2);
-        neuralContext.fillStyle = palette.node + glow + ")";
-        neuralContext.fill();
-      });
-    }
-
-    function animateNeuralField(time) {
-      drawNeuralField(time);
-      neuralFrame = window.requestAnimationFrame(animateNeuralField);
-    }
-
-    function stopNeuralField() {
-      if (neuralFrame) {
-        window.cancelAnimationFrame(neuralFrame);
-        neuralFrame = null;
-      }
-    }
-
-    function startNeuralField() {
-      stopNeuralField();
-      resizeNeuralField();
-
-      if (!neuralMotionQuery.matches && neuralPointerQuery.matches && !document.hidden && neuralHeroVisible) {
-        neuralFrame = window.requestAnimationFrame(animateNeuralField);
-      }
-    }
-
-    function handleNeuralPointerMove(event) {
-      var rect = hero.getBoundingClientRect();
-      var x = clamp(event.clientX - rect.left, 0, neuralWidth);
-      var y = clamp(event.clientY - rect.top, 0, neuralHeight);
-      var time = window.performance ? window.performance.now() : Date.now();
-
-      neuralPointer.active = true;
-      neuralPointer.targetX = x;
-      neuralPointer.targetY = y;
-      addNeuralTrail(x, y, time);
-    }
-
-    hero.addEventListener("pointerenter", function () {
-      neuralPointer.active = true;
-    });
-
-    hero.addEventListener("pointermove", handleNeuralPointerMove);
-
-    hero.addEventListener("pointerleave", function () {
-      neuralPointer.active = false;
-    });
-
-    window.addEventListener("resize", startNeuralField);
-
-    if (neuralMotionQuery.addEventListener) {
-      neuralMotionQuery.addEventListener("change", startNeuralField);
-    } else if (neuralMotionQuery.addListener) {
-      neuralMotionQuery.addListener(startNeuralField);
-    }
-
-    if (neuralPointerQuery.addEventListener) {
-      neuralPointerQuery.addEventListener("change", startNeuralField);
-    } else if (neuralPointerQuery.addListener) {
-      neuralPointerQuery.addListener(startNeuralField);
-    }
-
-    if (window.MutationObserver) {
-      new MutationObserver(function () {
-        drawNeuralField(window.performance ? window.performance.now() : Date.now());
-      }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
-    }
-
-    document.addEventListener("visibilitychange", function () {
-      if (document.hidden) {
-        stopNeuralField();
-      } else {
-        startNeuralField();
-      }
-    });
-
-    if ("IntersectionObserver" in window) {
-      var heroVisibilityObserver = new IntersectionObserver(
-        function (entries) {
-          neuralHeroVisible = Boolean(entries[0] && entries[0].isIntersecting);
-          if (neuralHeroVisible) {
-            startNeuralField();
-          } else {
-            stopNeuralField();
-          }
-        },
-        { threshold: 0.05 }
-      );
-
-      heroVisibilityObserver.observe(hero);
-    }
-
-    startNeuralField();
-  }
-
   var timeline = document.querySelector(".timeline");
-
   if (timeline) {
     var timelineItems = Array.prototype.slice.call(timeline.querySelectorAll(".timeline-item"));
 
@@ -1019,7 +640,7 @@
       chatPanel.classList.remove("is-closing");
       chatWidget.classList.remove("is-open");
       chatLauncher.setAttribute("aria-expanded", "false");
-      chatLauncher.setAttribute("aria-label", "Open chat");
+      chatLauncher.setAttribute("aria-label", "Ask about my work");
 
       var restoreTarget = chatRestoreFocus && document.contains(chatRestoreFocus) ? chatRestoreFocus : chatLauncher;
       chatRestoreFocus = null;
@@ -1050,12 +671,12 @@
       chatCloseTimer = window.setTimeout(finish, chatMotionQuery.matches ? 220 : 280);
     }
 
-    function openChat() {
+    function openChat(invoker) {
       if (!chatPanel || !chatLauncher || chatPanel.open) {
         return;
       }
 
-      chatRestoreFocus = document.activeElement;
+      chatRestoreFocus = invoker || document.activeElement;
       chatWidget.classList.add("is-open");
       chatLauncher.setAttribute("aria-expanded", "true");
       chatLauncher.setAttribute("aria-label", "Close chat");
@@ -1085,10 +706,20 @@
         if (chatPanel && chatPanel.open) {
           closeChat();
         } else {
-          openChat();
+          openChat(chatLauncher);
         }
       });
     }
+
+    document.querySelectorAll("[data-open-chat]").forEach(function (button) {
+      button.hidden = false;
+      button.addEventListener("click", function () {
+        // Return to the visible menu toggle when the popup closes.
+        var invoker = navMore && navMore.contains(button) ? navMoreToggle : button;
+        closeNavMore(false);
+        openChat(invoker);
+      });
+    });
 
     if (chatClose) {
       chatClose.addEventListener("click", function () {
@@ -1183,7 +814,10 @@
               });
           })
           .then(function (data) {
-            var reply = data.reply || "I could not generate a response.";
+            if (!data || typeof data.reply !== "string" || !data.reply.trim()) {
+              throw new Error("Chat response was empty.");
+            }
+            var reply = data.reply.trim();
             appendChatMessage("assistant", reply);
             chatHistory.push({ role: "assistant", content: reply });
             trimChatHistory();
@@ -1208,4 +842,49 @@
 
     prewarmProxy();
   }
+
+  function openHashDetails(hash) {
+    if (!hash || hash.length < 2) return;
+    var target;
+    try { target = document.getElementById(decodeURIComponent(hash.slice(1))); }
+    catch (error) { return; }
+    if (!target) return;
+    var details = target.closest("details");
+    var changed = false;
+    while (details) {
+      if (!details.open) { details.open = true; changed = true; }
+      details = details.parentElement ? details.parentElement.closest("details") : null;
+    }
+    return changed ? target : null;
+  }
+
+  function revealHashDetails() {
+    var target = openHashDetails(window.location.hash);
+    // The browser may have resolved the hash before its disclosure was opened.
+    if (target) requestAnimationFrame(function () { target.scrollIntoView({ block: "start" }); });
+  }
+
+  revealHashDetails();
+  window.addEventListener("hashchange", revealHashDetails);
+  document.addEventListener("click", function (event) {
+    var link = event.target.closest && event.target.closest("a[href^='#']");
+    if (link) openHashDetails(link.getAttribute("href"));
+  });
+
+  window.addEventListener("beforeprint", function () {
+    document.querySelectorAll("details").forEach(function (details) {
+      if (typeof details.__printWasOpen !== "boolean") {
+        details.__printWasOpen = details.open;
+      }
+      details.open = true;
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    document.querySelectorAll("details").forEach(function (details) {
+      if (typeof details.__printWasOpen === "boolean") {
+        details.open = details.__printWasOpen;
+        delete details.__printWasOpen;
+      }
+    });
+  });
 })();
