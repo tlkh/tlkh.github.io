@@ -3551,6 +3551,9 @@ html[data-theme="dark"] .publication__award { color: var(--award-gold-soft); }
 
 .feature__content > p + p { margin-top: 0.8rem; }
 
+/* Keep the transition from selected projects into experience compact. */
+#experience { padding-top: clamp(2.5rem, 4vw, 3.5rem); }
+
 /* Dated project evidence and stacked research collaborations. */
 .feature__title { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
 .metric-badge { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 0.25rem 0.65rem; color: var(--blue-strong); background: var(--blue-soft); font-size: 0.8rem; font-weight: 650; }

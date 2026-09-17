@@ -337,7 +337,9 @@
                 As first author, I introduced Word Position Deviation (WPD) and Lexical Deviation (LD) to measure
                 changes in word order and vocabulary between paraphrases without expert annotation. The paper uses
                 these metrics to evaluate datasets, improve model generalisation, and select paraphrases for data
-                augmentation and robustness testing.
+                augmentation and robustness testing. Using MRPC and PAWS as case studies, I showed how the metrics reveal structural and lexical
+                differences that conventional overlap scores can miss, while guiding dataset improvements and more
+                controllable paraphrase generation.
               </p>
               <p>
                 I released <a href="https://pypi.org/project/paraphrase-metrics/" target="_blank"
@@ -1396,7 +1398,13 @@
       </div>
     </footer>
 
-    <div class="chat-widget" id="chatWidget" data-proxy-url="https://chat-proxy-render-wri0.onrender.com" hidden>
+    <div
+      class="chat-widget"
+      id="chatWidget"
+      data-chat-enabled="false"
+      data-proxy-url="https://chat-proxy-render-wri0.onrender.com"
+      hidden
+    >
       <button
         class="chat-widget__launcher"
         id="chatLauncher"

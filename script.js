@@ -465,9 +465,10 @@
   }
 
   var chatWidget = document.getElementById("chatWidget");
+  var chatEnabled = chatWidget && chatWidget.getAttribute("data-chat-enabled") !== "false";
   var chatProxyUrl = chatWidget ? (chatWidget.getAttribute("data-proxy-url") || "").replace(/\/+$/, "") : "";
 
-  if (chatWidget && chatProxyUrl && window.fetch) {
+  if (chatEnabled && chatProxyUrl && window.fetch) {
     var chatLauncher = document.getElementById("chatLauncher");
     var chatPanel = document.getElementById("chatPanel");
     var chatClose = document.getElementById("chatClose");
