@@ -939,7 +939,7 @@
       if (eventMap) return;
       eventMap = L.map(eventMapElement, {
         scrollWheelZoom: false,
-        minZoom: 4,
+        minZoom: 3,
         maxZoom: 11,
         zoomControl: true,
         preferCanvas: true,
@@ -952,9 +952,9 @@
       function countryStyle() {
         var themeStyles = window.getComputedStyle(document.documentElement);
         return {
-          fillColor: themeStyles.getPropertyValue("--surface").trim(),
-          color: themeStyles.getPropertyValue("--line").trim(),
-          weight: 1,
+          fillColor: themeStyles.getPropertyValue("--map-land").trim(),
+          color: themeStyles.getPropertyValue("--map-border").trim(),
+          weight: 0.8,
           fillOpacity: 1
         };
       }
@@ -972,6 +972,31 @@
         .catch(function () {
           mapStatus.textContent = "Map outline unavailable. City pins remain available.";
         });
+      // Labels are local, too: no tile service, API key, or remote font requests.
+      var labelPane = eventMap.createPane("geographicLabels");
+      labelPane.style.zIndex = 410;
+      labelPane.style.pointerEvents = "none";
+      var geographicLabels = L.layerGroup();
+      [
+        [17.3, 99.2, "Thailand"], [20.1, 103.2, "Laos"],
+        [12.6, 104.8, "Cambodia", 5], [16.8, 107.6, "Vietnam"],
+        [21, 94.5, "Myanmar"], [5.2, 100.8, "Malaysia"],
+        [0.1, 114.5, "Indonesia"], [13, 123, "Philippines"]
+      ].forEach(function (label) {
+        L.marker([label[0], label[1]], {
+          pane: "geographicLabels", interactive: false, keyboard: false,
+          icon: L.divIcon({ className: "event-map-country-label", html: label[2], iconSize: [120, 20], iconAnchor: [60, 10] })
+        }).addTo(geographicLabels).options.labelMinZoom = label[3] || 3;
+      });
+      function updateGeographicLabels() {
+        if (eventMap.getZoom() <= 6) geographicLabels.addTo(eventMap);
+        else eventMap.removeLayer(geographicLabels);
+        geographicLabels.eachLayer(function (label) {
+          label.setOpacity(eventMap.getZoom() >= label.options.labelMinZoom ? 1 : 0);
+        });
+      }
+      eventMap.on("zoomend", updateGeographicLabels);
+      updateGeographicLabels();
       markerLayer = L.markerClusterGroup({ showCoverageOnHover: false, spiderfyOnMaxZoom: true, maxClusterRadius: 42 });
       var cityGroups = {};
       eventMapRecords.forEach(function (record) {
@@ -983,11 +1008,15 @@
         var group = cityGroups[key];
         var icon = L.divIcon({ className: "event-map-marker-wrap", html: '<span class="event-map-marker"><strong>' + group.records.length + '</strong><span class="sr-only"> appearances in ' + group.city.name + '</span></span>', iconSize: [38, 44], iconAnchor: [19, 42] });
         var marker = L.marker([group.city.lat, group.city.lng], { icon: icon, title: group.city.name + ": " + group.records.length + " appearances", keyboard: true });
+        marker.bindTooltip(group.city.name.split(",")[0], { permanent: true, direction: "bottom", offset: [0, 5], className: "event-map-city-label" });
         marker.on("click", function () { selectCity(group.city, group.records, "marker"); });
         markerById[group.city.key] = marker;
         markerLayer.addLayer(marker);
       });
       eventMap.addLayer(markerLayer);
+      eventMap.fitBounds(markerLayer.getBounds(), {
+        paddingTopLeft: [55, 65], paddingBottomRight: [55, 105], maxZoom: 5
+      });
       new MutationObserver(function () {
         if (countryLayer) countryLayer.setStyle(countryStyle);
       }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });

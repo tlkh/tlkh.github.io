@@ -8,6 +8,10 @@
   --bg: #f7f9fc;
   --surface: #ffffff;
   --surface-muted: #eef3f8;
+  --map-water: #dfeaf0;
+  --map-land: #f8f9f6;
+  --map-border: #bac9cb;
+  --map-label: #637777;
   --text: #172033;
   --text-strong: #0e1628;
   --muted: #5e6878;
@@ -70,6 +74,10 @@ html[data-theme="dark"] {
   --bg: #0d1118;
   --surface: #151b24;
   --surface-muted: #1b2430;
+  --map-water: #111f2b;
+  --map-land: #263740;
+  --map-border: #40565e;
+  --map-label: #a0b6bc;
   --text: #edf3fb;
   --text-strong: #ffffff;
   --muted: #aab6c5;
@@ -3666,7 +3674,10 @@ body:has(.impact-dialog[open]) { overflow: hidden; }
 .event-map-heading__hint { justify-self: end; font-size: 0.88rem; text-align: right; }
 .event-map-workbench { display: grid; grid-template-columns: minmax(0, 1.75fr) minmax(18rem, 0.75fr); min-height: 36rem; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); overflow: clip; }
 .event-map-canvas-wrap { position: relative; min-width: 0; min-height: 36rem; background: var(--surface-muted); }
-.event-map-canvas { position: absolute; inset: 0; z-index: 0; background: var(--surface-muted); }
+.event-map-canvas { position: absolute; inset: 0; z-index: 0; background: var(--map-water); }
+.event-map-country-label { color: var(--map-label); font: 600 10px/20px var(--font-body); letter-spacing: 0.12em; text-align: center; text-transform: uppercase; white-space: nowrap; }
+.event-map-city-label.leaflet-tooltip { padding: 2px 5px; border: 0; border-radius: 3px; background: var(--map-land); color: var(--text-strong); box-shadow: none; font: 650 11px/1.4 var(--font-body); }
+.event-map-city-label.leaflet-tooltip::before { display: none; }
 .event-map-canvas .leaflet-container { background: var(--surface-muted); }
 .event-map-list button:focus-visible, .event-map-detail summary:focus-visible, .event-map-sheet__close:focus-visible, .leaflet-marker-icon:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 3px; }
 .event-map-status { position: absolute; z-index: 450; inset-inline: 0.8rem; inset-block-end: 0.8rem; width: fit-content; max-width: calc(100% - 1.6rem); margin: 0; padding: 0.45rem 0.65rem; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); color: var(--muted); font-size: 0.72rem; line-height: 1.35; box-shadow: 0 5px 16px rgb(23 32 51 / 10%); }
