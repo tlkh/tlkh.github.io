@@ -86,6 +86,9 @@
         }
       })();
     </script>
+    <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="assets/vendor/leaflet-markercluster/MarkerCluster.css" />
+    <link rel="stylesheet" href="assets/vendor/leaflet-markercluster/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -114,8 +117,7 @@
           </button>
           <div class="nav-more__menu" id="navMoreMenu" hidden>
             <a href="#open-source" data-nav-target="open-source">Open source</a>
-            <a href="#events" data-nav-target="events">Speaking &amp; Events</a>
-            <a href="#media-coverage" data-nav-target="media-coverage">Media coverage</a>
+            <a href="#events" data-nav-target="events">Speaking, events &amp; media</a>
             <a href="#about" data-nav-target="about">About</a>
             <a href="#outside-work" data-nav-target="outside-work">Other work</a>
             <a href="#contact" data-nav-target="contact">Contact</a>
@@ -454,7 +456,6 @@
               >Semantic Scholar</a
             >
           </div>
-          <p class="metric-note">Google Scholar citation counts as of 17 Sep 2026.</p>
           <div class="publication-list">
             <article class="publication">
               <div class="publication__meta">
@@ -526,10 +527,10 @@
             </article>
           </div>
           <details id="all-publications" class="collection-disclosure">
-            <summary>All publications (10)</summary>
+            <summary>All publications (15)</summary>
             <div class="collection-disclosure__body">
               <p>
-                The four selected papers above and the six additional publications below form the complete portfolio
+                The four selected papers above and the eleven additional publications below form the complete portfolio
                 bibliography.
               </p>
               <div class="publication-list">
@@ -606,6 +607,94 @@
                 </article>
                 <article class="publication publication--additional">
                   <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://arxiv.org/abs/2608.02050" target="_blank" rel="noopener">
+                      TextNCA: Neural Cellular Automata for Language Modeling via Hierarchical Local Attention
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Mittal A., Anand A., Kumar A., Kukreja D., Prasad K., Dulloo S., Cambria E., <strong>Liu T.</strong>,
+                    Wang Z., Shah R.R.
+                  </p>
+                  <p class="publication__takeaway">
+                    A controlled study tests local, weight-shared computation for language modelling and separates the
+                    effect of hierarchical attention schedules from iteration.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://arxiv.org/abs/2607.16094" target="_blank" rel="noopener">
+                      How Do VLMs Fail? Vision-Operation Misalignment in Compositional VQA
+                    </a>
+                  </h3>
+                  <p class="publication__authors">Gupta N., Xu B., Anand A., <strong>Liu T.</strong>, Zhang Z.</p>
+                  <p class="publication__takeaway">
+                    An operation-centric analysis identifies distinct grounding, reasoning, attribute-extraction, and
+                    language-prior failure modes in vision-language models.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://arxiv.org/abs/2607.15579" target="_blank" rel="noopener">
+                      PACE: Persona Adaptation through Conversational Elicitation in Human-Robot Interaction
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Li P., Cao L., Rajendran M., <strong>Liu T.</strong>, Ng A.B., See S.
+                  </p>
+                  <p class="publication__takeaway">
+                    An interactive elicitation pipeline creates structured personas for a humanoid robot and evaluates
+                    their effect on trust, consistency, relevance, and interaction quality.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">ACL 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://aclanthology.org/2026.acl-long.1017/" target="_blank" rel="noopener">
+                      IRIS: Interleaved Reinforcement with Incremental Staged Curriculum for Cross-Lingual Mathematical
+                      Reasoning
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Gupta N., Vyalla R.R., Anand A., Kirtani C., Cambria E., Zhang Z., Wang Z., <strong>Liu T.</strong>,
+                    Ng A.B., See S., Shah R.R.
+                  </p>
+                  <p class="publication__takeaway">
+                    A two-axis curriculum combines progressively harder supervised training with reverse-curriculum
+                    reinforcement learning for multilingual mathematical reasoning.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
+                    <span class="publication__venue">Preprint &middot; 2026</span>
+                  </div>
+                  <h3>
+                    <a href="https://arxiv.org/abs/2606.27247" target="_blank" rel="noopener">
+                      RSPC: A Benchmark for Modeling Stress and Psychiatric Conditions in Digitally Mediated Relationships
+                      using Psychiatrist Annotations
+                    </a>
+                  </h3>
+                  <p class="publication__authors">
+                    Vangapandu P., Mokkapati S.G., Narkedimilli S., Sathvik M.S.V.P.J., <strong>Liu T.</strong>, See S.,
+                    Eichstaedt J.C.
+                  </p>
+                  <p class="publication__takeaway">
+                    A psychiatrist-annotated Reddit corpus benchmarks disorder, relational-trigger, and relationship-phase
+                    prediction with language models.
+                  </p>
+                </article>
+                <article class="publication publication--additional">
+                  <div class="publication__meta">
                     <span class="publication__venue">IEEE SOLI 2025</span>
                     <span class="publication__award">Best Paper Award</span>
                   </div>
@@ -656,7 +745,7 @@
               <h3>
                 <a href="https://github.com/tlkh/ai-lab" target="_blank" rel="noopener">ai-lab</a>
               </h3>
-              <p class="project-meta">JavaScript</p>
+              <p class="project-meta">Docker</p>
               <p>GPU-enabled AI development container for rapid prototyping and JupyterHub.</p>
             </article>
             <article class="detail-card repository-card">
@@ -701,10 +790,62 @@
         </div>
       </section>
 
-      <section class="section section--muted" id="events" aria-labelledby="events-title">
+      <section class="section section--muted event-map-section" id="events" aria-labelledby="events-title">
+        <span id="media-coverage" class="hash-anchor" aria-hidden="true"></span>
+        <span id="event-gallery" class="hash-anchor" aria-hidden="true"></span>
+        <span id="all-coverage" class="hash-anchor" aria-hidden="true"></span>
         <div class="section__inner">
-          <div class="section-heading"><h2 id="events-title">Speaking &amp; Events</h2></div>
-          <div id="event-gallery">
+          <div class="event-map-heading">
+            <div>
+              <h2 id="events-title">Speaking, events &amp; media</h2>
+              <p>Talks, workshops, research partnerships, and the coverage around them across Southeast Asia.</p>
+            </div>
+            <p class="event-map-heading__hint">Select a pin to explore an appearance.</p>
+          </div>
+
+          <div class="event-map-workbench">
+            <div class="event-map-canvas-wrap">
+              <div
+                id="eventMap"
+                class="event-map-canvas"
+                role="application"
+                aria-label="Interactive map of speaking engagements, events, and media coverage"
+                aria-describedby="event-map-instructions"
+              ></div>
+              <p class="sr-only" id="event-map-instructions">
+                Use the zoom controls or keyboard plus and minus keys. Select a marker to open its event details.
+              </p>
+              <p class="event-map-status" id="eventMapStatus" aria-live="polite">Loading event map…</p>
+            </div>
+
+            <aside class="event-map-panel" id="eventMapPanel" aria-live="polite" aria-label="Selected event">
+              <div class="event-map-panel__empty">
+                <p class="event-map-panel__label">13 appearances</p>
+                <h3>Choose a place on the map</h3>
+                <p>Photos, roles, event context, and reporting appear here.</p>
+              </div>
+            </aside>
+          </div>
+
+          <details class="event-map-index" id="eventMapIndex">
+            <summary>Browse all events and coverage</summary>
+            <ol id="eventMapList" class="event-map-list"></ol>
+          </details>
+        </div>
+      </section>
+
+      <dialog class="event-map-sheet" id="eventMapSheet" aria-labelledby="eventMapSheetTitle">
+        <button class="event-map-sheet__close" type="button" aria-label="Close event details">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+        </button>
+        <div id="eventMapSheetContent"></div>
+      </dialog>
+
+      <noscript>
+      <section class="section section--muted" aria-labelledby="events-fallback-title">
+        <div class="section__inner">
+          <div class="section-heading"><h2 id="events-fallback-title">Speaking &amp; Events</h2></div>
+          <div>
             <div
               class="event-carousel"
               id="eventCarousel"
@@ -932,15 +1073,15 @@
                       src="assets/event-carousel-7.jpg"
                       width="2048"
                       height="1536"
-                      alt="Timothy Liu presenting the NVIDIA Accelerated Computing Platform at Imperial College"
+                      alt="Timothy Liu presenting during Imperial College's Singapore visit"
                       loading="lazy"
                       decoding="async"
                       fetchpriority="low"
                     />
                   </picture>
                   <figcaption>
-                    <span class="event-carousel__location">🇬🇧 Imperial College</span>Invited talk on the NVIDIA
-                    Accelerated Computing Platform and AI research
+                    <span class="event-carousel__location">🇸🇬 Imperial College visits Singapore</span>Invited talk on
+                    the NVIDIA Accelerated Computing Platform and AI research
                   </figcaption>
                 </figure>
                 <figure
@@ -1033,10 +1174,10 @@
         </div>
       </section>
 
-      <section class="section" id="media-coverage" aria-labelledby="media-coverage-title">
+      <section class="section" aria-labelledby="media-coverage-fallback-title">
         <div class="section__inner">
-          <div class="section-heading"><h2 id="media-coverage-title">Selected media coverage</h2></div>
-          <div id="all-coverage">
+          <div class="section-heading"><h2 id="media-coverage-fallback-title">Selected media coverage</h2></div>
+          <div>
           <ul class="media-coverage__list">
             <li class="media-coverage__item">
               <div class="media-coverage__item-heading">
@@ -1228,6 +1369,7 @@
 
         </div>
       </section>
+      </noscript>
 
       <section class="section section--muted" id="about" aria-labelledby="about-title">
         <div class="section__inner">
@@ -1487,6 +1629,8 @@
       </dialog>
     </div>
 
+    <script src="assets/vendor/leaflet/leaflet.js"></script>
+    <script src="assets/vendor/leaflet-markercluster/leaflet.markercluster.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -26,24 +26,23 @@ This repository contains Timothy Liu Kaihui's static professional portfolio webs
 - Preserve complete publications, repositories, event gallery, coverage, and supporting biography through native disclosures; keep existing hash destinations functional.
 - FedDrip attribution: research direction, ideation, and evaluation setup as co-supervisor of a master's thesis project; distinguish this from the team's implementation and results.
 - Do not display undated popularity metrics. Keep assistant knowledge updates separate from frontend-only changes and report any consistency gaps.
+- Do not add dated citation-count qualifiers or notes such as “Google Scholar citation counts as of …” to the frontend.
 - Avoid unrelated edits to the existing `telegram_bot/` project in this repository.
 
-## Recommended Update Workflow
+## Task-scoped workflow
 
-1. Read the latest resume or user-provided profile updates.
-2. Update the affected section in `index.html`.
-3. Verify public metrics when editing publication citations or GitHub star counts.
-4. Run a quick local check by serving the folder with a simple static server.
-5. Test light mode, dark mode, desktop width, and mobile width.
-6. For chat changes, confirm the Render proxy URL, allowed origins, cold-start fallback, and LinkedIn fallback still work.
+Read only the files needed for the task. Use the site structure above as a map rather than a checklist: inspect `index.html` for content and ordering, `styles.css` for visual changes, `script.js` for behavior, and `../chat-proxy-render/prompt.txt` only when the chat prompt or proxy contract is in scope.
+
+Choose validation in proportion to the change:
+
+- Copy, metadata, or asset updates: inspect the affected markup and run `git diff --check`.
+- CSS or responsive changes: serve the folder locally and check the affected theme and viewport; use the full 320px, 390px, 768px, 1024px, and 1440px matrix only for broad layout changes.
+- JavaScript or chat changes: run `node --check script.js` and `git diff --check`, then exercise the affected flow with mocked Render `/health` and `/api/chat` responses. Confirm the cold-start/error fallback, LinkedIn fallback, and launcher focus behavior when those paths are touched.
+
+When updating profile content, use the latest resume or user-provided source when one is in scope. Verify public metrics and exact profile URLs only when changing them. Keep browser audit scripts and screenshots outside the repository.
+
+Complete the requested implementation, inspect the result, fix failures caused by the change, and report any remaining consistency gap. Safe local edits and checks within this repository can proceed without pausing for approval; do not deploy, publish, or modify the unrelated `telegram_bot/` project unless requested.
 
 ## Deployment Notes
 
 GitHub Pages can serve this from the repository root. No package install or build step is required.
-
-## Interaction Verification
-
-- Run `node --check script.js` and `git diff --check` after interaction edits.
-- Check 320px, 390px, 768px, 1024px, and 1440px layouts in both themes, including anchor offsets, carousel counter wraparound, mobile navigation, toolkit disclosure, and print layout.
-- Browser automation should mock the Render `/health` and `/api/chat` endpoints to test success and failure without sending live chat messages. Check that LinkedIn remains visible during warmup and failures, and closing chat restores launcher focus.
-- Keep browser audit scripts and screenshots outside the repository.
