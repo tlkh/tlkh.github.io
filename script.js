@@ -58,7 +58,7 @@
 
   var siteHeader = document.querySelector(".site-header");
   var navSectionLinks = Array.prototype.slice.call(document.querySelectorAll("[data-nav-target]"));
-  var navSectionIds = ["work", "experience", "research", "open-source", "events", "about", "outside-work", "contact"];
+  var navSectionIds = ["work", "experience", "research", "open-source", "events", "media-coverage", "about", "outside-work", "contact"];
   var navSections = navSectionIds
     .map(function (id) {
       return document.getElementById(id);
@@ -71,15 +71,51 @@
     ? Array.prototype.slice.call(navMoreMenu.querySelectorAll("a, button"))
     : [];
   var navMobileQuery = window.matchMedia("(max-width: 620px)");
+  var navMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var navMoreAnimation = null;
   var navUpdateFrame = null;
 
-  function setNavMoreOpen(open, focusFirstItem) {
+  function cancelNavMoreAnimation() {
+    if (!navMoreAnimation) {
+      return;
+    }
+
+    var animation = navMoreAnimation;
+    navMoreAnimation = null;
+    animation.onfinish = null;
+    animation.cancel();
+  }
+
+  function setNavMoreOpen(open, focusFirstItem, animatePointerOpen) {
     if (!navMoreToggle || !navMoreMenu) {
       return;
     }
 
+    cancelNavMoreAnimation();
     navMoreToggle.setAttribute("aria-expanded", open ? "true" : "false");
     navMoreMenu.hidden = !open;
+
+    if (open && animatePointerOpen && !navMotionQuery.matches && typeof navMoreMenu.animate === "function") {
+      navMoreMenu.style.transformOrigin = "top right";
+      try {
+        var animation = navMoreMenu.animate([
+          { opacity: 0, transform: "translateY(-4px)" },
+          { opacity: 1, transform: "translateY(0)" }
+        ], {
+          duration: 150,
+          easing: "cubic-bezier(0.16, 1, 0.3, 1)"
+        });
+        navMoreAnimation = animation;
+        animation.onfinish = function () {
+          if (navMoreAnimation === animation) {
+            navMoreAnimation = null;
+            animation.cancel();
+          }
+        };
+      } catch (error) {
+        navMoreAnimation = null;
+      }
+    }
 
     if (open && focusFirstItem && navMoreLinks[0]) {
       navMoreLinks[0].focus();
@@ -98,9 +134,9 @@
   }
 
   if (navMoreToggle && navMoreMenu) {
-    navMoreToggle.addEventListener("click", function () {
+    navMoreToggle.addEventListener("click", function (event) {
       var willOpen = navMoreToggle.getAttribute("aria-expanded") !== "true";
-      setNavMoreOpen(willOpen, false);
+      setNavMoreOpen(willOpen, false, willOpen && event.detail > 0);
     });
 
     navMoreToggle.addEventListener("keydown", function (event) {
@@ -233,6 +269,18 @@
     navMobileQuery.addEventListener("change", handleNavBreakpointChange);
   } else if (navMobileQuery.addListener) {
     navMobileQuery.addListener(handleNavBreakpointChange);
+  }
+
+  function handleNavMotionPreferenceChange() {
+    if (navMotionQuery.matches) {
+      cancelNavMoreAnimation();
+    }
+  }
+
+  if (navMotionQuery.addEventListener) {
+    navMotionQuery.addEventListener("change", handleNavMotionPreferenceChange);
+  } else if (navMotionQuery.addListener) {
+    navMotionQuery.addListener(handleNavMotionPreferenceChange);
   }
 
   var impactProjectsDialog = document.getElementById("impactProjectsDialog");
@@ -867,25 +915,170 @@
     var mapSheetContent = document.getElementById("eventMapSheetContent");
     var mapList = document.getElementById("eventMapList");
     var mapStatus = document.getElementById("eventMapStatus");
+    var mapMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     var eventMap;
     var markerLayer;
     var countryLayer;
     var markerById = {};
     var selectedMarker;
     var mapSheetReturnFocus;
+    var mapSheetAnimation = null;
+    var mapSheetClosing = false;
 
     function eventDetailMarkup(record, expanded) {
       var links = (record.links || []).map(function (link) {
         return '<a href="' + link[1] + '" target="_blank" rel="noopener">' + link[0] + '<span aria-hidden="true">↗</span></a>';
       }).join("");
       return '<details class="event-map-detail"' + (expanded ? ' open' : '') + ' data-detail-id="' + record.id + '"><summary><span>' + record.kind + '</span><strong>' + record.title + '</strong></summary>' +
-        (record.image ? '<img src="' + record.image + '" alt="' + record.alt + '" width="2048" height="1536" loading="lazy" decoding="async">' : '') +
         '<div class="event-map-detail__body">' +
         '<p class="event-map-detail__location">' + record.location + '</p>' +
         '<p class="event-map-detail__role">' + record.role + '</p>' +
+        (record.image ? '<img src="' + record.image + '" alt="' + record.alt + '" width="2048" height="1536" loading="lazy" decoding="async">' : '') +
         (record.summary ? '<p class="event-map-detail__summary">' + record.summary + '</p>' : '') +
         (links ? '<div class="event-map-detail__links" aria-label="Coverage sources">' + links + '</div>' : '') +
         '</div></details>';
+    }
+
+    function clearMapSheetMotionStyles() {
+      mapSheet.style.removeProperty("opacity");
+      mapSheet.style.removeProperty("transform");
+    }
+
+    function cancelMapSheetAnimation(preserveCurrent) {
+      if (!mapSheetAnimation) {
+        return null;
+      }
+
+      var current = null;
+      if (preserveCurrent && mapSheet.open) {
+        var computed = window.getComputedStyle(mapSheet);
+        current = {
+          opacity: computed.opacity,
+          transform: computed.transform === "none" ? "none" : computed.transform
+        };
+      }
+
+      var animation = mapSheetAnimation;
+      mapSheetAnimation = null;
+      animation.onfinish = null;
+      animation.cancel();
+      if (current) {
+        mapSheet.style.opacity = current.opacity;
+        mapSheet.style.transform = current.transform;
+      }
+      return current;
+    }
+
+    function finishMapSheetClose() {
+      cancelMapSheetAnimation(false);
+      clearMapSheetMotionStyles();
+      mapSheetClosing = false;
+      if (mapSheet.open) {
+        mapSheet.close();
+      }
+    }
+
+    function animateMapSheet(from, to, duration, closing) {
+      var animation;
+      try {
+        animation = mapSheet.animate([from, to], {
+          duration: duration,
+          easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+          fill: "both"
+        });
+      } catch (error) {
+        clearMapSheetMotionStyles();
+        if (closing) {
+          finishMapSheetClose();
+        }
+        return;
+      }
+
+      mapSheetAnimation = animation;
+      animation.onfinish = function () {
+        if (mapSheetAnimation !== animation) {
+          return;
+        }
+        mapSheetAnimation = null;
+        animation.onfinish = null;
+        animation.cancel();
+        clearMapSheetMotionStyles();
+        if (closing) {
+          mapSheetClosing = false;
+          if (mapSheet.open) {
+            mapSheet.close();
+          }
+        }
+      };
+    }
+
+    function isMapSheetFocusTarget(target) {
+      return Boolean(target && typeof target.focus === "function" && target.isConnected !== false);
+    }
+
+    function openMapSheet(invoker) {
+      var wasOpen = mapSheet.open;
+      var wasClosing = mapSheetClosing;
+      var current = wasClosing ? cancelMapSheetAnimation(true) : null;
+      mapSheetClosing = false;
+
+      if (wasOpen && !wasClosing) {
+        return;
+      }
+
+      if (!wasOpen) {
+        mapSheetReturnFocus = isMapSheetFocusTarget(invoker) ? invoker : null;
+        mapSheet.showModal();
+      }
+
+      if (mapMotionQuery.matches || typeof mapSheet.animate !== "function") {
+        cancelMapSheetAnimation(false);
+        clearMapSheetMotionStyles();
+        return;
+      }
+
+      var from = current || { opacity: 0, transform: "translateY(6%)" };
+      animateMapSheet(from, { opacity: 1, transform: "none" }, 220, false);
+    }
+
+    function closeMapSheet() {
+      if (!mapSheet.open || mapSheetClosing) {
+        return;
+      }
+
+      mapSheetClosing = true;
+      var current = cancelMapSheetAnimation(true);
+      if (mapMotionQuery.matches || typeof mapSheet.animate !== "function") {
+        finishMapSheetClose();
+        return;
+      }
+
+      if (!current) {
+        var computed = window.getComputedStyle(mapSheet);
+        current = {
+          opacity: computed.opacity,
+          transform: computed.transform === "none" ? "none" : computed.transform
+        };
+      }
+      animateMapSheet(current, { opacity: 0, transform: "translateY(6%)" }, 180, true);
+    }
+
+    function handleMapMotionPreferenceChange() {
+      if (!mapSheetAnimation) {
+        return;
+      }
+      if (mapSheetClosing) {
+        finishMapSheetClose();
+      } else {
+        cancelMapSheetAnimation(false);
+        clearMapSheetMotionStyles();
+      }
+    }
+
+    if (mapMotionQuery.addEventListener) {
+      mapMotionQuery.addEventListener("change", handleMapMotionPreferenceChange);
+    } else if (mapMotionQuery.addListener) {
+      mapMotionQuery.addListener(handleMapMotionPreferenceChange);
     }
 
     function cityFor(record) {
@@ -914,11 +1107,10 @@
         button.setAttribute("aria-current", button.dataset.eventId === selectedId ? "true" : "false");
       });
       if (window.matchMedia("(max-width: 47.5rem)").matches && mapSheet && typeof mapSheet.showModal === "function") {
-        mapSheetReturnFocus = document.activeElement;
         mapSheetContent.innerHTML = cityDetailMarkup(city, records, true, selectedId);
-        if (!mapSheet.open) mapSheet.showModal();
+        openMapSheet(document.activeElement);
       } else if (source === "list") {
-        mapPanel.scrollIntoView({ behavior: eventMotionQuery && eventMotionQuery.matches ? "auto" : "smooth", block: "nearest" });
+        mapPanel.scrollIntoView({ behavior: mapMotionQuery.matches ? "auto" : "smooth", block: "nearest" });
       }
     }
 
@@ -1024,14 +1216,26 @@
     }
 
     if (mapSheet) {
-      mapSheet.querySelector(".event-map-sheet__close").addEventListener("click", function () { mapSheet.close(); });
+      mapSheet.querySelector(".event-map-sheet__close").addEventListener("click", closeMapSheet);
+      mapSheet.addEventListener("cancel", function (event) {
+        event.preventDefault();
+        closeMapSheet();
+      });
       mapSheet.addEventListener("close", function () {
-        if (mapSheetReturnFocus && typeof mapSheetReturnFocus.focus === "function") mapSheetReturnFocus.focus({ preventScroll: true });
+        mapSheetClosing = false;
+        cancelMapSheetAnimation(false);
+        clearMapSheetMotionStyles();
+        if (isMapSheetFocusTarget(mapSheetReturnFocus)) mapSheetReturnFocus.focus({ preventScroll: true });
         mapSheetReturnFocus = null;
       });
       mapSheet.addEventListener("click", function (event) {
         var bounds = mapSheet.getBoundingClientRect();
-        if (event.clientY < bounds.top) mapSheet.close();
+        if (event.target === mapSheet && (
+          event.clientX < bounds.left || event.clientX > bounds.right ||
+          event.clientY < bounds.top || event.clientY > bounds.bottom
+        )) {
+          closeMapSheet();
+        }
       });
     }
 
